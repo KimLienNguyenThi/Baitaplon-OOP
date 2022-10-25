@@ -600,4 +600,18 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     
 }
 
+int main(){
+    system("cls");
+    List_kh Lkh;
+    List_phim Lphim;
+    List_nv Lnv;
 
+    Node_kh Nkh;
+    Node_phim Nphim;
+    Node_nv Nnv;
+
+    KhachHang kh;
+    NhanVien nv;
+    Phim phim;
+
+}
