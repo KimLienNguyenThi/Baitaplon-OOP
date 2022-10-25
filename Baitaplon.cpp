@@ -114,7 +114,6 @@ int ThoiGian::setPhut(int phut){
     }while(phut<0 || phut>60);
     return phut;
 }
-
 int ThoiGian::setGiay(int giay){
     do{
         cout<<endl<<"Nhap giay";
