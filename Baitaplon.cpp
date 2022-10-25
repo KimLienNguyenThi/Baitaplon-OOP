@@ -154,30 +154,38 @@ class NhaSanXuat{
     void setQuocGia(string tenNhaSX);
     void XuatThongTinNhaSX();
 };
+
 NhaSanXuat::NhaSanXuat(){
     tenNhaSX = quocGia = "";
 }
+
 NhaSanXuat::~NhaSanXuat();
 NhaSanXuat::NhaSanXuat(string tenNhaSX, string quocGia){
     this->tenNhaSX = tenNhaSX;
     this->quocGia = quocGia;
 }
+
 string NhaSanXuat::getTenNhaSX(){
     return tenNhaSX;
 }
+
 void NhaSanXuat::setTenNhaSX (string tenNhaSX){
     this ->tenNhaSX = tenNhaSX;
 }
+
 string NhaSanXuat::getQuocGia(){
     return quocGia;
 }
+
 void NhaSanXuat::setQuocGia (string quocGia){
     this ->quocGia = quocGia;
 }
+
 void NhaSanXuat::XuatThongTinNhaSX (){
     cout << "Ten nha san xuat: " << tenNhaSX << endl;
     cout << "Quoc gia: " << quocGia << endl;
 }
+
 class Phim:public NhaSanXuat{
         protected:
     string maPhim;
@@ -403,12 +411,16 @@ class KhachHang:public ConNguoi{
         private:
     Ve *ve;
     int soLuongVe;
+    ThoiGian thoiGianHeThong_time;
+    Date thoiGianHeThong_date;
 
         public:
     void NhapThongTinKhachHang();
     void Xuatthongtinkhachhang();
     Ve* getVe();
     int getSoLuongVe();
+    void ThoiGianHeThong();
+
 };
 
 void KhachHang::NhapThongTinKhachHang(){
@@ -433,6 +445,17 @@ Ve* KhachHang::getVe(){
 
 int KhachHang::getSoLuongVe(){
     return soLuongVe;
+}
+
+void KhachHang::ThoiGianHeThong(){
+    time_t now=time(0);
+	tm *tgian = localtime(&now);
+	thoiGianHeThong_date.setDay(tgian->tm_mday);
+	thoiGianHeThong_date.setMonth(tgian->tm_mon + 1);
+	thoiGianHeThong_date.setYear(tgian->tm_year + 1900); 
+	thoiGianHeThong_time.setGio(tgian->tm_hour); 
+	thoiGianHeThong_time.setPhut(tgian->tm_min);
+	thoiGianHeThong_time.setGiay( tgian->tm_sec);
 }
 
 class NhanVien:public ConNguoi{
