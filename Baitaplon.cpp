@@ -416,4 +416,163 @@ class NhanVien:public ConNguoi{
 
 };
 
+        // DANH SACH LIEN KET DON
+// Khach hang
+struct Node_kh{
+    KhachHang data;
+    Node_kh *next;
+};
+
+struct List_kh{
+    Node_kh *head;
+    Node_kh *tail;
+    long size;
+
+    List_kh(){
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    Node_kh* CreateNode_kh(KhachHang v);
+    void addLast_kh(KhachHang v);
+};
+
+Node_kh* List_kh::CreateNode_kh(KhachHang v){
+    Node_kh *q = new Node_kh;
+    q->data = v;
+    q->next = NULL;
+    return q;
+}
+
+void List_kh::addLast_kh(KhachHang v){
+    Node_kh *q = CreateNode_kh(v);
+    if(size == 0){
+        head = tail = q;
+    }else{
+        tail->next = q;
+        tail = q;
+    }
+    size++;
+}
+
+// Phim
+struct Node_phim{
+    Phim data;
+    Node_phim *next;
+};
+
+struct List_phim{
+    Node_phim *head;
+    Node_phim *tail;
+    long size;
+
+    List_phim(){
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    Node_phim* CreateNode(Phim v);
+    void addLast(Phim v);
+};
+
+Node_phim* List_phim::CreateNode(Phim v){
+    Node_phim *q = new Node_phim;
+    q->data = v;
+    q->next = NULL;
+    return q;
+}
+
+void List_phim::addLast(Phim v){
+    Node_phim *q = CreateNode(v);
+    if(size == 0){
+        head = tail = q;
+    }else{
+        tail->next = q;
+        tail = q;
+    }
+    size++;
+}
+
+// Nhân viên
+struct Node_nv{
+    NhanVien data;
+    Node_nv *next;
+};
+
+struct List_nv{
+    Node_nv *head;
+    Node_nv *tail;
+    long size;
+
+    List_nv(){
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    Node_nv* CreateNode(NhanVien v);
+    void addLast(NhanVien v);
+};
+
+Node_nv* List_nv::CreateNode(NhanVien v){
+    Node_nv *q = new Node_nv;
+    q->data = v;
+    q->next = NULL;
+    return q;
+}
+
+void List_nv::addLast(NhanVien v){
+    Node_nv *q = CreateNode(v);
+    if(size == 0){
+        head = tail = q;
+    }else{
+        tail->next = q;
+        tail = q;
+    }
+    size++;
+}
+
+        //DANH SACH PHIM CO SAN
+void DanhSachPhim(List_phim &Lphim, Phim phim){
+    phim.setTenphim("Co gai tu qua khu");
+    phim.setMaphim("01");
+    phim.setGiave(45000.0);
+    phim.setTheloai("Kinh di");
+    phim.setThoiluongphim(160);
+    phim.setNgaykhoichieu_ngay(20);
+    phim.setNgaykhoichieu_thang(10);
+    phim.setNgaykhoichieu_nam(2022);
+    cout<<"Thong tin phim: ";
+    phim.XuatthongtinPhim();
+    Lphim.addLast(phim);
+
+    phim.setTenphim("Bong dung trung so");
+    phim.setMaphim("02");
+    phim.setGiave(45000.0);
+    phim.setTheloai("Tam ly, hai huoc");
+    phim.setThoiluongphim(120);
+    phim.setNgaykhoichieu_ngay(25);
+    phim.setNgaykhoichieu_thang(10);
+    phim.setNgaykhoichieu_nam(2022);
+    cout<<"Thong tin phim: ";
+    phim.XuatthongtinPhim();
+    Lphim.addLast(phim);
+
+    phim.setTenphim("Nu vuong huyen thoai");
+    phim.setMaphim("03");
+    phim.setGiave(45000.0);
+    phim.setTheloai("Hanh dong");
+    phim.setThoiluongphim(140);
+    phim.setNgaykhoichieu_ngay(1);
+    phim.setNgaykhoichieu_thang(11);
+    phim.setNgaykhoichieu_nam(2022);
+    cout<<"Thong tin phim: ";
+    phim.XuatthongtinPhim();
+    Lphim.addLast(phim);
+    
+}
+
+
 test
