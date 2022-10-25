@@ -575,4 +575,3 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
 }
 
 
-test
