@@ -11,46 +11,45 @@ class Date {
     int year;
 
         public: 
-    Date(){
+    Date();
+    ~Date ();
+    Date (int day, int month, int year);
+    int getDay ();
+void setDay (int day);
+int getMonth ();
+  void setMonth (int month);
+  int getYear ();
+  void setYear (int year);
+void display();
+};
+Date :: Date (){
         day = month = year = 0;
-    }
-
-    Date (int day, int month, int year){
+}
+Date:: ~Date (){};
+Date :: Date (int day, int month, int year) {
       this -> day = day;
       this -> month = month; 
       this -> year = year;
-    }
-void setDate (int day, int month, int year){
-    this -> day = day;
-    this -> month = month; 
-    this -> year = year;
-  }
-
-int getDay (){
+}
+int Date ::getDay(){
     return day;
-  }
-
-void setDay (int day){
-    this ->day = day; 
-  }
-
-int getMonth (){
+}
+void Date::setDay (int day){
+    this ->day = day;
+}
+int Date::getMonth (){
     return month;
-  }
-
-  void setMonth (int month){
-      this ->month = month; 
-  }
-
-  int getYear (){
-      return year;
-  }
-
-  void setYear (int year){
-      this ->year = year;
-  }
-
-void display(){
+}
+void Date::setMonth (int month ){
+    this ->month = month;
+}
+int Date::getYear (){
+    reuturn year;
+}
+void Date ::setYear (int year) {
+    this ->year = year;
+}
+void display{
       string day = to_string (this ->day);
       string month = to_string (this ->month);
       string year = to_string (this ->year);
@@ -62,8 +61,6 @@ void display(){
       }
       cout << day +"/"+month+"/"+year << endl;
     }
-};
-
 class ThoiGian{
         protected:
     int gio;
@@ -150,18 +147,38 @@ class NhaSanXuat{
 
         public:
     NhaSanXuat();
+    ~NhaSanXuat();
     NhaSanXuat(string tenNhaSX, string quocGia);
+    string getTenNhaSX ();
+    void setTenNhaSX(string tenNhaSX);
+    string getQuocGia();
+    void setQuocGia(string tenNhaSX);
+    void XuatThongTinNhaSX();
 };
-
 NhaSanXuat::NhaSanXuat(){
     tenNhaSX = quocGia = "";
 }
-
+NhaSanXuat::~NhaSanXuat();
 NhaSanXuat::NhaSanXuat(string tenNhaSX, string quocGia){
     this->tenNhaSX = tenNhaSX;
     this->quocGia = quocGia;
 }
-
+string NhaSanXuat::getTenNhaSX(){
+    return tenNhaSX;
+}
+void NhaSanXuat::setTenNhaSX (string tenNhaSX){
+    this ->tenNhaSX = tenNhaSX;
+}
+string NhaSanXuat::getQuocGia(){
+    return quocGia;
+}
+void NhaSanXuat::setQuocGia (string quocGia){
+    this ->quocGia = quocGia;
+}
+void NhaSanXuat::XuatThongTinNhaSX (){
+    cout << "Ten nha san xuat: " << tenNhaSX << endl;
+    cout << "Quoc gia: " << quocGia << endl;
+}
 class Phim:public NhaSanXuat{
         protected:
     string maPhim;
@@ -174,6 +191,14 @@ class Phim:public NhaSanXuat{
         public:
     Phim();
     ~Phim();
+    Phim (string maPhim, string tenPhim, string theLoai, Date ngayKhoiChieu, float giaVe,, int thoiLuongPhim, string tenNhaSX, string quocGia):NhaSanXuat (tenNhaSX,quocGia){
+        this ->maPhim = maPhim;
+        this ->tenPhim = tenPhim;
+        this ->theLoai = theLoai;
+        this ->ngayKhoiChieu = ngayKhoiChieu;
+        this ->giaVe = giaVe;
+        this ->thoiLuongPhim = thoiLuongPhim;
+    }
     string getMaphim ();
     void setMaphim(string maPhim);
     string getTenphim ();
@@ -246,6 +271,7 @@ void Phim::setThoiluongphim (int thoiLuongPhim){
 }
 
 void Phim::XuatthongtinPhim(){
+    NhaSanXuat ::XuatThongTinNhaSX ();
     cout<<endl;
     cout << "Ma phim: " << maPhim << endl;
     cout << "Ten phim: " << tenPhim << endl;
