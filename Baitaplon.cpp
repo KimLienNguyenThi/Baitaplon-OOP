@@ -573,6 +573,3 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     Lphim.addLast(phim);
     
 }
-
-
-test
