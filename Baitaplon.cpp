@@ -44,7 +44,7 @@ void Date::setMonth (int month ){
     this ->month = month;
 }
 int Date::getYear (){
-    reuturn year;
+    return year;
 }
 void Date ::setYear (int year) {
     this ->year = year;
