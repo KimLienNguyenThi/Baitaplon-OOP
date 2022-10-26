@@ -59,7 +59,7 @@ void Date ::setYear (int year) {
     this ->year = year;
 }
 
-void display{
+void display(){
       string day = to_string (this ->day);
       string month = to_string (this ->month);
       string year = to_string (this ->year);
@@ -184,7 +184,10 @@ NhaSanXuat::NhaSanXuat(){
     tenNhaSX = quocGia = "";
 }
 
-NhaSanXuat::~NhaSanXuat();
+NhaSanXuat::~NhaSanXuat(){
+    tenNhaSX = quocGia = "";
+}
+
 NhaSanXuat::NhaSanXuat(string tenNhaSX, string quocGia){
     this->tenNhaSX = tenNhaSX;
     this->quocGia = quocGia;
@@ -223,7 +226,7 @@ class Phim:public NhaSanXuat{
         public:
     Phim();
     ~Phim();
-    Phim (string maPhim, string tenPhim, string theLoai, Date ngayKhoiChieu, float giaVe,, int thoiLuongPhim, string tenNhaSX, string quocGia):NhaSanXuat (tenNhaSX,quocGia){
+    Phim (string maPhim, string tenPhim, string theLoai, Date ngayKhoiChieu, float giaVe, int thoiLuongPhim, string tenNhaSX, string quocGia):NhaSanXuat (tenNhaSX,quocGia){
         this ->maPhim = maPhim;
         this ->tenPhim = tenPhim;
         this ->theLoai = theLoai;
@@ -499,11 +502,10 @@ class NhanVien:public ConNguoi{
 
 };
 
-class NhanVien:public ConNguoi{
-        private:
-    string chucVu;
-
-};
+// class NhanVien:public ConNguoi{
+//         private:
+//     string chucVu;
+// };
 
         // DANH SACH LIEN KET DON
 // Khach hang
