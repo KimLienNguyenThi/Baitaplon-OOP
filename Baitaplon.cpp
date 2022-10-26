@@ -4,91 +4,13 @@
 
 using namespace std;
 
-//==============================CÀI ĐẶT CÁC CLASS==============================
-
-//--------------- Date ---------------
+            // CÀI ĐẶT CÁC CLASS
 class Date {
-protected:
-	int day;
-	int month;
-	int year;
-public:
-	Date() {
-		day = month = year = 0;
-	}
+        protected: 
+    int day;
+    int month;
+    int year;
 
-<<<<<<< HEAD
-	Date(int day, int month, int year) {
-		this->day = day;
-		this->month = month;
-		this->year = year;
-	}
-	void setDate(int day, int month, int year) {
-		this->day = day;
-		this->month = month;
-		this->year = year;
-	}
-
-	int getDay() {
-		return day;
-	}
-
-	void setDay(int day) {
-		this->day = day;
-	}
-
-	int getMonth() {
-		return month;
-	}
-
-	void setMonth(int month) {
-		this->month = month;
-	}
-
-	int getYear() {
-		return year;
-	}
-
-	void setYear(int year) {
-		this->year = year;
-	}
-
-	void display() {
-		string day = to_string(this->day);
-		string month = to_string(this->month);
-		string year = to_string(this->year);
-		if (day.length() == 1) {
-			day = "0" + day;
-		}
-		if (month.length() == 1) {
-			month = "0" + month;
-		}
-		cout << day + "/" + month + "/" + year << endl;
-	}
-
-	void Nhap_date() {
-		cin >> day >> month >> year;
-	}
-	void Xuat_date() {
-		cout << day << "/" << month << "/" << year << endl;
-	}
-};
-
-//--------------- Thời Gian ---------------
-class ThoiGian {
-protected:
-	int gio;
-	int phut;
-	int giay;
-public:
-	ThoiGian();
-	ThoiGian(int gio, int phut, int giay);
-	~ThoiGian();
-
-	int getGiay();
-	int getPhut();
-	int getGio();
-=======
         public: 
     Date();
     ~Date ();
@@ -167,39 +89,23 @@ class ThoiGian{
     int setGioHeThong(int gio);
     int setPhutHeThong(int phut);
     int setGiayHeThong(int giay);
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 
-	void setGio(int gio);
-	void setPhut(int phut);
-	void setGiay(int giay);
-	void NhapThoiGian();
-	void XuatThoiGian();
 };
 
-ThoiGian::ThoiGian() {
-	gio = phut = giay = 0;
+ThoiGian::ThoiGian(){
+    gio = phut = giay = 0;
 }
 
-ThoiGian::ThoiGian(int gio, int phut, int giay) {
-	this->gio = gio;
-	this->phut = phut;
-	this->giay = giay;
+ThoiGian::ThoiGian(int gio, int phut, int giay){
+    this->gio = gio;
+    this->phut = phut;
+    this->giay = giay;
 }
 
-ThoiGian::~ThoiGian() {
-	gio = phut = giay = 0;
+ThoiGian::~ThoiGian(){
+    gio = phut = giay = 0;
 }
 
-<<<<<<< HEAD
-int ThoiGian::getGiay() {
-	return giay;
-}
-int ThoiGian::getPhut() {
-	return phut;
-}
-int ThoiGian::getGio() {
-	return gio;
-=======
 int ThoiGian::setGioHeThong(int gio){
     this->gio = gio;
 }
@@ -221,17 +127,18 @@ int ThoiGian::setGio(int gio){
     }
     }while(gio<0 && gio>24);
     return gio;
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 }
 
-void ThoiGian::setGio(int gio) {
-	this->gio = gio;
+int ThoiGian::setPhut(int phut){
+    do{
+        cout<<endl<<"Nhap phut";
+        cin>>phut;
+    if(phut<0 || phut>60){
+        cout<<endl<<"\nDinh dang phut sai vui long nhap lai";
+    }
+    }while(phut<0 || phut>60);
+    return phut;
 }
-<<<<<<< HEAD
-
-void ThoiGian::setPhut(int phut) {
-	this->phut = phut;
-=======
 int ThoiGian::setGiay(int giay){
     do{
         cout<<endl<<"Nhap giay";
@@ -241,31 +148,27 @@ int ThoiGian::setGiay(int giay){
     }
     }while(giay<0 || giay>60);
     return giay;
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 }
 
-void ThoiGian::setGiay(int giay) {
-	this->giay = giay;
+void ThoiGian::NhapThoiGian(){
+    cout<<endl;
+    cout<<"Nhap gio: "<<endl;
+    setGio(gio);
+    cout<<"Nhap phut: "<<endl;
+    setPhut(phut);
+    cout<<"Nhap giay: "<<endl;
+    setGiay(giay);
 }
 
-void ThoiGian::NhapThoiGian() {
-	cin >> gio >> phut >> giay;
+void ThoiGian::XuatThoiGian(){
+    cout<<"Thoi gian: "<<gio<<":"<<phut<<":"<<giay;
 }
 
-void ThoiGian::XuatThoiGian() {
-	cout << "Thoi gian: " << gio << ":" << phut << ":" << giay;
-}
+class NhaSanXuat{
+        protected:
+    string tenNhaSX;
+    string quocGia;
 
-<<<<<<< HEAD
-//--------------- Nhà Sản Xuất ---------------
-class NhaSanXuat {
-protected:
-	string tenNhaSX;
-	string quocGia;
-public:
-	NhaSanXuat();
-	NhaSanXuat(string tenNhaSX, string quocGia);
-=======
         public:
     NhaSanXuat();
     ~NhaSanXuat();
@@ -275,50 +178,12 @@ public:
     string getQuocGia();
     void setQuocGia(string tenNhaSX);
     void XuatThongTinNhaSX();
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 };
 
-NhaSanXuat::NhaSanXuat() {
-	tenNhaSX = quocGia = "";
+NhaSanXuat::NhaSanXuat(){
+    tenNhaSX = quocGia = "";
 }
 
-<<<<<<< HEAD
-NhaSanXuat::NhaSanXuat(string tenNhaSX, string quocGia) {
-	this->tenNhaSX = tenNhaSX;
-	this->quocGia = quocGia;
-}
-
-//--------------- Phim ---------------
-class Phim :public NhaSanXuat, public Date, public ThoiGian {
-protected:
-	string maPhim;
-	string tenPhim;
-	string theLoai;
-	Date ngayKhoiChieu;
-	int giaVe;
-	int thoiLuongPhim;
-public:
-	Phim();
-	~Phim();
-	string getMaphim();
-	void setMaphim(string maPhim);
-
-	string getTenphim();
-	void setTenphim(string tenPhim);
-
-	string getTheloai();
-	void setTheloai(string theLoai);
-
-	Date getNgaykhoichieu();
-	void setNgaykhoichieu(Date ngayKhoiChieu);
-
-	int getGiave();
-	void setGiave(int giaVe);
-
-	int getThoiluongphim();
-	void setThoiluongphim(int thoiLuongPhim);
-	void NhapthongtinPhim(Phim&);
-=======
 NhaSanXuat::~NhaSanXuat(){
     tenNhaSX = quocGia = "";
 }
@@ -384,73 +249,62 @@ class Phim:public NhaSanXuat{
     int getThoiluongphim();
     void setThoiluongphim(int thoiLuongPhim);
     void XuatthongtinPhim();
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 };
 
-Phim::Phim() {
-	maPhim = tenPhim = theLoai = "";
-	thoiLuongPhim = 0;
-	giaVe = 0;
+Phim::Phim(){
+    maPhim = tenPhim = theLoai = "";
+    giaVe = 0.0;
+    thoiLuongPhim =0;
 }
 
-Phim::~Phim() {
-	maPhim = tenPhim = theLoai = "";
-	thoiLuongPhim = 0;
-	giaVe = 0;
+Phim::~Phim(){
+    maPhim = tenPhim = theLoai = "";
+    giaVe = 0.0;
+    thoiLuongPhim =0;
 }
-string Phim::getMaphim() {
-	return maPhim;
+string Phim::getMaphim (){
+    return maPhim;
 }
-void Phim::setMaphim(string maPhim) {
-	this->maPhim = maPhim;
+void Phim::setMaphim (string maPhim){
+    this ->maPhim = maPhim;
 }
-string Phim::getTenphim() {
-	return tenPhim;
+string Phim::getTenphim (){
+    return tenPhim;
 }
-void Phim::setTenphim(string tenPhim) {
-	this->tenPhim = tenPhim;
+void Phim::setTenphim (string tenPhim){
+    this ->tenPhim = tenPhim;
 }
-string Phim::getTheloai() {
-	return theLoai;
+string Phim::getTheloai (){
+    return theLoai;
 }
-void Phim::setTheloai(string theLoai) {
-	this->theLoai = theLoai;
+void Phim::setTheloai (string theLoai){
+    this ->theLoai = theLoai;
 }
-Date Phim::getNgaykhoichieu() {
-	return ngayKhoiChieu;
+Date Phim::getNgaykhoichieu(){
+    return ngayKhoiChieu;
 }
-void Phim::setNgaykhoichieu(Date ngayKhoiChieu) {
-	this->ngayKhoiChieu = ngayKhoiChieu;
+void Phim::setNgaykhoichieu_nam (int nam){
+    this ->ngayKhoiChieu.setYear(nam);
 }
-int Phim::getGiave() {
-	return giaVe;
+void Phim::setNgaykhoichieu_ngay (int ngay){
+    this ->ngayKhoiChieu.setDay(ngay);
 }
-void Phim::setGiave(int giaVe) {
-	this->giaVe = giaVe;
+void Phim::setNgaykhoichieu_thang (int thang){
+    this ->ngayKhoiChieu.setMonth(thang);
 }
-int Phim::getThoiluongphim() {
-	return thoiLuongPhim;
+float Phim::getGiave (){
+    return giaVe;
 }
-void Phim::setThoiluongphim(int thoiLuongPhim) {
-	this->thoiLuongPhim = thoiLuongPhim;
+void Phim::setGiave (float giaVe){
+    this ->giaVe = giaVe;
+}
+int Phim::getThoiluongphim(){
+    return thoiLuongPhim;
+}
+void Phim::setThoiluongphim (int thoiLuongPhim){
+    this ->thoiLuongPhim = thoiLuongPhim;
 }
 
-<<<<<<< HEAD
-void Phim::NhapthongtinPhim(Phim& ph) {
-	cout << "Nhap ma phim: ";
-	cin.ignore();
-	getline(cin, this->maPhim);
-	cout << "Nhap ten phim: ";
-	getline(cin, this->tenPhim);
-	cout << "The loai: ";
-	getline(cin, this->theLoai);
-	cout << "Nhap ngay khoi chieu: ";
-	ph.ngayKhoiChieu.Nhap_date();
-	cout << "Nhap gia ve: ";
-	cin >> this->giaVe;
-	cout << "Nhap thoi luong phim(phut): ";
-	cin>>this->thoiLuongPhim;
-=======
 void Phim::XuatthongtinPhim(){
     NhaSanXuat ::XuatThongTinNhaSX ();
     cout<<endl;
@@ -461,129 +315,126 @@ void Phim::XuatthongtinPhim(){
     cout << "Gia ve: " << giaVe << endl;
     cout << "Thoi luong phim: " << thoiLuongPhim<<"p"<< endl;
     cout<<endl;
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 }
 
-//--------------- Rạp ---------------
-class Rap {
-private:
-	string tenRap;
-	int soGhe;
-public:
-	Rap();
-	~Rap();
+class Rap{
+        protected:
+    string tenRap;
+    int soGhe=50;
+    int ghe[50] = {0,0,0,0,0,0,0,0,0,0,
+                   0,0,0,0,0,0,0,0,0,0,
+                   0,0,0,0,0,0,0,0,0,0,
+                   0,0,0,0,0,0,0,0,0,0,
+                   0,0,0,0,0,0,0,0,0,0};
+
+        public:
+    Rap();
+    ~Rap();
+    void chonGhe(int gheChon);
 };
 
-Rap::Rap() {
-	tenRap = "";
-	soGhe = 0;
+Rap::Rap(){
+    tenRap = "";
+    soGhe = 50;
 }
 
-Rap::~Rap() {
-	tenRap = "";
-	soGhe = 0;
+Rap::~Rap(){
+    tenRap = "";
+    soGhe = 0;
 }
 
-//--------------- Giờ Chiếu ---------------
-class GioChieu :public Date {
-private:
-	ThoiGian tgBatDau;
-	ThoiGian tgKetThuc;
+void Rap::chonGhe(int gheChon){
+    ghe[gheChon] = 1;
+}
 
-public:
-	GioChieu();
-	~GioChieu();
+class GioChieu:public Date{
+        private:
+    ThoiGian tgBatDau;
+    ThoiGian tgKetThuc;
+
+        public:
+    GioChieu();
+    ~GioChieu();
 };
 
-GioChieu::GioChieu() {
+GioChieu::GioChieu(){
 }
 
-GioChieu::~GioChieu() {
+GioChieu::~GioChieu(){
 }
 
-//--------------- Vé ---------------
-class Ve :public Phim {
-private:
-	GioChieu gioChieu;
-	Rap rap;
-public:
-	Ve();
-	~Ve();
-	void NhapThongTinPhim();
-	void XuatThongTinPhim();
+class Ve:public Phim{
+        private:
+    GioChieu gioChieu;
+    Rap rap;
+
+        public:
+    Ve();
+    ~Ve();
+    void NhapThongTinPhim();
+    void XuatThongTinPhim();
+    Rap getRap();
 };
 
-Ve::Ve() {
+Ve::Ve(){
 }
 
-Ve::~Ve() {
+Ve::~Ve(){
 }
 
-void Ve::NhapThongTinPhim() {
-	fflush(stdin);
-	cout << "Nhap ten phim: ";
-	getline(cin, this->tenPhim);
+void Ve::NhapThongTinPhim(){
+    fflush(stdin);
+    cout<<"Nhap ten phim: ";
+    getline(cin,this->tenPhim);
 }
 
-void Ve::XuatThongTinPhim() {
-	cout << tenPhim;
+void Ve::XuatThongTinPhim(){
+    cout<<tenPhim;
 }
 
-//--------------- Con người ---------------
-class ConNguoi {
-protected:
-	string ten;
-	string gioiTinh;
-	string sdt;
-public:
-	ConNguoi();
-	~ConNguoi();
+Rap Ve::getRap(){
+    return rap;
+}
 
-	void NhapThongTinCaNhan();
-	void XuatThongTinCaNhan();
+class ConNguoi{
+        protected:
+    string ten;
+    string sdt;
+    string gioiTinh;
+
+        public:
+    ConNguoi();
+    ~ConNguoi();
+    void NhapThongTinCaNhan();
+    void XuatThongTinCaNhan();
 };
 
-ConNguoi::ConNguoi() {
-	ten = sdt = gioiTinh = "";
+ConNguoi::ConNguoi(){
+    ten = sdt = gioiTinh = "";
 }
 
-ConNguoi::~ConNguoi() {
-	ten = sdt = gioiTinh = "";
+ConNguoi::~ConNguoi(){
+    ten = sdt = gioiTinh = "";
 }
 
-void ConNguoi::NhapThongTinCaNhan() {
-	cout << "Nhap ten: ";
-	cin.ignore() ;
-	getline(cin, this->ten);
-	cout << "Nhap gioi tinh: ";
-	getline(cin, this->gioiTinh);
-	cout << "Nhap so dien thoai: ";
-	getline(cin, this->sdt);
+void ConNguoi::NhapThongTinCaNhan(){
+    fflush(stdin);
+    cout<<"Nhap ten: ";
+    getline(cin, this->ten);
+    fflush(stdin);
+    cout<<"Nhap so dien thoai: ";
+    getline(cin, this->sdt);
+    fflush(stdin);
+    cout<<"Nhap gioi tinh: ";
+    getline(cin, this->gioiTinh);
 }
 
-void ConNguoi::XuatThongTinCaNhan() {
-	cout << "Ten: " << ten << endl;
-	cout << "Gioi tinh: " << gioiTinh << endl;
-	cout << "So dien thoai: " << sdt << endl;
+void ConNguoi::XuatThongTinCaNhan(){
+    cout<<"Ten: "<<ten<<endl;
+    cout<<"So dien thoai: "<<sdt<<endl;
+    cout<<"Gioi tinh: "<<gioiTinh<<endl;
 }
 
-<<<<<<< HEAD
-//--------------- Khách Hàng ---------------
-class KhachHang :public ConNguoi, public Date {
-private:
-	Ve* ve;
-	ConNguoi conNguoi;
-	Date ngaySinh;
-	int soLuongVe;
-public:
-	int getSoLuongVe();
-	void setSoLuongVe(int soLuongVe);
-
-	void NhapThongTinKhachHang(KhachHang& kh);
-	void Xuatthongtinkhachhang(KhachHang kh);
-	Ve* getVe();
-	//void MuaVe(ve);
-=======
 class KhachHang:public ConNguoi{
         private:
     Ve *ve;
@@ -600,16 +451,14 @@ class KhachHang:public ConNguoi{
     int getSoLuongVe();
     int getGheChon();
     void setGheChon();
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 };
 
-int KhachHang::getSoLuongVe() {
-	return soLuongVe;
+void KhachHang::NhapThongTinKhachHang(){
+    ConNguoi::NhapThongTinCaNhan();
+    cout<<"So ve mua: ";
+    cin>>soLuongVe;
+    ve = new Ve[soLuongVe];
 }
-<<<<<<< HEAD
-void KhachHang::setSoLuongVe(int soLuongVe) {
-	this->soLuongVe = soLuongVe;
-=======
     
 void KhachHang::Xuatthongtinkhachhang(){
     cout<<endl<<"--------------- Thong tin khach hang --------------------";
@@ -637,41 +486,22 @@ void KhachHang::ThoiGianHeThong(){
 	thoiGianHeThong_time.setGioHeThong(tgian->tm_hour); 
 	thoiGianHeThong_time.setPhutHeThong(tgian->tm_min);
 	thoiGianHeThong_time.setGiayHeThong( tgian->tm_sec);
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 }
 
-void KhachHang::NhapThongTinKhachHang(KhachHang& kh) {
-	kh.conNguoi.NhapThongTinCaNhan();
-	cout << "Nhap ngay sinh: ";
-	kh.ngaySinh.Nhap_date();
-	cout << "Nhap so luong ve: ";
-	cin >> soLuongVe;
-	ve = new Ve[soLuongVe];
+Ve* KhachHang::getVe(){
+    return ve;
 }
 
-void KhachHang::Xuatthongtinkhachhang(KhachHang kh) {
-	kh.conNguoi.XuatThongTinCaNhan();
-	cout << "Ngay sinh: ";
-	kh.ngaySinh.Xuat_date();
-	//cout << "Phim chon: ";
-	//this->getVe()->XuatThongTinPhim();
+int KhachHang::getSoLuongVe(){
+    return soLuongVe;
 }
 
-Ve* KhachHang::getVe() {
-	return ve;
-}
+class NhanVien:public ConNguoi{
+        private:
+    string chucVu;
 
-//--------------- Nhân viên ---------------
-class NhanVien :public ConNguoi, public Date {
-private:
-	string chucVu;
 };
 
-<<<<<<< HEAD
-// ==============================DANH SACH LIEN KET DON==============================
-
-//--------------- Khách hàng ---------------
-=======
 // class NhanVien:public ConNguoi{
 //         private:
 //     string chucVu;
@@ -679,320 +509,160 @@ private:
 
         // DANH SACH LIEN KET DON
 // Khach hang
->>>>>>> e1969eee06380e0e19fee6e6d90a1b29c4c78a09
 struct Node_kh{
-	KhachHang data;
-	struct Node_kh* pNext;
+    KhachHang data;
+    Node_kh *next;
 };
 
 struct List_kh{
-	Node_kh* head;
-	Node_kh* tail;
+    Node_kh *head;
+    Node_kh *tail;
+    long size;
+
+    List_kh(){
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    Node_kh* CreateNode_kh(KhachHang v);
+    void addLast_kh(KhachHang v);
 };
 
-void KhoiTaoDanhSach_kh(List_kh& l)
-{
-	l.head = NULL;
-	l.tail = NULL;
+Node_kh* List_kh::CreateNode_kh(KhachHang v){
+    Node_kh *q = new Node_kh;
+    q->data = v;
+    q->next = NULL;
+    return q;
 }
 
-Node_kh* KhoiTaoNode_kh(KhachHang x) {
-	Node_kh* p = new Node_kh;
-	if (p == NULL)
-	{
-		cout << "\nCap phat that bai !";
-		return NULL;
-	}
-	p->data = x;
-	p->pNext = NULL;
-	return p;
+void List_kh::addLast_kh(KhachHang v){
+    Node_kh *q = CreateNode_kh(v);
+    if(size == 0){
+        head = tail = q;
+    }else{
+        tail->next = q;
+        tail = q;
+    }
+    size++;
 }
 
-void ThemKhachHang(List_kh& l, Node_kh* p){
-	if (l.head == NULL) {
-		l.head = l.tail = p;
-	}
-	else {
-		l.tail->pNext = p;
-		l.tail = p;
-	}
-}
-
-void XoaDau_kh(List_kh& l) {
-	Node_kh* p = new Node_kh;
-	p = l.head;
-	l.head = l.head->pNext;
-	p->pNext = NULL;
-	delete p;
-}
-
-void XoaCuoi_kh(List_kh& l) {
-	for (Node_kh* k = l.head; k != NULL; k = k->pNext) {
-		if (k->pNext == l.tail) {
-			delete l.tail;
-			k->pNext = NULL;
-			l.tail = k;
-		}
-	}
-}
-
-void XuatDanhSachKhachHang(List_kh l, KhachHang kh) {
-	for (Node_kh* k = l.head; k != NULL; k = k->pNext) {
-		kh.Xuatthongtinkhachhang(k->data);
-		cout << "So luong ve: " << k->data.getSoLuongVe() << endl;
-	}
-}
-
-//--------------- Phim ---------------
-struct Node_phim
-{
-	Phim data;
-	struct Node_phim* pNext;
+// Phim
+struct Node_phim{
+    Phim data;
+    Node_phim *next;
 };
 
-struct List_phim
-{
-	Node_phim* head;
-	Node_phim* tail;
+struct List_phim{
+    Node_phim *head;
+    Node_phim *tail;
+    long size;
+
+    List_phim(){
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    Node_phim* CreateNode(Phim v);
+    void addLast(Phim v);
 };
 
-void KhoiTaoDanhSach_phim(List_phim& l)
-{
-	l.head = NULL;
-	l.tail = NULL;
+Node_phim* List_phim::CreateNode(Phim v){
+    Node_phim *q = new Node_phim;
+    q->data = v;
+    q->next = NULL;
+    return q;
 }
 
-Node_phim* KhoiTaoNode_phim(Phim x)
-{
-	Node_phim* p = new Node_phim;
-	if (p == NULL)
-	{
-		cout << "\nCap phat that bai !";
-		return NULL;
-	}
-	p->data = x;
-	p->pNext = NULL;
-	return p;
+void List_phim::addLast(Phim v){
+    Node_phim *q = CreateNode(v);
+    if(size == 0){
+        head = tail = q;
+    }else{
+        tail->next = q;
+        tail = q;
+    }
+    size++;
 }
 
-void ThemPhim(List_phim& l, Node_phim* p)
-{
-	if (l.head == NULL) {
-		l.head = l.tail = p;
-	}
-	else {
-		l.tail->pNext = p;
-		l.tail = p;
-	}
+// Nhân viên
+struct Node_nv{
+    NhanVien data;
+    Node_nv *next;
+};
+
+struct List_nv{
+    Node_nv *head;
+    Node_nv *tail;
+    long size;
+
+    List_nv(){
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    Node_nv* CreateNode(NhanVien v);
+    void addLast(NhanVien v);
+};
+
+Node_nv* List_nv::CreateNode(NhanVien v){
+    Node_nv *q = new Node_nv;
+    q->data = v;
+    q->next = NULL;
+    return q;
 }
 
-void XoaDau_phim(List_phim& l) {
-	Node_phim* p = new Node_phim;
-	p = l.head;
-	l.head = l.head->pNext;
-	p->pNext = NULL;
-	delete p;
+void List_nv::addLast(NhanVien v){
+    Node_nv *q = CreateNode(v);
+    if(size == 0){
+        head = tail = q;
+    }else{
+        tail->next = q;
+        tail = q;
+    }
+    size++;
 }
 
-void XoaCuoi_phim(List_phim& l) {
-	for (Node_phim* k = l.head; k != NULL; k = k->pNext) {
-		if (k->pNext == l.tail) {
-			delete l.tail;
-			k->pNext = NULL;
-			l.tail = k;
-		}
-	}
-}
-
-void XuatDanhSachPhim(List_phim l) {
-	for (Node_phim* k = l.head; k != NULL; k = k->pNext) {
-		cout << "Ma phim: " << k->data.getMaphim() << endl;
-		cout << "Ten phim: " << k->data.getTenphim() << endl;
-		cout << "The loai: " << k->data.getTheloai() << endl;
-		cout << "Ngay khoi chieu: " << k->data.getNgaykhoichieu().getDay() << "/" << k->data.getNgaykhoichieu().getMonth() << "/" << k->data.getNgaykhoichieu().getYear() << endl;
-		cout << "Gia ve: " << k->data.getGiave() << "VND" << endl;
-		cout << "Thoi luong phim: " << k->data.getThoiluongphim() << "Phut" << endl;
-	}
-}
-
-//--------------- Nhân viên ---------------
-//struct Node_nv {
-//	NhanVien data;
-//	Node_nv* next;
-//};
-//
-//struct List_nv {
-//	Node_nv* head;
-//	Node_nv* tail;
-//	long size;
-//
-//	List_nv() {
-//		head = NULL;
-//		tail = NULL;
-//		size = 0;
-//	}
-//
-//Node_nv* CreateNode(NhanVien v);
-//void addLast(NhanVien v);
-//};
-//
-//Node_nv* List_nv::CreateNode(NhanVien v) {
-//Node_nv* q = new Node_nv;
-//q->data = v;
-//q->next = NULL;
-//return q;
-//}
-//
-//void List_nv::addLast(NhanVien v) {
-//Node_nv* q = CreateNode(v);
-//if (size == 0) {
-//head = tail = q;
-//}
-//else {
-//tail->next = q;
-//tail = q;
-//}
-//size++;
-//}
-
-//====DANH SACH PHIM CO SAN====
-void DanhSachPhim(List_phim Lphim, Phim phim, Node_phim* Nphim) {
-    phim.setTenphim("Co gai den tu hom qua");
-    phim.setMaphim("123");
-    phim.setGiave(45.000);
-    // phim.ngayKhoiChieu.setDay(20);
-    // phim.ngayKhoiChieu.setMonth(10);
-    // phim.ngayKhoiChieu.setYear(2022);
+        //DANH SACH PHIM CO SAN
+void DanhSachPhim(List_phim &Lphim, Phim phim){
+    phim.setTenphim("Co gai tu qua khu");
+    phim.setMaphim("01");
+    phim.setGiave(45000.0);
     phim.setTheloai("Kinh di");
     phim.setThoiluongphim(160);
-    cout << "Thong tin phim: ";
-    XuatDanhSachPhim(Lphim);
-    ThemPhim(Lphim, Nphim);
-}
+    phim.setNgaykhoichieu_ngay(20);
+    phim.setNgaykhoichieu_thang(10);
+    phim.setNgaykhoichieu_nam(2022);
+    cout<<"Thong tin phim: ";
+    phim.XuatthongtinPhim();
+    Lphim.addLast(phim);
 
-//==============================CHỨC NĂNG==============================
+    phim.setTenphim("Bong dung trung so");
+    phim.setMaphim("02");
+    phim.setGiave(45000.0);
+    phim.setTheloai("Tam ly, hai huoc");
+    phim.setThoiluongphim(120);
+    phim.setNgaykhoichieu_ngay(25);
+    phim.setNgaykhoichieu_thang(10);
+    phim.setNgaykhoichieu_nam(2022);
+    cout<<"Thong tin phim: ";
+    phim.XuatthongtinPhim();
+    Lphim.addLast(phim);
 
-//--------------- Menu ---------------
-void Menu(List_kh Lkh, List_phim Lphim, /*List_nv Lnv ,*/ Node_kh* Nkh, Node_phim* Nphim, /*Node_nv Nnv,*/ KhachHang kh, NhanVien nv, Phim phim) {
-
-	int luaChon;
-	while (1) {
-		system("cls");
-		cout << endl << "\t\t\t\t=============== Menu ================" << endl;
-		cout << "\t\t\t\t\t1. Mua ve" << endl;
-		cout << "\t\t\t\t\t2. Xem thong tin phim" << endl;
-		cout << "\t\t\t\t\t3. Xem lich chieu phim" << endl;
-		cout << "\t\t\t\t\t4. Xuat hoa don" << endl;
-		cout << "\t\t\t\t\t5. Them phim" << endl;
-		cout << "\t\t\t\t\t6. Xuat danh sach phim" << endl;
-		cout << "\t\t\t\t\t7. Them khach hang" << endl;
-		cout << "\t\t\t\t\t8. Xuat danh sach khach hang" << endl;
-
-		do {
-			cout << endl << "\t\t\t\t\tNhap lua chon: ";
-			cin >> luaChon;
-			if (luaChon < 1 || luaChon>8) {
-				cout << "Lua chon khong hop le!" << endl;
-				system("pause");
-			}
-		} while (luaChon < 0 || luaChon>8);
-
-		switch (luaChon) {
-		case 1:
-			cout << "Mua ve" << endl;
-
-			system("pause");
-			break;
-		case 2:
-			cout << "Xem thong tin phim";
-
-			system("pause");
-			break;
-		case 3:
-			cout << "Xem lich chieu phim";
-
-			system("pause");
-			break;
-		case 4:
-			cout << "Xuat hoa don";
-
-			system("pause");
-			break;
-		case 5:
-			cout << "Nhap thong tin khach hang: " << endl;
-			phim.NhapthongtinPhim(phim);
-			Nphim = KhoiTaoNode_phim(phim);
-			ThemPhim(Lphim, Nphim);
-
-			system("pause");
-			break;
-		case 6:
-			//Xuat_Danh_Sach_Phim(Lphim, phim);
-			XuatDanhSachPhim(Lphim);
-
-			system("pause");
-			break;
-		case 7:
-			cout << "Nhap thong tin khach hang: " << endl;
-			kh.NhapThongTinKhachHang(kh);
-			Nkh = KhoiTaoNode_kh(kh);
-			ThemKhachHang(Lkh, Nkh);
-
-			system("pause");
-			break;
-		case 8:
-			XuatDanhSachKhachHang(Lkh, kh);
-
-			system("pause");
-			break;
-		}
-	}
-}
-
-//--------------- Mua vé ---------------
-//void MuaVe(KhachHang kh, NhanVien nv, List_kh Lkh) {
-//    cout << "Nhap thong tin khach hang " << endl;
-//    kh.NhapThongTinKhachHang(kh);
-//    Lkh.addLast_kh(kh);
-//    kh.getVe()->NhapThongTinPhim();
-//    kh.Xuatthongtinkhachhang(kh);
-//}
-
-//--------------- Mật khẩu ---------------
-void MatKhau() {
-	string matKhau;
-	string pass = "xinchao";
-	do {
-		fflush(stdin);
-		cout << "\nNhap mat khau dang nhap: ";
-		getline(cin, matKhau);
-		if (matKhau.compare(pass) != 0) {
-			cout << "\nMat khau sai! Vui long nhap lai";
-		}
-	} while (matKhau.compare(pass) != 0);
-}
-
-//--------------- Main ---------------
-int main() {
-	system("cls");
-
-	List_kh Lkh{};
-	List_phim Lphim{};
-	//List_nv Lnv;
-
-	Node_kh* Nkh{};
-	Node_phim* Nphim{};
-	// Node_nv Nnv;
-
-	KhachHang kh;
-	NhanVien nv;
-	Phim phim;
-
-	//MatKhau();
-	//DanhSachPhim(Lphim, phim, Nphim);
-	//MuaVe(kh, nv, Lkh);
-
-	Menu(Lkh, Lphim, /*Lnv,*/ Nkh, Nphim,/* Nnv,*/ kh, nv, phim);
+    phim.setTenphim("Nu vuong huyen thoai");
+    phim.setMaphim("03");
+    phim.setGiave(45000.0);
+    phim.setTheloai("Hanh dong");
+    phim.setThoiluongphim(140);
+    phim.setNgaykhoichieu_ngay(1);
+    phim.setNgaykhoichieu_thang(11);
+    phim.setNgaykhoichieu_nam(2022);
+    cout<<"Thong tin phim: ";
+    phim.XuatthongtinPhim();
+    Lphim.addLast(phim);
+    
 }
 
                 // CHUC NANG
