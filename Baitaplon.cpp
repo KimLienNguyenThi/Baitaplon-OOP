@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<time.h>
 
 using namespace std;
 
@@ -15,40 +16,49 @@ class Date {
     ~Date ();
     Date (int day, int month, int year);
     int getDay ();
-void setDay (int day);
-int getMonth ();
-  void setMonth (int month);
-  int getYear ();
-  void setYear (int year);
-void display();
+    void setDay (int day);
+    int getMonth ();
+    void setMonth (int month);
+    int getYear ();
+    void setYear (int year);
+    void display();
 };
+
 Date :: Date (){
         day = month = year = 0;
 }
+
 Date:: ~Date (){};
 Date :: Date (int day, int month, int year) {
       this -> day = day;
       this -> month = month; 
       this -> year = year;
 }
+
 int Date ::getDay(){
     return day;
 }
+
 void Date::setDay (int day){
     this ->day = day;
 }
+
 int Date::getMonth (){
     return month;
 }
+
 void Date::setMonth (int month ){
     this ->month = month;
 }
+
 int Date::getYear (){
     return year;
 }
+
 void Date ::setYear (int year) {
     this ->year = year;
 }
+
 void display{
       string day = to_string (this ->day);
       string month = to_string (this ->month);
@@ -76,6 +86,9 @@ class ThoiGian{
     int setGiay(int giay);
     void NhapThoiGian();
     void XuatThoiGian();
+    int setGioHeThong(int gio);
+    int setPhutHeThong(int phut);
+    int setGiayHeThong(int giay);
 
 };
 
@@ -91,6 +104,18 @@ ThoiGian::ThoiGian(int gio, int phut, int giay){
 
 ThoiGian::~ThoiGian(){
     gio = phut = giay = 0;
+}
+
+int ThoiGian::setGioHeThong(int gio){
+    this->gio = gio;
+}
+
+int ThoiGian::setPhutHeThong(int phut){
+    this->phut = phut;
+}
+
+int ThoiGian::setGiayHeThong(int giay){
+    this->giay = giay;
 }
 
 int ThoiGian::setGio(int gio){
@@ -433,6 +458,11 @@ void KhachHang::NhapThongTinKhachHang(){
 }
     
 void KhachHang::Xuatthongtinkhachhang(){
+    cout<<endl<<"--------------- Thong tin khach hang --------------------";
+    cout<<endl<<"Ngay mua ve: "<<thoiGianHeThong_date.getDay()<<"/"<<thoiGianHeThong_date.getMonth()<<"/"
+<<thoiGianHeThong_date.getYear()<<"  ";
+    thoiGianHeThong_time.XuatThoiGian();
+
     cout<<endl<<"Ten: "<<ten<<endl;
     cout<<"Sdt: "<<sdt<<endl;
     cout<<"Gioi tinh: "<<gioiTinh<<endl;
@@ -450,9 +480,9 @@ void KhachHang::ThoiGianHeThong(){
 	thoiGianHeThong_date.setDay(tgian->tm_mday);
 	thoiGianHeThong_date.setMonth(tgian->tm_mon + 1);
 	thoiGianHeThong_date.setYear(tgian->tm_year + 1900); 
-	thoiGianHeThong_time.setGio(tgian->tm_hour); 
-	thoiGianHeThong_time.setPhut(tgian->tm_min);
-	thoiGianHeThong_time.setGiay( tgian->tm_sec);
+	thoiGianHeThong_time.setGioHeThong(tgian->tm_hour); 
+	thoiGianHeThong_time.setPhutHeThong(tgian->tm_min);
+	thoiGianHeThong_time.setGiayHeThong( tgian->tm_sec);
 }
 
 Ve* KhachHang::getVe(){
@@ -633,6 +663,140 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     
 }
 
+                // CHUC NANG
+
+void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim){
+
+    DanhSachPhim(Lphim, phim);
+    cout<<"Nhap thong tin khach hang "<<endl;
+    kh.NhapThongTinKhachHang();
+    kh.getVe()->NhapThongTinPhim();
+
+    kh.gheChon = new int[kh.getSoLuongVe()];
+    for(int i = 0; i<kh.getSoLuongVe(); i++){
+    cout<<"Quy khach chon ghe so: ";
+    cin>>kh.gheChon[i];
+    }
+    for(int i=0; i<kh.getSoLuongVe(); i++){
+    kh.getVe()->getRap().chonGhe(kh.gheChon[i]);
+    }
+    kh.ThoiGianHeThong();
+    Lkh.addLast_kh(kh);
+    kh.Xuatthongtinkhachhang();
+
+}
+
+void ThemPhimMoi(Phim phim, List_phim &Lphim){
+        // Khai bao value cua ham
+    string maPhim;
+    string tenPhim;
+    string theLoai;
+    int ngayKhoiChieu;
+    float giaVe;
+    int thoiLuongPhim;
+
+    cout<<endl<<"------- Nhap phim moi ----------";
+    fflush(stdin);
+    cout<<endl<<"Ma phim: ";
+    getline(cin,maPhim);
+    phim.setMaphim(maPhim);
+    fflush(stdin);
+    cout<<"Ten phim: ";
+    getline(cin, tenPhim);
+    phim.setTenphim(tenPhim);
+    fflush(stdin);
+    cout<<"Nhap the loai phim: ";
+    getline(cin, theLoai);
+    phim.setTheloai(theLoai);
+    cout<<"Nhap gia ve: ";
+    cin>>giaVe;
+    phim.setGiave(giaVe);
+    cout<<"Nhap thoi luong phim: ";
+    cin>>thoiLuongPhim;
+    phim.setThoiluongphim(thoiLuongPhim);
+        // Nhap ngay khoi chieu
+    cout<<"Nhap ngay khoi chieu "<<endl;
+    cout<<"Nhap ngay: ";
+    cin>>ngayKhoiChieu;
+    phim.setNgaykhoichieu_ngay(ngayKhoiChieu);
+    cout<<"Nhap thang: ";
+    cin>>ngayKhoiChieu;
+    phim.setNgaykhoichieu_thang(ngayKhoiChieu);
+    cout<<"Nhap nam: ";
+    cin>>ngayKhoiChieu;
+    phim.setNgaykhoichieu_nam(ngayKhoiChieu);
+    Lphim.addLast(phim);
+}
+
+void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh) {
+
+	int luaChon;
+	while (1) {
+		system("cls");
+		cout << endl << "\t\t\t\t=============== Menu ================" << endl;
+		cout << "\t\t\t\t\t1. Mua ve" << endl;  // Huy
+		cout << "\t\t\t\t\t2. Xem thong tin phim" << endl;  // Thỏa
+		cout << "\t\t\t\t\t3. Xem lich chieu phim" << endl;  // Thỏa
+		cout << "\t\t\t\t\t4. Xuat hoa don" << endl;  
+		cout << "\t\t\t\t\t5. Kiem tra thong tin khach" << endl;  // Luân
+		cout << "\t\t\t\t\t6. Thong ke doanh thu" << endl;  // Luân
+		cout << "\t\t\t\t\t7. Them phim moi" << endl;
+
+		do {
+			cout << endl << "\t\t\t\t\tNhap lua chon: ";
+			cin >> luaChon;
+			if (luaChon < 1 || luaChon>8) {
+				cout << "Lua chon khong hop le!" << endl;
+				system("pause");
+			}
+		} while (luaChon < 0 || luaChon>8);
+
+		switch (luaChon) 
+        {
+		case 1:
+            MuaVe(kh, Lkh, Lphim, phim);
+            cout<<endl;
+			system("pause");
+			break;
+		case 2:
+			cout << "Xem thong tin phim";
+            cout<<endl;
+			system("pause");
+			break;
+		case 3:
+			cout << "Xem lich chieu phim";
+            cout<<endl;
+			system("pause");
+			break;
+		case 4:
+			cout << "Xuat hoa don";
+            cout<<endl;
+			system("pause");
+			break;
+		case 5:
+			cout << "Kiem tra thong tin khach";
+            cout<<endl;
+			system("pause");
+			break;
+		case 6:
+			cout << "Thong ke doanh thu";
+            cout<<endl;
+			system("pause");
+			break;
+		case 7:
+            int slphimmoi;
+			cout << "So luong phim muon them";
+            cin>>slphimmoi;
+            for(int i = 0; i<slphimmoi; i++){
+                ThemPhimMoi(phim, Lphim);
+            }
+            cout<<endl;
+			system("pause");
+			break;
+        }
+	}
+}
+
 int main(){
     system("cls");
     List_kh Lkh;
@@ -646,5 +810,8 @@ int main(){
     KhachHang kh;
     NhanVien nv;
     Phim phim;
+
+    Menu(Lphim, phim, Lkh, kh);
+
 
 }
