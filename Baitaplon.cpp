@@ -415,12 +415,14 @@ class KhachHang:public ConNguoi{
     Date thoiGianHeThong_date;
 
         public:
+    int *gheChon;
     void NhapThongTinKhachHang();
     void Xuatthongtinkhachhang();
+    void ThoiGianHeThong();
     Ve* getVe();
     int getSoLuongVe();
-    void ThoiGianHeThong();
-
+    int getGheChon();
+    void setGheChon();
 };
 
 void KhachHang::NhapThongTinKhachHang(){
@@ -437,14 +439,9 @@ void KhachHang::Xuatthongtinkhachhang(){
     cout<<"So ve mua: "<<soLuongVe<<endl;
     cout<<"Phim chon: ";
     this->getVe()->XuatThongTinPhim();
-}
-
-Ve* KhachHang::getVe(){
-    return ve;
-}
-
-int KhachHang::getSoLuongVe(){
-    return soLuongVe;
+    for(int i=0; i<soLuongVe; i++){
+        cout<<endl<<"Ghe chon: "<<gheChon[i];
+    }
 }
 
 void KhachHang::ThoiGianHeThong(){
@@ -457,6 +454,20 @@ void KhachHang::ThoiGianHeThong(){
 	thoiGianHeThong_time.setPhut(tgian->tm_min);
 	thoiGianHeThong_time.setGiay( tgian->tm_sec);
 }
+
+Ve* KhachHang::getVe(){
+    return ve;
+}
+
+int KhachHang::getSoLuongVe(){
+    return soLuongVe;
+}
+
+class NhanVien:public ConNguoi{
+        private:
+    string chucVu;
+
+};
 
 class NhanVien:public ConNguoi{
         private:
