@@ -666,7 +666,18 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
 }
 
                 // CHUC NANG
-
+void XuatThongTinPhim (List_phim Lphim){
+    for (Node_phim * k = Lphim.head; k != NULL; k = k->next){
+        cout << "Ten nha san xuat: " << k->data.getTenNhaSX () << endl;
+        cout << " Quoc gia: " << k->data.getQuocGia () << endl;
+        cout << "Ma phim: " << k->data.getMaphim() << endl;
+        cout << "Ten phim: " << k->data.getTenphim () << endl;
+        cout << "The loai: " << k->data.getTheloai() << endl;
+        cout << "Thoi luong phim: " << k->data.getThoiluongphim() << endl;
+        cout << "Ngay khoi chieu: " << k->data.getNgaykhoichieu().getDay() << k->data.getNgaykhoichieu().getMonth() << k->data.getNgaykhoichieu().getYear() << endl;
+        cout << "Gia ve: " << k->data.getGiave () << endl;
+         }
+}
 void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim){
 
     DanhSachPhim(Lphim, phim);
