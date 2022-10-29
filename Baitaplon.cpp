@@ -59,7 +59,7 @@ void Date ::setYear (int year) {
     this ->year = year;
 }
 
-void display(){
+void Date::display(){
       string day = to_string (this ->day);
       string month = to_string (this ->month);
       string year = to_string (this ->year);
