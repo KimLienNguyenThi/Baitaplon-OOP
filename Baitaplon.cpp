@@ -605,6 +605,8 @@ struct List_nv{
 
     Node_nv* CreateNode(NhanVien v);
     void addLast(NhanVien v);
+    void remove(Node_phim *p);
+
 };
 
 Node_nv* List_nv::CreateNode(NhanVien v){
@@ -623,6 +625,30 @@ void List_nv::addLast(NhanVien v){
         tail = q;
     }
     size++;
+}
+
+void List_phim::remove(Node_phim *p){
+    if(p == head){
+        if(head != NULL){
+        Node_phim *node = head;
+        head = node->next;
+        delete node;
+
+        if(head == NULL){
+            tail = NULL;
+        }
+        }        
+    }
+    for(Node_phim *k = head; k!=NULL; k = k->next){
+        if(p == tail){
+            k->next = p->next;
+            tail = k;
+            delete p;
+        }else if(k->next == p){
+            k->next = p->next;
+            delete p;
+        }
+    }
 }
 
         //DANH SACH PHIM CO SAN
@@ -741,19 +767,48 @@ void ThemPhimMoi(Phim phim, List_phim &Lphim){
     Lphim.addLast(phim);
 }
 
-void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh) {
+void XoaPhim(List_phim &Lphim){
+    string phimXoa;
+    Node_phim *p;
+    int dem=0;
 
+    fflush(stdin);
+    cout<<"Nhap ten phim muon xoa: ";
+    getline(cin, phimXoa);
+    
+    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+        if(phimXoa.compare(k->data.getTenphim())!=0){
+            dem++;
+            if(dem == Lphim.size){
+                cout<<"Khong tim thay phim muon xoa";
+            }
+        }else if(phimXoa.compare(k->data.getTenphim())==0){
+            Lphim.remove(k);
+            cout<<"Xoa thanh cong phim "<<phimXoa;
+            cout<<endl<<"-------------"<<endl;
+            for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+                cout<<Lphim.size;
+                k->data.XuatthongtinPhim();
+            }
+            break;
+        }
+    }
+}
+
+void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh){
 	int luaChon;
 	while (1) {
-		system("cls");
+        system("cls");
+
 		cout << endl << "\t\t\t\t=============== Menu ================" << endl;
 		cout << "\t\t\t\t\t1. Mua ve" << endl;  // Huy
 		cout << "\t\t\t\t\t2. Xem thong tin phim" << endl;  // Thỏa
 		cout << "\t\t\t\t\t3. Xem lich chieu phim" << endl;  // Thỏa
-		cout << "\t\t\t\t\t4. Xuat hoa don" << endl;  
+		cout << "\t\t\t\t\t4. Xuat hoa don" << endl;   // Luan
 		cout << "\t\t\t\t\t5. Kiem tra thong tin khach" << endl;  // Luân
 		cout << "\t\t\t\t\t6. Thong ke doanh thu" << endl;  // Luân
 		cout << "\t\t\t\t\t7. Them phim moi" << endl;
+		cout << "\t\t\t\t\t8. Xoa phim" << endl;  // Huy
 
 		do {
 			cout << endl << "\t\t\t\t\tNhap lua chon: ";
@@ -762,11 +817,14 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh) {
 				cout << "Lua chon khong hop le!" << endl;
 				system("pause");
 			}
-		} while (luaChon < 0 || luaChon>8);
+		} while (luaChon < 1 || luaChon>8);
 
 		switch (luaChon) 
         {
 		case 1:
+            for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+                k->data.XuatthongtinPhim();
+            }
             MuaVe(kh, Lkh, Lphim, phim);
             cout<<endl;
 			system("pause");
@@ -798,7 +856,7 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh) {
 			break;
 		case 7:
             int slphimmoi;
-			cout << "So luong phim muon them";
+			cout << "So luong phim muon them: ";
             cin>>slphimmoi;
             for(int i = 0; i<slphimmoi; i++){
                 ThemPhimMoi(phim, Lphim);
@@ -806,6 +864,21 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh) {
             cout<<endl;
 			system("pause");
 			break;
+        case 8:
+            int slphimxoa;
+
+            for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+                k->data.XuatthongtinPhim();
+            }            
+            cout<<"Nhap so luong phim muon xoa: ";
+            cin>>slphimxoa;
+
+            for(int i=0; i<slphimxoa; i++){
+                XoaPhim(Lphim);
+            }
+            cout<<endl;
+            system("pause");
+
         }
 	}
 }
@@ -824,6 +897,7 @@ int main(){
     NhanVien nv;
     Phim phim;
 
+    DanhSachPhim(Lphim, phim);
     Menu(Lphim, phim, Lkh, kh);
 
 
