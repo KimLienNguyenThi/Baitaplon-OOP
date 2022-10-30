@@ -566,6 +566,7 @@ struct List_phim{
 
     Node_phim* CreateNode(Phim v);
     void addLast(Phim v);
+    void remove(Node_phim *p);
 };
 
 Node_phim* List_phim::CreateNode(Phim v){
@@ -605,8 +606,6 @@ struct List_nv{
 
     Node_nv* CreateNode(NhanVien v);
     void addLast(NhanVien v);
-    void remove(Node_phim *p);
-
 };
 
 Node_nv* List_nv::CreateNode(NhanVien v){
