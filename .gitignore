@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/GiaoDienPhim/PhimChieuRap/.vs/ManagementCinema/FileContentIndex
+/.vs
+/GiaoDienPhim/PhimChieuRap/.vs/ManagementCinema/v17
+/GiaoDienPhim/PhimChieuRap/x64/Debug
