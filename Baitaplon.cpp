@@ -306,7 +306,6 @@ void Phim::setThoiluongphim (int thoiLuongPhim){
 }
 
 void Phim::XuatthongtinPhim(){
-    NhaSanXuat ::XuatThongTinNhaSX ();
     cout<<endl;
     cout << "Ma phim: " << maPhim << endl;
     cout << "Ten phim: " << tenPhim << endl;
@@ -314,6 +313,7 @@ void Phim::XuatthongtinPhim(){
     cout << "Ngay khoi chieu: " << ngayKhoiChieu.getDay()<<"/" << ngayKhoiChieu.getMonth()<<"/" <<  ngayKhoiChieu.getYear() << endl;
     cout << "Gia ve: " << giaVe << endl;
     cout << "Thoi luong phim: " << thoiLuongPhim<<"p"<< endl;
+    NhaSanXuat ::XuatThongTinNhaSX ();
     cout<<endl;
 }
 
@@ -660,6 +660,8 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     phim.setNgaykhoichieu_ngay(20);
     phim.setNgaykhoichieu_thang(10);
     phim.setNgaykhoichieu_nam(2022);
+    phim.setQuocGia("Viet Nam");
+    phim.setTenNhaSX("Sky to moive");
     cout<<"Thong tin phim: ";
     phim.XuatthongtinPhim();
     Lphim.addLast(phim);
@@ -672,6 +674,8 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     phim.setNgaykhoichieu_ngay(25);
     phim.setNgaykhoichieu_thang(10);
     phim.setNgaykhoichieu_nam(2022);
+    phim.setQuocGia("Han Quoc");
+    phim.setTenNhaSX("Young Gang Wihoo");
     cout<<"Thong tin phim: ";
     phim.XuatthongtinPhim();
     Lphim.addLast(phim);
@@ -684,6 +688,8 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     phim.setNgaykhoichieu_ngay(1);
     phim.setNgaykhoichieu_thang(11);
     phim.setNgaykhoichieu_nam(2022);
+    phim.setQuocGia("Viet Nam");
+    phim.setTenNhaSX("Holleyworld");
     cout<<"Thong tin phim: ";
     phim.XuatthongtinPhim();
     Lphim.addLast(phim);
@@ -732,6 +738,8 @@ void ThemPhimMoi(Phim phim, List_phim &Lphim){
     int ngayKhoiChieu;
     float giaVe;
     int thoiLuongPhim;
+    string tenNhaSx;
+    string tenQuocGia;
 
     cout<<endl<<"------- Nhap phim moi ----------";
     fflush(stdin);
@@ -763,7 +771,24 @@ void ThemPhimMoi(Phim phim, List_phim &Lphim){
     cout<<"Nhap nam: ";
     cin>>ngayKhoiChieu;
     phim.setNgaykhoichieu_nam(ngayKhoiChieu);
+
+    fflush(stdin);
+    cout<<"Ten nha san xuat: ";
+    getline(cin, tenNhaSx);
+    phim.setTenNhaSX(tenNhaSx);
+    fflush(stdin);
+    cout<<"Ten quoc gia: ";
+    getline(cin, tenQuocGia);
+    phim.setQuocGia(tenQuocGia);
     Lphim.addLast(phim);
+
+}
+
+void XuatThongTinPhim(List_phim Lphim){
+    cout<<endl<<"------------- Thong tin phim -------------"<<endl;
+    for(Node_phim k = Lphim.head; k!=NULL; k=k.next){
+        k.data.XuatthongtinPhim();
+    }
 }
 
 void XoaPhim(List_phim &Lphim){
