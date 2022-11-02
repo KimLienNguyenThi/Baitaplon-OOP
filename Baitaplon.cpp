@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 #include<time.h>
+#include<string.h>
+#include<conio.h>
 
 using namespace std;
 
@@ -321,16 +323,18 @@ class Rap{
         protected:
     string tenRap;
     int soGhe=50;
-    int ghe[50] = {0,0,0,0,0,0,0,0,0,0,
-                   0,0,0,0,0,0,0,0,0,0,
-                   0,0,0,0,0,0,0,0,0,0,
-                   0,0,0,0,0,0,0,0,0,0,
-                   0,0,0,0,0,0,0,0,0,0};
+    char ghe[50][6] =   {"READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY"
+                        };
 
         public:
     Rap();
     ~Rap();
     void chonGhe(int gheChon);
+    void XuatDanhSachGhe();
 };
 
 Rap::Rap(){
@@ -344,7 +348,22 @@ Rap::~Rap(){
 }
 
 void Rap::chonGhe(int gheChon){
-    ghe[gheChon] = 1;
+    strcpy(ghe[gheChon],"XXXXX");
+}
+
+void Rap::XuatDanhSachGhe(){
+    cout<<"\n\t---------------------------------------------------- SO DO RAP PHIM -----------------------------------------------------";
+    cout<<"\n\t-----------------------------------------------------------------------------------------------------------------------\n";
+    cout<<"\t| G01: "<<ghe[0]<<"  | G02: "<<ghe[1]<<"  | G03: "<<ghe[2]<<"  | G04: "<<ghe[3]<<"  | G05: "<<ghe[4]<<"  | G06: "<<ghe[5]<<"  | G07: "<<ghe[6]<<"  | G08: "<<ghe[7]<<"  | G09: "<<ghe[8]<<"  | G10: "<<ghe[9]<<"  |\n";
+    cout<<"\t----------------------------------------------------------------------------------------------------\n";
+    cout<<"\t| G10: "<<ghe[10]<<"  | G12: "<<ghe[11]<<"  | G13: "<<ghe[12]<<"  | G14: "<<ghe[13]<<"  | G15: "<<ghe[14]<<"  | G16: "<<ghe[15]<<"  | G17: "<<ghe[16]<<"  | G18: "<<ghe[17]<<"  | G19: "<<ghe[18]<<"  | G20: "<<ghe[19]<<"  |\n";
+    cout<<"\t----------------------------------------------------------------------------------------------------\n";
+    cout<<"\t| G21: "<<ghe[20]<<"  | G22: "<<ghe[21]<<"  | G23: "<<ghe[22]<<"  | G24: "<<ghe[23]<<"  | G25: "<<ghe[24]<<"  | G26: "<<ghe[25]<<"  | G27: "<<ghe[26]<<"  | G28: "<<ghe[27]<<"  | G29: "<<ghe[28]<<"  | G30: "<<ghe[29]<<"  |\n";
+    cout<<"\t----------------------------------------------------------------------------------------------------\n";
+    cout<<"\t| G31: "<<ghe[30]<<"  | G32: "<<ghe[31]<<"  | G33: "<<ghe[32]<<"  | G34: "<<ghe[33]<<"  | G35: "<<ghe[34]<<"  | G36: "<<ghe[35]<<"  | G37: "<<ghe[36]<<"  | G38: "<<ghe[37]<<"  | G39: "<<ghe[38]<<"  | G40: "<<ghe[39]<<"  |\n";
+    cout<<"\t----------------------------------------------------------------------------------------------------\n";
+    cout<<"\t| G41: "<<ghe[40]<<"  | G42: "<<ghe[41]<<"  | G43: "<<ghe[42]<<"  | G44: "<<ghe[43]<<"  | G45: "<<ghe[44]<<"  | G46: "<<ghe[45]<<"  | G47: "<<ghe[46]<<"  | G48: "<<ghe[47]<<"  | G49: "<<ghe[48]<<"  | G50: "<<ghe[49]<<"  |\n";
+    cout<<"\t------------------------------------------------------------------------------------------------------------------------\n";
 }
 
 class GioChieu:public Date{
@@ -366,14 +385,15 @@ GioChieu::~GioChieu(){
 class Ve:public Phim{
         private:
     GioChieu gioChieu;
-    Rap rap;
+    int soRap;
 
         public:
     Ve();
     ~Ve();
     void NhapThongTinPhim();
     void XuatThongTinPhim();
-    Rap getRap();
+    void setSoRap(int soRapChon);
+    int getSoRap();
 };
 
 Ve::Ve(){
@@ -392,8 +412,12 @@ void Ve::XuatThongTinPhim(){
     cout<<tenPhim;
 }
 
-Rap Ve::getRap(){
-    return rap;
+int Ve::getSoRap(){
+    return this->soRap;
+}
+
+void Ve::setSoRap(int soRapChon){
+    this->soRap = soRapChon;
 }
 
 class ConNguoi{
@@ -454,8 +478,6 @@ class KhachHang:public ConNguoi{
     void ThoiGianHeThong();
     Ve* getVe();
     int getSoLuongVe();
-    int getGheChon();
-    void setGheChon();
 };
 
 void KhachHang::NhapThongTinKhachHang(){
@@ -477,6 +499,8 @@ void KhachHang::Xuatthongtinkhachhang(){
     cout<<"So ve mua: "<<soLuongVe<<endl;
     cout<<"Phim chon: ";
     this->getVe()->XuatThongTinPhim();
+    cout<<endl<<"Rap: "<<this->getVe()->getSoRap();
+    ve->getSoRap();
     for(int i=0; i<soLuongVe; i++){
         cout<<endl<<"Ghe chon: "<<gheChon[i];
     }
@@ -709,26 +733,47 @@ void XuatThongTinPhim (List_phim Lphim){
         cout << "Gia ve: " << k->data.getGiave () << endl<<endl;
         }
 }
-void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim){
+void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, Rap &rap2){
+    int soRap;
 
     XuatThongTinPhim(Lphim);
     cout<<"Nhap thong tin khach hang "<<endl;
     kh.NhapThongTinKhachHang();
     kh.getVe()->NhapThongTinPhim();
-
     kh.gheChon = new int[kh.getSoLuongVe()];
-    for(int i = 0; i<kh.getSoLuongVe(); i++){
-    cout<<"Quy khach chon ghe so: ";
-    cin>>kh.gheChon[i];
-    }
-    for(int i=0; i<kh.getSoLuongVe(); i++){
-    kh.getVe()->getRap().chonGhe(kh.gheChon[i]);
-    }
+
+    do{
+        cout<<"Phim chieu o rap so: ";
+        cin>>soRap;
+        if(soRap == 1){
+            kh.getVe()->setSoRap(soRap);
+            rap1.XuatDanhSachGhe();
+            for(int i = 0; i<kh.getSoLuongVe(); i++){
+                cout<<"Quy khach chon ghe so: ";
+                cin>>kh.gheChon[i];
+                rap1.chonGhe(kh.gheChon[i]-1);
+                rap1.XuatDanhSachGhe();
+                getch();
+            }
+        }else if(soRap == 2){
+            kh.getVe()->setSoRap(soRap);
+            rap2.XuatDanhSachGhe();
+            for(int i = 0; i<kh.getSoLuongVe(); i++){
+                cout<<"Quy khach chon ghe so: ";
+                cin>>kh.gheChon[i];
+                rap2.chonGhe(kh.gheChon[i]-1);
+                rap2.XuatDanhSachGhe();
+                getch();
+            }
+        }else{
+            cout<<"Khong co so rap phu hop! Vui long chon lai";
+        }
+    }while(soRap<1 || soRap>2);
+
     system("cls");
     kh.ThoiGianHeThong();
     Lkh.addLast_kh(kh);
     kh.Xuatthongtinkhachhang();
-
 }
 
 void ThemPhimMoi(Phim phim, List_phim &Lphim){
@@ -813,7 +858,7 @@ void XoaPhim(List_phim &Lphim){
     }
 }
 
-void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh){
+void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Rap &rap2){
 	int luaChon;
 	while (1) {
         system("cls");
@@ -841,7 +886,7 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh){
         {
 		case 1:
             system("cls");
-            MuaVe(kh, Lkh, Lphim, phim);
+            MuaVe(kh, Lkh, Lphim, phim, rap1, rap2);
             cout<<endl;
 			system("pause");
 			break;
@@ -919,6 +964,8 @@ int main(){
     NhanVien nv;
     Phim phim;
 
+    Rap rap1, rap2;
+
     DanhSachPhim(Lphim, phim);
-    Menu(Lphim, phim, Lkh, kh);
+    Menu(Lphim, phim, Lkh, kh, rap1, rap2);
 }
