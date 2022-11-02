@@ -442,6 +442,8 @@ ConNguoi::~ConNguoi(){
 }
 
 void ConNguoi::NhapThongTinCaNhan(){
+    string soDau;
+
     fflush(stdin);
     cout<<"Nhap ten: ";
     getline(cin, this->ten);
@@ -449,10 +451,11 @@ void ConNguoi::NhapThongTinCaNhan(){
         fflush(stdin);
         cout<<"Nhap so dien thoai: ";
         getline(cin, this->sdt);
-        if(this->sdt.length()>10){
+        soDau = sdt.front();
+        if(this->sdt.length()!=10 || soDau.compare("0")!=0 ){
             cout<<"\tDinh dang sai! Vui long nhap lai"<<endl;
         }
-    }while(this->sdt.length() > 10);
+    }while(this->sdt.length() != 10 || soDau.compare("0")!=0 );
     fflush(stdin);
     cout<<"Nhap gioi tinh: ";
     getline(cin, this->gioiTinh);
