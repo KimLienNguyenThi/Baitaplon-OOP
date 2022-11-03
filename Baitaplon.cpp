@@ -313,7 +313,7 @@ void Phim::XuatthongtinPhim(){
     cout << "Ten phim: " << tenPhim << endl;
     cout << "The loai: " << theLoai << endl;
     cout << "Ngay khoi chieu: " << ngayKhoiChieu.getDay()<<"/" << ngayKhoiChieu.getMonth()<<"/" <<  ngayKhoiChieu.getYear() << endl;
-    cout << "Gia ve: " << giaVe << endl;
+    cout << "Gia ve: " << giaVe <<"VND"<< endl;
     cout << "Thoi luong phim: " << thoiLuongPhim<<"p"<< endl;
     NhaSanXuat ::XuatThongTinNhaSX ();
     cout<<endl;
@@ -354,16 +354,16 @@ void Rap::chonGhe(int gheChon){
 void Rap::XuatDanhSachGhe(){
     cout<<"\n\t---------------------------------------------------- SO DO RAP PHIM -----------------------------------------------------";
     cout<<"\n\t-----------------------------------------------------------------------------------------------------------------------\n";
-    cout<<"\t| G01: "<<ghe[0]<<"  | G02: "<<ghe[1]<<"  | G03: "<<ghe[2]<<"  | G04: "<<ghe[3]<<"  | G05: "<<ghe[4]<<"  | G06: "<<ghe[5]<<"  | G07: "<<ghe[6]<<"  | G08: "<<ghe[7]<<"  | G09: "<<ghe[8]<<"  | G10: "<<ghe[9]<<"  |\n";
-    cout<<"\t----------------------------------------------------------------------------------------------------\n";
-    cout<<"\t| G10: "<<ghe[10]<<"  | G12: "<<ghe[11]<<"  | G13: "<<ghe[12]<<"  | G14: "<<ghe[13]<<"  | G15: "<<ghe[14]<<"  | G16: "<<ghe[15]<<"  | G17: "<<ghe[16]<<"  | G18: "<<ghe[17]<<"  | G19: "<<ghe[18]<<"  | G20: "<<ghe[19]<<"  |\n";
-    cout<<"\t----------------------------------------------------------------------------------------------------\n";
-    cout<<"\t| G21: "<<ghe[20]<<"  | G22: "<<ghe[21]<<"  | G23: "<<ghe[22]<<"  | G24: "<<ghe[23]<<"  | G25: "<<ghe[24]<<"  | G26: "<<ghe[25]<<"  | G27: "<<ghe[26]<<"  | G28: "<<ghe[27]<<"  | G29: "<<ghe[28]<<"  | G30: "<<ghe[29]<<"  |\n";
-    cout<<"\t----------------------------------------------------------------------------------------------------\n";
-    cout<<"\t| G31: "<<ghe[30]<<"  | G32: "<<ghe[31]<<"  | G33: "<<ghe[32]<<"  | G34: "<<ghe[33]<<"  | G35: "<<ghe[34]<<"  | G36: "<<ghe[35]<<"  | G37: "<<ghe[36]<<"  | G38: "<<ghe[37]<<"  | G39: "<<ghe[38]<<"  | G40: "<<ghe[39]<<"  |\n";
-    cout<<"\t----------------------------------------------------------------------------------------------------\n";
-    cout<<"\t| G41: "<<ghe[40]<<"  | G42: "<<ghe[41]<<"  | G43: "<<ghe[42]<<"  | G44: "<<ghe[43]<<"  | G45: "<<ghe[44]<<"  | G46: "<<ghe[45]<<"  | G47: "<<ghe[46]<<"  | G48: "<<ghe[47]<<"  | G49: "<<ghe[48]<<"  | G50: "<<ghe[49]<<"  |\n";
-    cout<<"\t------------------------------------------------------------------------------------------------------------------------\n";
+    cout<<"| G01: "<<ghe[0]<<"  | G02: "<<ghe[1]<<"  | G03: "<<ghe[2]<<"  | G04: "<<ghe[3]<<"  | G05: "<<ghe[4]<<"  | G06: "<<ghe[5]<<"  | G07: "<<ghe[6]<<"  | G08: "<<ghe[7]<<"  | G09: "<<ghe[8]<<"  | G10: "<<ghe[9]<<"  |\n";
+    cout<<"----------------------------------------------------------------------------------------------------\n";
+    cout<<"| G10: "<<ghe[10]<<"  | G12: "<<ghe[11]<<"  | G13: "<<ghe[12]<<"  | G14: "<<ghe[13]<<"  | G15: "<<ghe[14]<<"  | G16: "<<ghe[15]<<"  | G17: "<<ghe[16]<<"  | G18: "<<ghe[17]<<"  | G19: "<<ghe[18]<<"  | G20: "<<ghe[19]<<"  |\n";
+    cout<<"----------------------------------------------------------------------------------------------------\n";
+    cout<<"| G21: "<<ghe[20]<<"  | G22: "<<ghe[21]<<"  | G23: "<<ghe[22]<<"  | G24: "<<ghe[23]<<"  | G25: "<<ghe[24]<<"  | G26: "<<ghe[25]<<"  | G27: "<<ghe[26]<<"  | G28: "<<ghe[27]<<"  | G29: "<<ghe[28]<<"  | G30: "<<ghe[29]<<"  |\n";
+    cout<<"----------------------------------------------------------------------------------------------------\n";
+    cout<<"| G31: "<<ghe[30]<<"  | G32: "<<ghe[31]<<"  | G33: "<<ghe[32]<<"  | G34: "<<ghe[33]<<"  | G35: "<<ghe[34]<<"  | G36: "<<ghe[35]<<"  | G37: "<<ghe[36]<<"  | G38: "<<ghe[37]<<"  | G39: "<<ghe[38]<<"  | G40: "<<ghe[39]<<"  |\n";
+    cout<<"----------------------------------------------------------------------------------------------------\n";
+    cout<<"| G41: "<<ghe[40]<<"  | G42: "<<ghe[41]<<"  | G43: "<<ghe[42]<<"  | G44: "<<ghe[43]<<"  | G45: "<<ghe[44]<<"  | G46: "<<ghe[45]<<"  | G47: "<<ghe[46]<<"  | G48: "<<ghe[47]<<"  | G49: "<<ghe[48]<<"  | G50: "<<ghe[49]<<"  |\n";
+    cout<<"------------------------------------------------------------------------------------------------------------------------\n";
 }
 
 class GioChieu:public Date{
@@ -507,6 +507,8 @@ void KhachHang::Xuatthongtinkhachhang(){
     for(int i=0; i<soLuongVe; i++){
         cout<<endl<<"Ghe chon: "<<gheChon[i];
     }
+    cout<<endl<<"Thoi luong phim: "<<this->ve->getThoiluongphim()<<"p";
+    cout<<endl<<"Don gia: "<<this->getSoLuongVe()*this->ve->getGiave()<<" VND";
 }
 
 void KhachHang::ThoiGianHeThong(){
@@ -731,20 +733,36 @@ void XuatThongTinPhim (List_phim Lphim){
         cout << "The loai: " << k->data.getTheloai() << endl;
         cout << " Quoc gia: " << k->data.getQuocGia () << endl;
         cout << "Ten nha san xuat: " << k->data.getTenNhaSX () << endl;
-        cout << "Thoi luong phim: " << k->data.getThoiluongphim() << endl;
+        cout << "Thoi luong phim: " << k->data.getThoiluongphim() <<"p"<< endl;
         cout << "Ngay khoi chieu: " << k->data.getNgaykhoichieu().getDay() <<"/"<< k->data.getNgaykhoichieu().getMonth() <<"/"<< k->data.getNgaykhoichieu().getYear() << endl;
-        cout << "Gia ve: " << k->data.getGiave () << endl<<endl;
+        cout << "Gia ve: " << k->data.getGiave () <<" VND"<< endl<<endl;
         }
 }
 void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, Rap &rap2){
     int soRap;
+    string maPhim;
 
     XuatThongTinPhim(Lphim);
     cout<<"Nhap thong tin khach hang "<<endl;
     kh.NhapThongTinKhachHang();
-    kh.getVe()->NhapThongTinPhim();
+    cout<<"Quy khach chon phim co ma so: ";
+    cin>>maPhim;
+        // Duyet qua danh sach phim -> tim ra phim co ma so khach chon
+    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+        int dem=0;
+        if(maPhim.compare(k->data.getMaphim())==0){
+            kh.getVe()->setTenphim(k->data.getTenphim());
+            cout<<"Quy khach chon phim: "<<kh.getVe()->getTenphim()<<endl;
+            break;
+        }else if(maPhim.compare(k->data.getMaphim())!=0){
+            dem++;
+            if(dem == Lphim.size){
+                cout<<"Khong ton tai phim! Xin vui long chon lai";
+                getch();
+            }
+        }
+    }
     kh.gheChon = new int[kh.getSoLuongVe()];
-
     do{
         cout<<"Phim chieu o rap so: ";
         cin>>soRap;
@@ -752,12 +770,17 @@ void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, R
             kh.getVe()->setSoRap(soRap);
             rap1.XuatDanhSachGhe();
             for(int i = 0; i<kh.getSoLuongVe(); i++){
-                cout<<"Quy khach chon ghe so: ";
-                cin>>kh.gheChon[i];
-                rap1.chonGhe(kh.gheChon[i]-1);
-                rap1.XuatDanhSachGhe();
-                getch();
+                do{
+                    cout<<"Quy khach chon ghe so: ";
+                    cin>>kh.gheChon[i];
+                    rap1.chonGhe(kh.gheChon[i]-1);
+                    if(kh.gheChon[i]<1 || kh.gheChon[i]>50){
+                        cout<<endl<<"So ghe khong phu hop! Vui long chon lai"<<endl;
+                    }
+                }while(kh.gheChon[i]<1 || kh.gheChon[i]>50);
             }
+            rap1.XuatDanhSachGhe();
+            getch();
         }else if(soRap == 2){
             kh.getVe()->setSoRap(soRap);
             rap2.XuatDanhSachGhe();
@@ -765,9 +788,9 @@ void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, R
                 cout<<"Quy khach chon ghe so: ";
                 cin>>kh.gheChon[i];
                 rap2.chonGhe(kh.gheChon[i]-1);
-                rap2.XuatDanhSachGhe();
-                getch();
             }
+            rap2.XuatDanhSachGhe();
+            getch();
         }else{
             cout<<"Khong co so rap phu hop! Vui long chon lai";
         }
@@ -789,16 +812,47 @@ void ThemPhimMoi(Phim phim, List_phim &Lphim){
     int thoiLuongPhim;
     string tenNhaSx;
     string tenQuocGia;
+    int ktra = 0;
 
-    cout<<endl<<"------- Nhap phim moi ----------";
+    cout<<endl<<"---------- Nhap phim moi ----------";
+
+    do{
     fflush(stdin);
     cout<<endl<<"Ma phim: ";
     getline(cin,maPhim);
-    phim.setMaphim(maPhim);
+    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+        if(maPhim.compare(k->data.getMaphim())!=0){
+            phim.setMaphim(maPhim);
+            ktra = 0;
+            break;
+        }else if(maPhim.compare(k->data.getMaphim())==0){
+            cout<<endl<<"Ma phim da ton tai. Vui long nhap lai"<<endl;
+            ktra = 1;
+        }
+    }
+    }while(ktra == 1);
+
+    do{
     fflush(stdin);
     cout<<"Ten phim: ";
-    getline(cin, tenPhim);
-    phim.setTenphim(tenPhim);
+    getline(cin,tenPhim);
+    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+        if(tenPhim.compare(k->data.getTenphim())!=0){
+            phim.setTenphim(tenPhim);
+            ktra = 0;
+            break;
+        }else if(tenPhim.compare(k->data.getTenphim())==0){
+            cout<<endl<<"Ten phim da ton tai. Vui long nhap lai"<<endl;
+            ktra = 1;
+        }
+    }
+    }while(ktra == 1);
+
+    // fflush(stdin);
+    // cout<<"Ten phim: ";
+    // getline(cin, tenPhim);
+    // phim.setTenphim(tenPhim);
+
     fflush(stdin);
     cout<<"Nhap the loai phim: ";
     getline(cin, theLoai);
@@ -829,6 +883,7 @@ void ThemPhimMoi(Phim phim, List_phim &Lphim){
     cout<<"Ten quoc gia: ";
     getline(cin, tenQuocGia);
     phim.setQuocGia(tenQuocGia);
+
     Lphim.addLast(phim);
 
 }
@@ -846,15 +901,14 @@ void XoaPhim(List_phim &Lphim){
         if(phimXoa.compare(k->data.getMaphim())!=0){
             dem++;
             if(dem == Lphim.size){
-                cout<<"Khong tim thay phim muon xoa";
+                cout<<"Khong tim thay phim muon xoa !!";
                 getch();
             }
         }else if(phimXoa.compare(k->data.getMaphim())==0){
             Lphim.remove(k);
-            cout<<"Xoa thanh cong phim "<<phimXoa;
-            cout<<endl<<"-------------"<<endl;
+            cout<<"Xoa thanh cong phim ma so "<<phimXoa;
+            cout<<endl<<"-------------------------"<<endl;
             for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
-                cout<<Lphim.size;
                 k->data.XuatthongtinPhim();
             }
             break;
@@ -883,11 +937,11 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
 		do {
 			cout << endl << "\t\t\t\t\tNhap lua chon: ";
 			cin >> luaChon;
-			if (luaChon < 1 || luaChon>8) {
+			if (luaChon < 1 || luaChon>10) {
 				cout << "Lua chon khong hop le!" << endl;
 				system("pause");
 			}
-		} while (luaChon < 1 || luaChon>8);
+		} while (luaChon < 1 || luaChon>10);
 
 		switch (luaChon) 
         {
@@ -897,6 +951,7 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
             cout<<endl;
 			system("pause");
 			break;
+
 		case 2:
             system("cls");
 			cout << "Xem thong tin phim";
@@ -904,30 +959,35 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
             XuatThongTinPhim(Lphim);
 			system("pause");
 			break;
+
 		case 3:
             system("cls");
 			cout << "Xem lich chieu phim";
             cout<<endl;
 			system("pause");
 			break;
+
 		case 4:
             system("cls");
 			cout << "Xuat hoa don";
             cout<<endl;
 			system("pause");
 			break;
+
 		case 5:
             system("cls");
 			cout << "Kiem tra thong tin khach";
             cout<<endl;
 			system("pause");
 			break;
+
 		case 6:
             system("cls");
 			cout << "Thong ke doanh thu";
             cout<<endl;
 			system("pause");
 			break;
+
 		case 7:
             system("cls");
             int slphimmoi;
@@ -939,7 +999,13 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
             cout<<endl;
 			system("pause");
 			break;
+
         case 8:
+            system("cls");
+
+            cout<<"Sua thong tin phim";
+
+        case 9:
             system("cls");
             int slphimxoa;
 
@@ -952,6 +1018,9 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
             }
             cout<<endl;
             system("pause");
+        
+        case 10: 
+            cout<<"Rset rap phim";
 
         }
 	}
