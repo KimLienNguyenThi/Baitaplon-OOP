@@ -685,7 +685,7 @@ void List_phim::remove(Node_phim *p){
         //DANH SACH PHIM CO SAN
 void DanhSachPhim(List_phim &Lphim, Phim phim){
     phim.setTenphim("Co gai tu qua khu");
-    phim.setMaphim("01");
+    phim.setMaphim("001");
     phim.setGiave(45000.0);
     phim.setTheloai("Kinh di");
     phim.setThoiluongphim(160);
@@ -697,7 +697,7 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     Lphim.addLast(phim);
 
     phim.setTenphim("Bong dung trung so");
-    phim.setMaphim("02");
+    phim.setMaphim("002");
     phim.setGiave(45000.0);
     phim.setTheloai("Tam ly, hai huoc");
     phim.setThoiluongphim(120);
@@ -709,7 +709,7 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     Lphim.addLast(phim);
 
     phim.setTenphim("Nu vuong huyen thoai");
-    phim.setMaphim("03");
+    phim.setMaphim("003");
     phim.setGiave(45000.0);
     phim.setTheloai("Hanh dong");
     phim.setThoiluongphim(140);
@@ -839,16 +839,17 @@ void XoaPhim(List_phim &Lphim){
     int dem=0;
 
     fflush(stdin);
-    cout<<"Nhap ten phim muon xoa: ";
+    cout<<"Nhap ma phim muon xoa: ";
     getline(cin, phimXoa);
     
     for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
-        if(phimXoa.compare(k->data.getTenphim())!=0){
+        if(phimXoa.compare(k->data.getMaphim())!=0){
             dem++;
             if(dem == Lphim.size){
                 cout<<"Khong tim thay phim muon xoa";
+                getch();
             }
-        }else if(phimXoa.compare(k->data.getTenphim())==0){
+        }else if(phimXoa.compare(k->data.getMaphim())==0){
             Lphim.remove(k);
             cout<<"Xoa thanh cong phim "<<phimXoa;
             cout<<endl<<"-------------"<<endl;
@@ -873,8 +874,11 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
 		cout << "\t\t\t\t\t4. Xuat hoa don" << endl;   // Luan
 		cout << "\t\t\t\t\t5. Kiem tra thong tin khach" << endl;  // Luân
 		cout << "\t\t\t\t\t6. Thong ke doanh thu" << endl;  // Luân
-		cout << "\t\t\t\t\t7. Them phim moi" << endl;
-		cout << "\t\t\t\t\t8. Xoa phim" << endl;  // Huy
+		cout << "\t\t\t\t\t7. Them phim moi" << endl;  // Huy
+		cout << "\t\t\t\t\t8. Sua thong tin phim" << endl;  // Huy
+		cout << "\t\t\t\t\t9. Xoa phim" << endl;  // Huy
+		cout << "\t\t\t\t\t10. Reset rap phim" << endl;  // Huy
+
 
 		do {
 			cout << endl << "\t\t\t\t\tNhap lua chon: ";
