@@ -727,7 +727,7 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
                 // CHUC NANG
 void XuatThongTinPhim (List_phim Lphim){
     for (Node_phim * k = Lphim.head; k != NULL; k = k->next){
-        cout<<endl;
+        /* cout<<endl;
         cout << "Ma phim: " << k->data.getMaphim() << endl;
         cout << "Ten phim: " << k->data.getTenphim () << endl;
         cout << "The loai: " << k->data.getTheloai() << endl;
@@ -736,8 +736,18 @@ void XuatThongTinPhim (List_phim Lphim){
         cout << "Thoi luong phim: " << k->data.getThoiluongphim() <<"p"<< endl;
         cout << "Ngay khoi chieu: " << k->data.getNgaykhoichieu().getDay() <<"/"<< k->data.getNgaykhoichieu().getMonth() <<"/"<< k->data.getNgaykhoichieu().getYear() << endl;
         cout << "Gia ve: " << k->data.getGiave () <<" VND"<< endl<<endl;
+                */
+               
+       k->data.XuatthongtinPhim();
         }
 }
+
+void XuatThongTinKhachHang (List_kh &Lkh){
+    for (Node_kh *k = Lkh.head; k != NULL; k = k->next){
+         k->data.Xuatthongtinkhachhang();
+    }
+}
+
 void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, Rap &rap2){
     int soRap;
     string maPhim;
@@ -992,6 +1002,7 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
 		case 5:
             system("cls");
 			cout << "Kiem tra thong tin khach";
+            XuatThongTinKhachHang(Lkh);
             cout<<endl;
 			system("pause");
 			break;
