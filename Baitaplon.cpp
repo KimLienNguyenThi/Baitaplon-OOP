@@ -741,28 +741,39 @@ void XuatThongTinPhim (List_phim Lphim){
 void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, Rap &rap2){
     int soRap;
     string maPhim;
+    int dem=0;
 
     XuatThongTinPhim(Lphim);
     cout<<"Nhap thong tin khach hang "<<endl;
     kh.NhapThongTinKhachHang();
-    cout<<"Quy khach chon phim co ma so: ";
-    cin>>maPhim;
+
         // Duyet qua danh sach phim -> tim ra phim co ma so khach chon
-    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
-        int dem=0;
-        if(maPhim.compare(k->data.getMaphim())==0){
-            kh.getVe()->setTenphim(k->data.getTenphim());
-            cout<<"Quy khach chon phim: "<<kh.getVe()->getTenphim()<<endl;
-            break;
-        }else if(maPhim.compare(k->data.getMaphim())!=0){
-            dem++;
-            if(dem == Lphim.size){
-                cout<<"Khong ton tai phim! Xin vui long chon lai";
-                getch();
+    do{
+        dem=0;
+        fflush(stdin);
+        cout<<"Quy khach chon phim co ma so: ";
+        getline(cin, maPhim);
+        for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+            if(maPhim.compare(k->data.getMaphim())==0){
+                kh.getVe()->setTenphim(k->data.getTenphim());
+                // gan gia ve va thoi luong phim vao thong tin khach hang
+                kh.getVe()->setGiave(k->data.getGiave());
+                kh.getVe()->setThoiluongphim(k->data.getThoiluongphim());
+                cout<<"Quy khach chon phim: "<<kh.getVe()->getTenphim()<<endl;
+                break;
+            }else if(maPhim.compare(k->data.getMaphim())!=0){
+                dem++;
+                if(dem == Lphim.size){
+                    cout<<"Khong ton tai phim! Xin vui long chon lai"<<endl;
+                    getch();
+                }
             }
         }
-    }
+    }while(dem == Lphim.size);
+
+
     kh.gheChon = new int[kh.getSoLuongVe()];
+
     do{
         cout<<"Phim chieu o rap so: ";
         cin>>soRap;
@@ -785,14 +796,19 @@ void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, R
             kh.getVe()->setSoRap(soRap);
             rap2.XuatDanhSachGhe();
             for(int i = 0; i<kh.getSoLuongVe(); i++){
-                cout<<"Quy khach chon ghe so: ";
-                cin>>kh.gheChon[i];
-                rap2.chonGhe(kh.gheChon[i]-1);
+                do{
+                    cout<<"Quy khach chon ghe so: ";
+                    cin>>kh.gheChon[i];
+                    rap2.chonGhe(kh.gheChon[i]-1);
+                    if(kh.gheChon[i]<1 || kh.gheChon[i]>50){
+                        cout<<endl<<"So ghe khong phu hop! Vui long chon lai"<<endl;
+                    }
+                }while(kh.gheChon[i]<1 || kh.gheChon[i]>50);
             }
             rap2.XuatDanhSachGhe();
             getch();
         }else{
-            cout<<"Khong co so rap phu hop! Vui long chon lai";
+            cout<<"Khong co so rap phu hop! Vui long chon lai"<<endl;
         }
     }while(soRap<1 || soRap>2);
 
@@ -812,53 +828,45 @@ void ThemPhimMoi(Phim phim, List_phim &Lphim){
     int thoiLuongPhim;
     string tenNhaSx;
     string tenQuocGia;
-    int ktra;
     int dem=0;
 
     cout<<endl<<"---------- Nhap phim moi ----------";
 
-    // do{
-    // fflush(stdin);
-    // cout<<endl<<"Ma phim: ";
-    // getline(cin,maPhim);
-    // for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
-    //     if(maPhim.compare(k->data.getMaphim())!=0){
-    //         dem++;
-    //         if(dem == Lphim.size){
-    //             phim.setMaphim(maPhim);
-    //         }
-    //     }else if(maPhim.compare(k->data.getMaphim())==0){
-    //         cout<<endl<<"Ma phim da ton tai. Vui long nhap lai"<<endl;
-    //         ktra = 1;
-    //         break;
-    //     }
-    // }
-    // }while(ktra == 1);
+    do{
+        dem=0;
+        fflush(stdin);
+        cout<<endl<<"Ma phim: ";
+        getline(cin,maPhim);
+        for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+            if(maPhim.compare(k->data.getMaphim())!=0){
+                dem++;
+                if(dem == Lphim.size){
+                    phim.setMaphim(maPhim);
+                }
+            }else if(maPhim.compare(k->data.getMaphim())==0){
+                cout<<"Ma phim da ton tai. Vui long nhap lai !!!";
+                break;
+            }
+        }
+    }while(dem!=Lphim.size);
 
-    // dem=0;
-    // do{
-    // fflush(stdin);
-    // cout<<"Ten phim: ";
-    // getline(cin,tenPhim);
-    // for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
-    //     if(tenPhim.compare(k->data.getTenphim())!=0){
-    //         phim.setTenphim(tenPhim);
-    //         break;
-    //     }else if(tenPhim.compare(k->data.getTenphim())==0){
-    //         cout<<endl<<"Ten phim da ton tai. Vui long nhap lai"<<endl;
-    //         ktra = 1;
-    //     }
-    // }
-    // }while(ktra == 1);
-
-    fflush(stdin);
-    cout<<"Ma phim: ";
-    getline(cin, maPhim);
-    phim.setMaphim(maPhim);
-    fflush(stdin);
-    cout<<"Ten phim: ";
-    getline(cin, tenPhim);
-    phim.setTenphim(tenPhim);
+    do{
+        dem=0;
+        fflush(stdin);
+        cout<<endl<<"Ten phim: ";
+        getline(cin,tenPhim);
+        for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+            if(tenPhim.compare(k->data.getTenphim())!=0){
+                dem++;
+                if(dem== Lphim.size){
+                    phim.setTenphim(tenPhim);
+                }
+            }else if(tenPhim.compare(k->data.getTenphim())==0){
+                cout<<"Ten phim da ton tai. Vui long nhap lai !!!";
+                break;
+            }
+        }
+    }while(dem!=Lphim.size);
 
     fflush(stdin);
     cout<<"Nhap the loai phim: ";
