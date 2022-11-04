@@ -812,46 +812,53 @@ void ThemPhimMoi(Phim phim, List_phim &Lphim){
     int thoiLuongPhim;
     string tenNhaSx;
     string tenQuocGia;
-    int ktra = 0;
+    int ktra;
+    int dem=0;
 
     cout<<endl<<"---------- Nhap phim moi ----------";
 
-    do{
-    fflush(stdin);
-    cout<<endl<<"Ma phim: ";
-    getline(cin,maPhim);
-    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
-        if(maPhim.compare(k->data.getMaphim())!=0){
-            phim.setMaphim(maPhim);
-            ktra = 0;
-            break;
-        }else if(maPhim.compare(k->data.getMaphim())==0){
-            cout<<endl<<"Ma phim da ton tai. Vui long nhap lai"<<endl;
-            ktra = 1;
-        }
-    }
-    }while(ktra == 1);
+    // do{
+    // fflush(stdin);
+    // cout<<endl<<"Ma phim: ";
+    // getline(cin,maPhim);
+    // for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+    //     if(maPhim.compare(k->data.getMaphim())!=0){
+    //         dem++;
+    //         if(dem == Lphim.size){
+    //             phim.setMaphim(maPhim);
+    //         }
+    //     }else if(maPhim.compare(k->data.getMaphim())==0){
+    //         cout<<endl<<"Ma phim da ton tai. Vui long nhap lai"<<endl;
+    //         ktra = 1;
+    //         break;
+    //     }
+    // }
+    // }while(ktra == 1);
 
-    do{
-    fflush(stdin);
-    cout<<"Ten phim: ";
-    getline(cin,tenPhim);
-    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
-        if(tenPhim.compare(k->data.getTenphim())!=0){
-            phim.setTenphim(tenPhim);
-            ktra = 0;
-            break;
-        }else if(tenPhim.compare(k->data.getTenphim())==0){
-            cout<<endl<<"Ten phim da ton tai. Vui long nhap lai"<<endl;
-            ktra = 1;
-        }
-    }
-    }while(ktra == 1);
-
+    // dem=0;
+    // do{
     // fflush(stdin);
     // cout<<"Ten phim: ";
-    // getline(cin, tenPhim);
-    // phim.setTenphim(tenPhim);
+    // getline(cin,tenPhim);
+    // for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+    //     if(tenPhim.compare(k->data.getTenphim())!=0){
+    //         phim.setTenphim(tenPhim);
+    //         break;
+    //     }else if(tenPhim.compare(k->data.getTenphim())==0){
+    //         cout<<endl<<"Ten phim da ton tai. Vui long nhap lai"<<endl;
+    //         ktra = 1;
+    //     }
+    // }
+    // }while(ktra == 1);
+
+    fflush(stdin);
+    cout<<"Ma phim: ";
+    getline(cin, maPhim);
+    phim.setMaphim(maPhim);
+    fflush(stdin);
+    cout<<"Ten phim: ";
+    getline(cin, tenPhim);
+    phim.setTenphim(tenPhim);
 
     fflush(stdin);
     cout<<"Nhap the loai phim: ";
