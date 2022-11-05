@@ -335,7 +335,7 @@ class Rap{
     ~Rap();
     void chonGhe(int gheChon);
     void XuatDanhSachGhe();
-    void setGhe(char Ghe[50][6]);
+    void setGhe(int i);
 };
 
 Rap::Rap(){
@@ -367,8 +367,8 @@ void Rap::XuatDanhSachGhe(){
     cout<<"------------------------------------------------------------------------------------------------------------------------\n";
 }
 
-void Rap::setGhe(char Ghe[50][6]){
-    ghe[50][6] = Ghe[50][6];
+void Rap::setGhe(int i){
+    strcpy(ghe[i],"READY");
 }
 
 class GioChieu:public Date{
@@ -1042,14 +1042,9 @@ void SuaThongTinPhim(List_phim &Lphim){
 }
 
 void ResetRapPhim(Rap &rap){
-    char Ghe[50][6] =   {"READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
-                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
-                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
-                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
-                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY"
-                        };
-    
-    rap.setGhe(Ghe);
+    for(int i=1; i<51; i++){
+        rap.setGhe(i);
+    }
     cout<<"----------- Reset rap thanh cong -----------";
     rap.XuatDanhSachGhe();
     getch();
