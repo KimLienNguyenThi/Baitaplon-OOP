@@ -335,6 +335,7 @@ class Rap{
     ~Rap();
     void chonGhe(int gheChon);
     void XuatDanhSachGhe();
+    void setGhe(char Ghe[50][6]);
 };
 
 Rap::Rap(){
@@ -364,6 +365,10 @@ void Rap::XuatDanhSachGhe(){
     cout<<"----------------------------------------------------------------------------------------------------\n";
     cout<<"| G41: "<<ghe[40]<<"  | G42: "<<ghe[41]<<"  | G43: "<<ghe[42]<<"  | G44: "<<ghe[43]<<"  | G45: "<<ghe[44]<<"  | G46: "<<ghe[45]<<"  | G47: "<<ghe[46]<<"  | G48: "<<ghe[47]<<"  | G49: "<<ghe[48]<<"  | G50: "<<ghe[49]<<"  |\n";
     cout<<"------------------------------------------------------------------------------------------------------------------------\n";
+}
+
+void Rap::setGhe(char Ghe[50][6]){
+    ghe[50][6] = Ghe[50][6];
 }
 
 class GioChieu:public Date{
@@ -742,7 +747,7 @@ void XuatThongTinPhim (List_phim Lphim){
         }
 }
 
-void XuatThongTinKhachHang (List_kh &Lkh){
+void XuatThongTinKhachHang (List_kh Lkh){
     for (Node_kh *k = Lkh.head; k != NULL; k = k->next){
          k->data.Xuatthongtinkhachhang();
     }
@@ -941,6 +946,115 @@ void XoaPhim(List_phim &Lphim){
     }
 }
 
+void SuaThongTinPhim(List_phim &Lphim){
+    string maPhim;
+    int luaChon;
+    string bienSuaChuoi;
+    int bienSuaSo;
+    int dem=0;
+
+    XuatThongTinPhim(Lphim);
+    do{
+    fflush(stdin);
+    cout<<endl<<"Nhap ma phim muon sua: ";
+    getline(cin, maPhim);
+    cout<<"*Thong tin muon sua:";
+    cout<<endl<<"1. Ma phim";
+    cout<<endl<<"2. Ten phim";
+    cout<<endl<<"3. The loai";
+    cout<<endl<<"4. Ngay khoi chieu";
+    cout<<endl<<"5. Gia ve";
+    cout<<endl<<"6. Thoi luong phim";
+    cout<<endl<<"7. Ten nha san xuat";
+    cout<<endl<<"8. Ten quoc gia";
+    cout<<endl<<"Lua chon: ";
+    cin>>luaChon;
+
+    for(Node_phim *k = Lphim.head; k!=NULL; k = k->next){
+        if(maPhim.compare(k->data.getMaphim())==0){
+            switch(luaChon){
+                case 1:
+                    fflush(stdin);
+                    cout<<"Nhap ma phim moi: ";
+                    getline(cin, bienSuaChuoi);
+                    k->data.setMaphim(bienSuaChuoi);
+                    break;
+                case 2:
+                    fflush(stdin);
+                    cout<<"Nhap ten phim moi: ";
+                    getline(cin, bienSuaChuoi);
+                    k->data.setTenphim(bienSuaChuoi);
+                    break;
+                case 3:
+                    fflush(stdin);
+                    cout<<"Nhap the loai phim moi: ";
+                    getline(cin, bienSuaChuoi);
+                    k->data.setTheloai(bienSuaChuoi);
+                    break;
+                case 4:
+                    fflush(stdin);
+                    cout<<"Nhap ngay khoi chieu moi";
+                    cout<<endl<<"Ngay: ";
+                    cin>>bienSuaSo;
+                    k->data.setNgaykhoichieu_ngay(bienSuaSo);
+                    cout<<endl<<"Thang: ";
+                    cin>>bienSuaSo;
+                    k->data.setNgaykhoichieu_thang(bienSuaSo);
+                    cout<<endl<<"Nam: ";
+                    cin>>bienSuaSo;
+                    k->data.setNgaykhoichieu_nam(bienSuaSo);
+                    break;
+                case 5:
+                    fflush(stdin);
+                    cout<<"Nhap gia ve moi: ";
+                    cin>>bienSuaSo;
+                    k->data.setGiave(bienSuaSo);
+                    break;
+                case 6:
+                    cout<<"Nhap thoi luong phim moi: ";
+                    cin>>bienSuaSo;
+                    k->data.setThoiluongphim(bienSuaSo);
+                    break;
+                case 7:
+                    fflush(stdin);
+                    cout<<"Nhap ten nha san xuat moi: ";
+                    getline(cin, bienSuaChuoi);
+                    k->data.setTenNhaSX(bienSuaChuoi);
+                    break;
+                case 8:
+                    fflush(stdin);
+                    cout<<"Nhap ten quoc gia moi: ";
+                    getline(cin, bienSuaChuoi);
+                    k->data.setQuocGia(bienSuaChuoi);
+                    break;
+            }
+            cout<<endl<<"-------- Thong tin da duoc chinh sua --------";
+            k->data.XuatthongtinPhim();
+            break;
+        }else if(maPhim.compare(k->data.getMaphim())!=0){
+            dem++;
+            if(dem == Lphim.size){
+                cout<<"Khong tim thay phim. Vui long nhap lai !!!";
+            }
+        }
+    }
+    }while(dem == Lphim.size);
+}
+
+void ResetRapPhim(Rap &rap){
+    char Ghe[50][6] =   {"READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY",
+                         "READY","READY","READY","READY","READY","READY","READY","READY","READY","READY"
+                        };
+    
+    rap.setGhe(Ghe);
+    cout<<"----------- Reset rap thanh cong -----------";
+    rap.XuatDanhSachGhe();
+    getch();
+}
+
 void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Rap &rap2){
 	int luaChon;
 	while (1) {
@@ -1028,8 +1142,9 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
 
         case 8:
             system("cls");
-
-            cout<<"Sua thong tin phim";
+            SuaThongTinPhim(Lphim);
+			system("pause");
+            break;
 
         case 9:
             system("cls");
@@ -1044,10 +1159,25 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
             }
             cout<<endl;
             system("pause");
+            break;
         
         case 10: 
+            int soRaprs;
             cout<<"Rset rap phim";
 
+            do{
+            cout<<endl<<"Nhap rap muon reset: ";
+            cin>>soRaprs;
+                if(soRaprs==1){
+                    ResetRapPhim(rap1);
+                }else if(soRaprs==2){
+                    ResetRapPhim(rap2);
+                }else{
+                    cout<<"So rap khong phu hop! Vui long nhap lai";
+                }
+            }while(soRaprs<1 || soRaprs>2);
+
+            break;
         }
 	}
 }
