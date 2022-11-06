@@ -32,8 +32,22 @@ void ManagementCinema::QuanLyLichChieu::LoadDanhSachRapPhim(String^ maRap)
 
 bool ManagementCinema::QuanLyLichChieu::KiemTraLichChieu()
 {
-	Store^ s = gcnew Store();
-	bool result = s->KiemTraLichChieuTonTai(datePickBatDau->Value, datePickKetThuc->Value, comboRapPhim->Text);//, datePickNgayChieu->Value);
+	Store^ s = gcnew Store(); 
+	DateTime batdau =  DateTime(
+		datePickNgayChieu->Value.Year,
+		datePickNgayChieu->Value.Month,
+		datePickNgayChieu->Value.Day,
+		datePickBatDau->Value.Hour,
+		datePickBatDau->Value.Minute,
+		datePickBatDau->Value.Second);
+	DateTime ketthuc =  DateTime(
+		datePickNgayChieu->Value.Year,
+		datePickNgayChieu->Value.Month,
+		datePickNgayChieu->Value.Day,
+		datePickKetThuc->Value.Hour,
+		datePickKetThuc->Value.Minute,
+		datePickKetThuc->Value.Second);
+	bool result = s->KiemTraLichChieuTonTai(batdau, ketthuc, comboRapPhim->Text);//, datePickNgayChieu->Value);
 	return result;
 }
 

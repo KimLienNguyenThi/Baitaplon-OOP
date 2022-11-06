@@ -34,6 +34,28 @@ DataTable^ Store::Store::GetAllPhims(String^ timkiemTen)
 	return results;
 }
 
+DataTable^ Store::Get1Phim(String^ maPhim)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	// tạo câu lệnh lấy dlieu tu database
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT * FROM Phim ";
+
+	if (maPhim != "") {
+		query += " where MaPhim = '" + maPhim->Trim() + "'";
+	}
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}
+
 DataTable^ Store::Store::GetPhimCoLichChieu()
 {
 	OleDbConnection^ conn = ConnectionAccess();
@@ -41,8 +63,27 @@ DataTable^ Store::Store::GetPhimCoLichChieu()
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
 	String^ query = "SELECT DISTINCT Phim.MaPhim, Phim.Ten "
-		+"FROM Phim, LichPhim "
-		+"WHERE Phim.MaPhim = LichPhim.MaPhim AND LichPhim.NgayChieu >= #" + DateTime::Now.ToShortDateString() + "#";
+		+ "FROM Phim, LichPhim "
+		+ "WHERE Phim.MaPhim = LichPhim.MaPhim AND LichPhim.NgayChieu >= #" + DateTime::Now.ToShortDateString() + "#";
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}
+
+DataTable^ Store::LoadDanhSachGheDaDangKy(String^ idLich, String^ maRap)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT * "
+		+ "FROM DangKyVe "
+		+ "WHERE IDLichPhim = '" + idLich + "'";
 	cmd->CommandText = query;
 	cmd->ExecuteNonQuery();
 	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
@@ -67,7 +108,7 @@ DataTable^ Store::LoadDanhSachLichChieu(String^ maPhim)
 	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
 
 	adapter->Fill(results);
-	
+
 	CloseAccess(conn);
 	return results;
 }
@@ -79,7 +120,23 @@ DataTable^ Store::LoadDanhSachLichChieuTuongLai(String^ maPhim)
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
 	String^ query = "SELECT distinct Format (NgayChieu, 'yyyy/mm/dd')  FROM LichPhim WHERE NgayChieu  >= #" + DateTime::Now.ToShortDateString() + "# and MaPhim ='" + maPhim + "'";
-	
+
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}
+DataTable^ Store::LoadDanhSachLichKhungGio(String^ maPhim, DateTime^ ngay)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT * FROM LichPhim WHERE NgayChieu >  #" + ngay->ToShortDateString() + "# AND NgayChieu <  #" + ngay->AddDays(1).ToShortDateString() + "# AND MaPhim = '" + maPhim + "';";
 	cmd->CommandText = query;
 	cmd->ExecuteNonQuery();
 	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
@@ -132,7 +189,9 @@ DataTable^ Store::LoadListRapPhim(String^ maRap)
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
 	String^ query = "SELECT * FROM RapPhim ";
-
+	if (maRap != "") {
+		query += " where MaRap = '" + maRap + "';";
+	}
 	cmd->CommandText = query;
 	cmd->ExecuteNonQuery();
 	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
@@ -184,22 +243,16 @@ bool Store::KiemTraLichChieuTonTai(DateTime batdau, DateTime ketthuc, String^ ma
 	DataTable^ results = gcnew DataTable();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
-	/*String^ query = "SELECT * FROM LichPhim WHERE(GioBatDau Between #" + batdau + "# AND #" + ketthuc + "#)"
+	String^ query = "SELECT * FROM LichPhim WHERE(GioBatDau Between #" + batdau + "# AND #" + ketthuc + "#)"
 		+ " OR (GioKetThuc Between #" + batdau + "# AND #" + ketthuc + "#) "
 		+ " OR (GioBatDau > #" + batdau + "# AND GioKetThuc < #" + ketthuc + "#) "
-		+ " AND RapPhim = '" + maRap->Trim() + "';";*/
-	/*if (NgayChieu == datePickNgayChieu->Value)
-	{
-		"WHERE(GioBatDau Between #" + batdau + "# AND #" + ketthuc + "#)"
-			+ " OR (GioKetThuc Between #" + batdau + "# AND #" + ketthuc + "#) "
-			+ " OR (GioBatDau > #" + batdau + "# AND GioKetThuc < #" + ketthuc + "#) "
-			+ " AND RapPhim = '" + maRap->Trim() + "';";
-	}*/
-	
-	/*cmd->CommandText = query; 
-	cmd->ExecuteNonQuery();
-	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
-	adapter->Fill(results);*/
+		+ " OR (GioBatDau < #" + batdau + "# AND GioKetThuc > #" + ketthuc + "#) "
+		+ " AND RapPhim = '" + maRap->Trim() + "';";
+
+		cmd->CommandText = query;
+		cmd->ExecuteNonQuery();
+		OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+		adapter->Fill(results);
 	if (results->Rows->Count > 0)
 	{
 		CloseAccess(conn);
@@ -215,8 +268,8 @@ bool Store::Xoa1Phim(String^ maPhim)
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
 	cmd->CommandText = "DELETE * FROM Phim WHERE MaPhim ='" + maPhim->Trim() + "';";
-		
-	
+
+
 	////
 	// ImageList1.Images.RemoveByKey("myPhoto")
 	bool resutl = cmd->ExecuteNonQuery();
@@ -256,6 +309,45 @@ bool Store::Sua1Phim(String^ maPhim, String^ ten, String^ nam, String^ thoiluong
 	return resutl;
 }
 
+bool Store::ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH, String^ sdt, int tongTien, String^ rapPhim)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+
+	cmd->CommandText = "INSERT INTO " +
+		" HoaDon(TenKhachHang, NgayMuaVe, SDT ,SoVe, TongTien,IDLichPhim)"
+		+ "VALUES ('" + tenKH + "', '" + DateTime::Now + "',  '" + sdt + "', " + arrGhe->Length + ", " + tongTien + ", " + idLich + ");";
+		
+	int resutl = cmd->ExecuteNonQuery();
+	if (resutl <= 0 ) {
+		return false;
+	}
+	cmd->CommandText = " SELECT DISTINCT @@IDENTITY FROM HoaDon;";
+	resutl = cmd->ExecuteNonQuery();
+	DataTable^ results = gcnew DataTable();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+	DataRow^ dr = results->Rows[0];
+	int idHoaDon = int::Parse( dr[0]->ToString());
+
+	int giaVe = tongTien / arrGhe->Length;
+	for each (String^ item in arrGhe)
+	{
+		cmd->CommandText = "INSERT INTO " +
+			" DangKyVe(IDLichPhim, MaGhe ,IDHoaDon)"
+			+ "VALUES ('" + idLich + "', '" + item + "', " + idHoaDon + ")";
+		resutl = cmd->ExecuteNonQuery();
+
+		cmd->CommandText = "INSERT INTO ChiTietHoaDon (IDHoaDon,MaGhe,GiaVe, RapPhim)"
+			+ "VALUES (" + idHoaDon + ", '" + item + "', " + giaVe +" , '"+ rapPhim +"')";
+		resutl = cmd->ExecuteNonQuery();
+	}
+
+	CloseAccess(conn);
+	return 1;
+}
+
 bool Store::Them1LichPhim(String^ maPhim, String^ rapPhim, String^ giaVe, DateTime^ ngay, DateTime^ gioBatdau, DateTime^ gioKetThuc)
 {
 	OleDbConnection^ conn = ConnectionAccess();
@@ -267,6 +359,98 @@ bool Store::Them1LichPhim(String^ maPhim, String^ rapPhim, String^ giaVe, DateTi
 	bool resutl = cmd->ExecuteNonQuery();
 	CloseAccess(conn);
 	return resutl;
+}
+DataTable^ Store::GetRapPhim(String^ rapPhim)
+{
+	return LoadListRapPhim(rapPhim);
+	// // O: insert return statement here
+}
+DataTable^ Store::Get1LichChieu(String^ idLichChieu)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT * FROM Phim, LichPhim "
+		"WHERE Phim.MaPhim = LichPhim.MaPhim and LichPhim.ID = " + idLichChieu + "";
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}
+DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^ denNgay)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT  HoaDon.ID, HoaDon.TenKhachHang,HoaDon.SDT,HoaDon.TongTien, HoaDon.SoVe, Phim.Ten, Phim.MaPhim, Phim.NamSanXuat"
+		+ " , Phim.QuocGia, Phim.ThoiLuong "
+		 +"FROM HoaDon, LichPhim, Phim "
+
+		+"WHERE HoaDon.IDLichPhim = LichPhim.ID AND Phim.MaPhim = LichPhim.MaPhim";
+
+	if (timKiem != "")
+	{
+		query += " AND (TenKhachHang like '%" + timKiem->Trim() + "%' OR Phim.Ten  like '%" + timKiem->Trim() + "%') ";
+	}
+
+	if (tuNgay != nullptr)
+	{
+		query += " AND NgayMuaVe >= #" + tuNgay->ToShortDateString() + "# ";
+	}
+
+	if (denNgay != nullptr)
+	{
+		query += " AND NgayMuaVe <= #" + denNgay->ToShortDateString() + "# ";
+	}
+	query += " ORDER BY NgayMuaVe DESC";
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}
+DataTable^ Store::GetDanhSachChiTietHoaDon(String^ idHoaDon)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT * "
+		+ "FROM ChiTietHoaDon "
+		+ "WHERE IDHoaDon = "+ idHoaDon +" ";
+
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}
+bool Store::Login(String^ taiKhoan, String^ matkhau)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	cmd->CommandText = "SELECT * FROM TaiKhoan WHERE TaiKhoan ='" + taiKhoan->Trim() + "' AND MatKhau = '" + matkhau->Trim() + "'";
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+
+	adapter->Fill(results);
+	CloseAccess(conn);
+	if (results->Rows->Count > 0)
+	{
+		return true;
+	}
+	return false;
 }
 bool Store::Sua1LichPhim(String^ idLichPhim, String^ maPhim, String^ rapPhim, String^ giaVe, DateTime^ ngay, DateTime^ gioBatdau, DateTime^ gioKetThuc)
 {

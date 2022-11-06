@@ -124,29 +124,35 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DangKyVe.cpp" />
+    <ClCompile Include="Login.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Phim.cpp" />
+    <ClCompile Include="QuanLyHoaDon.cpp" />
     <ClCompile Include="QuanLyLichChieu.cpp" />
-    <ClCompile Include="RapPhim1.cpp" />
     <ClCompile Include="Store.cpp" />
     <ClCompile Include="QuanLyPhim.cpp" />
+    <ClCompile Include="TaoHoaDon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DangKyVe.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Login.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Phim.h" />
-    <ClInclude Include="QuanLyLichChieu.h">
+    <ClInclude Include="QuanLyHoaDon.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="RapPhim1.h">
+    <ClInclude Include="QuanLyLichChieu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Store.h" />
     <ClInclude Include="QuanLyPhim.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TaoHoaDon.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -154,8 +160,14 @@
     <EmbeddedResource Include="DangKyVe.resx">
       <DependentUpon>DangKyVe.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyHoaDon.resx">
+      <DependentUpon>QuanLyHoaDon.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyPhim.resx">
       <DependentUpon>QuanLyPhim.h</DependentUpon>
@@ -163,8 +175,8 @@
     <EmbeddedResource Include="QuanLyLichChieu.resx">
       <DependentUpon>QuanLyLichChieu.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RapPhim1.resx">
-      <DependentUpon>RapPhim1.h</DependentUpon>
+    <EmbeddedResource Include="TaoHoaDon.resx">
+      <DependentUpon>TaoHoaDon.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -156,7 +156,6 @@ namespace ManagementCinema {
 			this->btnThem = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TenPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -167,6 +166,7 @@ namespace ManagementCinema {
 			this->HinhAnh = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DienVien = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TrangThai = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -203,53 +203,63 @@ namespace ManagementCinema {
 			// label6
 			// 
 			this->label6->AutoSize = true;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label6->Location = System::Drawing::Point(503, 216);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(102, 16);
+			this->label6->Size = System::Drawing::Size(123, 19);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Diễn viên Chính:";
 			// 
 			// txtDienVien
 			// 
+			this->txtDienVien->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtDienVien->Location = System::Drawing::Point(631, 210);
 			this->txtDienVien->Margin = System::Windows::Forms::Padding(4);
 			this->txtDienVien->Name = L"txtDienVien";
-			this->txtDienVien->Size = System::Drawing::Size(408, 22);
+			this->txtDienVien->Size = System::Drawing::Size(408, 27);
 			this->txtDienVien->TabIndex = 13;
 			// 
 			// comboBox1
 			// 
-
-
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(631, 144);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(408, 24);
+			this->comboBox1->Size = System::Drawing::Size(408, 27);
 			this->comboBox1->TabIndex = 5;
 			// 
 			// txtTheLoai
 			// 
+			this->txtTheLoai->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtTheLoai->Location = System::Drawing::Point(631, 177);
 			this->txtTheLoai->Margin = System::Windows::Forms::Padding(4);
 			this->txtTheLoai->Name = L"txtTheLoai";
-			this->txtTheLoai->Size = System::Drawing::Size(408, 22);
+			this->txtTheLoai->Size = System::Drawing::Size(408, 27);
 			this->txtTheLoai->TabIndex = 6;
 			// 
 			// The
 			// 
 			this->The->AutoSize = true;
+			this->The->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->The->Location = System::Drawing::Point(504, 181);
 			this->The->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->The->Name = L"The";
-			this->The->Size = System::Drawing::Size(59, 16);
+			this->The->Size = System::Drawing::Size(69, 19);
 			this->The->TabIndex = 12;
 			this->The->Text = L"Thể loại:";
 			// 
 			// btnChonHinh
 			// 
+			this->btnChonHinh->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnChonHinh->Location = System::Drawing::Point(631, 240);
 			this->btnChonHinh->Margin = System::Windows::Forms::Padding(4);
 			this->btnChonHinh->Name = L"btnChonHinh";
@@ -261,85 +271,103 @@ namespace ManagementCinema {
 			// 
 			// txtMaPhim
 			// 
+			this->txtMaPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtMaPhim->Location = System::Drawing::Point(631, 49);
 			this->txtMaPhim->Margin = System::Windows::Forms::Padding(4);
 			this->txtMaPhim->Name = L"txtMaPhim";
-			this->txtMaPhim->Size = System::Drawing::Size(408, 22);
+			this->txtMaPhim->Size = System::Drawing::Size(408, 27);
 			this->txtMaPhim->TabIndex = 2;
 			// 
 			// txtThoiLuong
 			// 
+			this->txtThoiLuong->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtThoiLuong->Location = System::Drawing::Point(631, 81);
 			this->txtThoiLuong->Margin = System::Windows::Forms::Padding(4);
 			this->txtThoiLuong->Name = L"txtThoiLuong";
-			this->txtThoiLuong->Size = System::Drawing::Size(408, 22);
+			this->txtThoiLuong->Size = System::Drawing::Size(408, 27);
 			this->txtThoiLuong->TabIndex = 3;
 			this->txtThoiLuong->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &QuanLyPhim::txtThoiLuong_KeyPress);
 			// 
 			// txtNamSanXuat
 			// 
+			this->txtNamSanXuat->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtNamSanXuat->Location = System::Drawing::Point(631, 113);
 			this->txtNamSanXuat->Margin = System::Windows::Forms::Padding(4);
 			this->txtNamSanXuat->Name = L"txtNamSanXuat";
-			this->txtNamSanXuat->Size = System::Drawing::Size(408, 22);
+			this->txtNamSanXuat->Size = System::Drawing::Size(408, 27);
 			this->txtNamSanXuat->TabIndex = 4;
 			this->txtNamSanXuat->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &QuanLyPhim::txtNamSanXuat_KeyPress);
 			// 
 			// txtTenPhim
 			// 
+			this->txtTenPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtTenPhim->Location = System::Drawing::Point(631, 17);
 			this->txtTenPhim->Margin = System::Windows::Forms::Padding(4);
 			this->txtTenPhim->Name = L"txtTenPhim";
-			this->txtTenPhim->Size = System::Drawing::Size(408, 22);
+			this->txtTenPhim->Size = System::Drawing::Size(408, 27);
 			this->txtTenPhim->TabIndex = 1;
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(503, 117);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(91, 16);
+			this->label5->Size = System::Drawing::Size(104, 19);
 			this->label5->TabIndex = 5;
 			this->label5->Text = L"Năm sản xuất:";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label4->Location = System::Drawing::Point(504, 149);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(64, 16);
+			this->label4->Size = System::Drawing::Size(75, 19);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"Quốc gia:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(500, 21);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(66, 16);
+			this->label3->Size = System::Drawing::Size(77, 19);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Tên phim:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(500, 85);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(73, 16);
+			this->label2->Size = System::Drawing::Size(88, 19);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Thời lượng:";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(503, 53);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(61, 16);
+			this->label1->Size = System::Drawing::Size(74, 19);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Mã phim:";
 			// 
@@ -472,10 +500,6 @@ namespace ManagementCinema {
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyPhim::dataGridView1_CellClick);
 			// 
-			// openFileDialog1
-			// 
-			this->openFileDialog1->FileName = L"openFileDialog1";
-			// 
 			// ID
 			// 
 			this->ID->DataPropertyName = L"ID";
@@ -531,7 +555,6 @@ namespace ManagementCinema {
 			// 
 			// QuocGia
 			// 
-
 			this->QuocGia->DataPropertyName = L"QuocGia";
 			this->QuocGia->HeaderText = L"Quốc Gia";
 			this->QuocGia->MinimumWidth = 6;
@@ -566,6 +589,10 @@ namespace ManagementCinema {
 			this->TrangThai->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->TrangThai->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
 			this->TrangThai->Width = 125;
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
 			// QuanLyPhim
 			// 

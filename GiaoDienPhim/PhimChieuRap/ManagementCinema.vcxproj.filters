@@ -21,9 +21,6 @@
     <ClCompile Include="Store.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Phim.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="QuanLyLichChieu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,8 +30,14 @@
     <ClCompile Include="DangKyVe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RapPhim1.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="TaoHoaDon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuanLyHoaDon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Login.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,9 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Store.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Phim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QuanLyLichChieu.h">
@@ -56,7 +56,13 @@
     <ClInclude Include="DangKyVe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RapPhim1.h">
+    <ClInclude Include="TaoHoaDon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuanLyHoaDon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
