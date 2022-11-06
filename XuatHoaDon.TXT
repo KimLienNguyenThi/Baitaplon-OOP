@@ -1,17 +1,9 @@
 
 
 ------------------- Hoa Don -------------------
-Ngay: 6/11/2022			Thoi gian: 10:50:33
-Ten Phim: Co gai tu qua khu
-The loai: Kinh di
-Ho Ten: nguyen
-So luong ve mua: 1			Gia: 45000 VND/1
-Tong tien: 45000 VND
-
-------------------- Hoa Don -------------------
-Ngay: 6/11/2022			Thoi gian: 10:50:53
-Ten Phim: Nu vuong huyen thoai
-The loai: Hanh dong
-Ho Ten: luan
+Ngay: 6/11/2022			Thoi gian: 15:10:47
+Ten Phim: Bong dung trung so
+The loai: Tam ly, hai huoc
+Ho Ten: Huy
 So luong ve mua: 2			Gia: 45000 VND/1
 Tong tien: 90000 VND

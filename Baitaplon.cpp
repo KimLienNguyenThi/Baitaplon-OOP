@@ -385,20 +385,29 @@ void Rap::setGhe(int i){
     strcpy(ghe[i],"READY");
 }
 
-class GioChieu:public Date{
+class GioChieu:public Date :public ThoiGian{
         private:
-    ThoiGian tgBatDau;
-    ThoiGian tgKetThuc;
+    int rap;
 
         public:
     GioChieu();
     ~GioChieu();
+    void ThoiGianBatDau();
+    void ThoiGianKetThuc();
 };
 
 GioChieu::GioChieu(){
 }
 
 GioChieu::~GioChieu(){
+}
+
+void GioChieu::ThoiGianBatDau(){
+
+}
+
+void GioChieu::ThoiGianKetThuc(){
+    
 }
 
 class Ve:public Phim{
@@ -1129,7 +1138,7 @@ void Ghi_File_Xuat_Hoa_Don(List_kh l, List_phim lphim, Phim phim){
 }
 
 void Thong_Ke_Doanh_Thu(){
-    cout << endl << "==========Doanh thu==========" << endl;
+    cout << endl << "------------ Doanh thu ------------" << endl;
     cout << "Tong so ve ban duoc: " << tongVe << " ve" << endl;
     cout << "Tong tien: " << tongTien << " VND" << endl;
 }
