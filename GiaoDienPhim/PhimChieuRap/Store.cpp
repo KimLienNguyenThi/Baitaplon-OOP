@@ -1,7 +1,7 @@
 ﻿#include "Store.h"
 OleDbConnection^ Store::ConnectionAccess()
 {
-	String^ DBPath = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\BTLOOP\\ManagementCinema\\ManagementCinema\\QLPhim.accdb;Persist Security Info=False;";
+	String^ DBPath = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\\Nam2ky1\\Baitaplon-OOP\\GiaoDienPhim\\PhimChieuRap\\QLPhim.accdb;Persist Security Info=False;";
 	OleDbConnection^ conn = gcnew OleDbConnection(DBPath);
 	conn->Open();
 	return conn;
