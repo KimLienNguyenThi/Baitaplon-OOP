@@ -345,6 +345,7 @@ class Rap{
     void chonGhe(int gheChon);
     void XuatDanhSachGhe();
     void setGhe(int i);
+    string getGhe(int gheChon);
 };
 
 Rap::Rap(){
@@ -359,6 +360,10 @@ Rap::~Rap(){
 
 void Rap::chonGhe(int gheChon){
     strcpy(ghe[gheChon],"XXXXX");
+}
+
+string Rap::getGhe(int gheChon){
+    return ghe[gheChon];
 }
 
 void Rap::XuatDanhSachGhe(){
@@ -829,6 +834,7 @@ void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, R
     kh.gheChon = new int[kh.getSoLuongVe()];
 
     do{
+        string ktra = "XXXXX";
         cout<<"Phim chieu o rap so: ";
         cin>>soRap;
         if(soRap == 1){
@@ -838,11 +844,11 @@ void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, R
                 do{
                     cout<<"Quy khach chon ghe so: ";
                     cin>>kh.gheChon[i];
-                    rap1.chonGhe(kh.gheChon[i]-1);
-                    if(kh.gheChon[i]<1 || kh.gheChon[i]>50){
+                    if(kh.gheChon[i]<1 || kh.gheChon[i]>50 || ktra.compare(rap1.getGhe(kh.gheChon[i]-1))==0){
                         cout<<endl<<"So ghe khong phu hop! Vui long chon lai"<<endl;
                     }
-                }while(kh.gheChon[i]<1 || kh.gheChon[i]>50);
+                }while(kh.gheChon[i]<1 || kh.gheChon[i]>50 || ktra.compare(rap1.getGhe(kh.gheChon[i]-1))==0);
+                rap1.chonGhe(kh.gheChon[i]-1);
             }
             rap1.XuatDanhSachGhe();
             getch();
@@ -853,11 +859,11 @@ void MuaVe(KhachHang kh, List_kh &Lkh, List_phim &Lphim, Phim phim, Rap &rap1, R
                 do{
                     cout<<"Quy khach chon ghe so: ";
                     cin>>kh.gheChon[i];
-                    rap2.chonGhe(kh.gheChon[i]-1);
-                    if(kh.gheChon[i]<1 || kh.gheChon[i]>50){
+                    if(kh.gheChon[i]<1 || kh.gheChon[i]>50 || ktra.compare(rap2.getGhe(kh.gheChon[i]-1))==0){
                         cout<<endl<<"So ghe khong phu hop! Vui long chon lai"<<endl;
                     }
-                }while(kh.gheChon[i]<1 || kh.gheChon[i]>50);
+                }while(kh.gheChon[i]<1 || kh.gheChon[i]>50 || ktra.compare(rap2.getGhe(kh.gheChon[i]-1))==0);
+                rap2.chonGhe(kh.gheChon[i]-1);
             }
             rap2.XuatDanhSachGhe();
             getch();
@@ -1112,9 +1118,10 @@ void Ghi_Xuat_Hoa_Don(ofstream& fileout, List_phim l, KhachHang kh, Phim phim){
 		}
 	}
 }
+
 void Ghi_File_Xuat_Hoa_Don(List_kh l, List_phim lphim, Phim phim){ 
 	ofstream fileout;
-	fileout.open("XuatHoaDon.TXT", ios::out);
+	fileout.open("XuatHoaDon.TXT", ios::trunc);
     for (Node_kh* k = l.head; k != NULL; k = k->next){
 		Ghi_Xuat_Hoa_Don(fileout, lphim, k->data, phim);
 	}
@@ -1159,6 +1166,7 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
 		case 1:
             system("cls");
             MuaVe(kh, Lkh, Lphim, phim, rap1, rap2);
+            Ghi_File_Xuat_Hoa_Don(Lkh,Lphim, phim);
             cout<<endl;
 			system("pause");
 			break;
