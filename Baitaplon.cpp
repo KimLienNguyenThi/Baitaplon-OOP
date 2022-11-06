@@ -3,6 +3,7 @@
 #include<time.h>
 #include<string.h>
 #include<conio.h>
+#include<fstream>
 
 using namespace std;
 
@@ -91,7 +92,15 @@ class ThoiGian{
     int setGioHeThong(int gio);
     int setPhutHeThong(int phut);
     int setGiayHeThong(int giay);
-
+	int getGio(){
+		return gio;
+	}
+	int getPhut(){
+		return phut;
+	}
+	int getGiay(){
+		return giay;
+	}
 };
 
 ThoiGian::ThoiGian(){
@@ -436,6 +445,18 @@ class ConNguoi{
     ~ConNguoi();
     void NhapThongTinCaNhan();
     void XuatThongTinCaNhan();
+    string getTen(){
+        return ten;
+    }
+    string getSdt(){
+        return sdt;
+    }
+    void setTen(string ten){
+        this->ten =ten;
+    }
+    // void setSdt(string sdt){
+    //     this->sdt = sdt;
+    // }
 };
 
 ConNguoi::ConNguoi(){
@@ -472,7 +493,7 @@ void ConNguoi::XuatThongTinCaNhan(){
     cout<<"Gioi tinh: "<<gioiTinh<<endl;
 }
 
-class KhachHang:public ConNguoi{
+class KhachHang:public ConNguoi, public Phim{
         private:
     Ve *ve;
     int soLuongVe;
@@ -486,6 +507,24 @@ class KhachHang:public ConNguoi{
     void ThoiGianHeThong();
     Ve* getVe();
     int getSoLuongVe();
+    int XuatDayHeThong_Date(){
+		return thoiGianHeThong_date.getDay();
+	}
+	int XuatMonthHeThong_Date(){
+		return thoiGianHeThong_date.getMonth();
+	}
+	int XuatYearHeThong_Date(){
+		return thoiGianHeThong_date.getYear();
+	}
+    int XuatGioHeThong(){
+        return thoiGianHeThong_time.getGio();
+    }
+    int XuatPhutHeThong(){
+        return thoiGianHeThong_time.getPhut();
+    }
+    int XuatGiayHeThong(){
+        return thoiGianHeThong_time.getGiay();
+    }
 };
 
 void KhachHang::NhapThongTinKhachHang(){
@@ -1050,6 +1089,44 @@ void ResetRapPhim(Rap &rap){
     getch();
 }
 
+int tongTien = 0, tongVe = 0;
+void Ghi_Xuat_Hoa_Don(ofstream& fileout, List_phim l, KhachHang kh, Phim phim){
+    fileout  << endl << endl << "------------------- Hoa Don -------------------" << endl;
+	fileout << "Ngay: " << kh.XuatDayHeThong_Date() <<"/"<<kh.XuatMonthHeThong_Date()<<"/"<<kh.XuatYearHeThong_Date();
+	fileout << "\t\t\tThoi gian: " << kh.XuatGioHeThong() << ":" << kh.XuatPhutHeThong() << ":" << kh.XuatGiayHeThong() << endl;
+    fileout << "Ten Phim: " << kh.getVe()->getTenphim();
+    	for(Node_phim* k = l.head; k != NULL; k = k->next){
+		if(kh.getVe()->getTenphim() == k->data.getTenphim()){
+			fileout << endl << "The loai: " << k->data.getTheloai();
+		}
+	}
+    fileout  << endl << "Ho Ten: " << kh.getTen() << endl;
+    fileout << "So luong ve mua: " << kh.getSoLuongVe();
+    for(Node_phim* k = l.head; k != NULL; k = k->next){
+		if(kh.getVe()->getTenphim() == k->data.getTenphim()){
+			fileout << "\t\t\tGia: " << k->data.getGiave() << " VND/1" << endl;
+            fileout << "Tong tien: " << kh.getSoLuongVe()*k->data.getGiave() <<" VND";
+            tongTien += kh.getSoLuongVe()*k->data.getGiave();
+            tongVe += kh.getSoLuongVe();
+            return;
+		}
+	}
+}
+void Ghi_File_Xuat_Hoa_Don(List_kh l, List_phim lphim, Phim phim){ 
+	ofstream fileout;
+	fileout.open("XuatHoaDon.TXT", ios::out);
+    for (Node_kh* k = l.head; k != NULL; k = k->next){
+		Ghi_Xuat_Hoa_Don(fileout, lphim, k->data, phim);
+	}
+	fileout.close();
+}
+
+void Thong_Ke_Doanh_Thu(){
+    cout << endl << "==========Doanh thu==========" << endl;
+    cout << "Tong so ve ban duoc: " << tongVe << " ve" << endl;
+    cout << "Tong tien: " << tongTien << " VND" << endl;
+}
+
 void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Rap &rap2){
 	int luaChon;
 	while (1) {
@@ -1103,7 +1180,7 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
 
 		case 4:
             system("cls");
-			cout << "Xuat hoa don";
+			Ghi_File_Xuat_Hoa_Don(Lkh, Lphim, phim);
             cout<<endl;
 			system("pause");
 			break;
@@ -1118,7 +1195,7 @@ void Menu(List_phim &Lphim, Phim phim, List_kh &Lkh, KhachHang kh, Rap &rap1, Ra
 
 		case 6:
             system("cls");
-			cout << "Thong ke doanh thu";
+			Thong_Ke_Doanh_Thu();
             cout<<endl;
 			system("pause");
 			break;
