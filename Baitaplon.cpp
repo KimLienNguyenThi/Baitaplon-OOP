@@ -385,7 +385,7 @@ void Rap::setGhe(int i){
     strcpy(ghe[i],"READY");
 }
 
-class GioChieu:public Date :public ThoiGian{
+class GioChieu:public Date, public ThoiGian{
         private:
     int rap;
 
