@@ -55,7 +55,7 @@ namespace ManagementCinema {
 
 	private: System::Windows::Forms::Button^ btnThem;
 	private: System::Windows::Forms::Button^ btnSua;
-	private: System::Windows::Forms::Button^ btnXoa;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -112,6 +112,26 @@ namespace ManagementCinema {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	protected:
 
 
@@ -152,11 +172,11 @@ namespace ManagementCinema {
 			this->lableThaoTac = (gcnew System::Windows::Forms::Label());
 			this->btnHuy = (gcnew System::Windows::Forms::Button());
 			this->btnLuu = (gcnew System::Windows::Forms::Button());
-			this->btnXoa = (gcnew System::Windows::Forms::Button());
 			this->btnSua = (gcnew System::Windows::Forms::Button());
 			this->btnThem = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TenPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -167,7 +187,6 @@ namespace ManagementCinema {
 			this->HinhAnh = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DienVien = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TrangThai = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -234,7 +253,6 @@ namespace ManagementCinema {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(408, 27);
 			this->comboBox1->TabIndex = 5;
-		
 			// 
 			// txtTheLoai
 			// 
@@ -398,7 +416,6 @@ namespace ManagementCinema {
 			this->groupBox1->Controls->Add(this->lableThaoTac);
 			this->groupBox1->Controls->Add(this->btnHuy);
 			this->groupBox1->Controls->Add(this->btnLuu);
-			this->groupBox1->Controls->Add(this->btnXoa);
 			this->groupBox1->Controls->Add(this->btnSua);
 			this->groupBox1->Controls->Add(this->btnThem);
 			this->groupBox1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -422,7 +439,7 @@ namespace ManagementCinema {
 			// 
 			// btnHuy
 			// 
-			this->btnHuy->Location = System::Drawing::Point(1107, 34);
+			this->btnHuy->Location = System::Drawing::Point(1049, 35);
 			this->btnHuy->Margin = System::Windows::Forms::Padding(4);
 			this->btnHuy->Name = L"btnHuy";
 			this->btnHuy->Size = System::Drawing::Size(127, 33);
@@ -433,7 +450,7 @@ namespace ManagementCinema {
 			// 
 			// btnLuu
 			// 
-			this->btnLuu->Location = System::Drawing::Point(956, 34);
+			this->btnLuu->Location = System::Drawing::Point(857, 35);
 			this->btnLuu->Margin = System::Windows::Forms::Padding(4);
 			this->btnLuu->Name = L"btnLuu";
 			this->btnLuu->Size = System::Drawing::Size(127, 33);
@@ -442,20 +459,9 @@ namespace ManagementCinema {
 			this->btnLuu->UseVisualStyleBackColor = true;
 			this->btnLuu->Click += gcnew System::EventHandler(this, &QuanLyPhim::btnLuu_Click);
 			// 
-			// btnXoa
-			// 
-			this->btnXoa->Location = System::Drawing::Point(788, 34);
-			this->btnXoa->Margin = System::Windows::Forms::Padding(4);
-			this->btnXoa->Name = L"btnXoa";
-			this->btnXoa->Size = System::Drawing::Size(127, 33);
-			this->btnXoa->TabIndex = 2;
-			this->btnXoa->Text = L"Xóa";
-			this->btnXoa->UseVisualStyleBackColor = true;
-			this->btnXoa->Click += gcnew System::EventHandler(this, &QuanLyPhim::btnXoa_Click);
-			// 
 			// btnSua
 			// 
-			this->btnSua->Location = System::Drawing::Point(616, 34);
+			this->btnSua->Location = System::Drawing::Point(666, 35);
 			this->btnSua->Margin = System::Windows::Forms::Padding(4);
 			this->btnSua->Name = L"btnSua";
 			this->btnSua->Size = System::Drawing::Size(127, 33);
@@ -466,7 +472,7 @@ namespace ManagementCinema {
 			// 
 			// btnThem
 			// 
-			this->btnThem->Location = System::Drawing::Point(435, 34);
+			this->btnThem->Location = System::Drawing::Point(480, 35);
 			this->btnThem->Margin = System::Windows::Forms::Padding(4);
 			this->btnThem->Name = L"btnThem";
 			this->btnThem->Size = System::Drawing::Size(127, 33);
@@ -502,6 +508,10 @@ namespace ManagementCinema {
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyPhim::dataGridView1_CellClick);
 			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
 			// ID
 			// 
 			this->ID->DataPropertyName = L"ID";
@@ -509,7 +519,7 @@ namespace ManagementCinema {
 			this->ID->MinimumWidth = 6;
 			this->ID->Name = L"ID";
 			this->ID->ReadOnly = true;
-			this->ID->Width = 125;
+			this->ID->Width = 25;
 			// 
 			// MaPhim
 			// 
@@ -518,7 +528,7 @@ namespace ManagementCinema {
 			this->MaPhim->MinimumWidth = 6;
 			this->MaPhim->Name = L"MaPhim";
 			this->MaPhim->ReadOnly = true;
-			this->MaPhim->Width = 125;
+			this->MaPhim->Width = 75;
 			// 
 			// TenPhim
 			// 
@@ -526,7 +536,7 @@ namespace ManagementCinema {
 			this->TenPhim->HeaderText = L"Tên Phim";
 			this->TenPhim->MinimumWidth = 6;
 			this->TenPhim->Name = L"TenPhim";
-			this->TenPhim->Width = 125;
+			this->TenPhim->Width = 145;
 			// 
 			// ThoiLuong
 			// 
@@ -535,7 +545,7 @@ namespace ManagementCinema {
 			this->ThoiLuong->MinimumWidth = 6;
 			this->ThoiLuong->Name = L"ThoiLuong";
 			this->ThoiLuong->ReadOnly = true;
-			this->ThoiLuong->Width = 125;
+			this->ThoiLuong->Width = 75;
 			// 
 			// TheLoai
 			// 
@@ -544,7 +554,7 @@ namespace ManagementCinema {
 			this->TheLoai->MinimumWidth = 6;
 			this->TheLoai->Name = L"TheLoai";
 			this->TheLoai->ReadOnly = true;
-			this->TheLoai->Width = 125;
+			this->TheLoai->Width = 105;
 			// 
 			// NamSanXuat
 			// 
@@ -553,7 +563,7 @@ namespace ManagementCinema {
 			this->NamSanXuat->MinimumWidth = 6;
 			this->NamSanXuat->Name = L"NamSanXuat";
 			this->NamSanXuat->ReadOnly = true;
-			this->NamSanXuat->Width = 125;
+			this->NamSanXuat->Width = 75;
 			// 
 			// QuocGia
 			// 
@@ -562,7 +572,7 @@ namespace ManagementCinema {
 			this->QuocGia->MinimumWidth = 6;
 			this->QuocGia->Name = L"QuocGia";
 			this->QuocGia->ReadOnly = true;
-			this->QuocGia->Width = 125;
+			this->QuocGia->Width = 55;
 			// 
 			// HinhAnh
 			// 
@@ -580,7 +590,7 @@ namespace ManagementCinema {
 			this->DienVien->MinimumWidth = 6;
 			this->DienVien->Name = L"DienVien";
 			this->DienVien->ReadOnly = true;
-			this->DienVien->Width = 125;
+			this->DienVien->Width = 135;
 			// 
 			// TrangThai
 			// 
@@ -590,11 +600,8 @@ namespace ManagementCinema {
 			this->TrangThai->Name = L"TrangThai";
 			this->TrangThai->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->TrangThai->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
+			this->TrangThai->Visible = false;
 			this->TrangThai->Width = 125;
-			// 
-			// openFileDialog1
-			// 
-			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
 			// QuanLyPhim
 			// 
@@ -633,7 +640,7 @@ namespace ManagementCinema {
 		this->LoadComboBoxQuocGia();
 		btnChonHinh->Enabled = false;
 		this->LoadButton(true, false, true, true, false);
-		dataGridView1->AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode::Fill;
+	dataGridView1->AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode::Fill;
 	}
 	private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		DataGridView^ senderGrid = (DataGridView^)sender;
@@ -741,7 +748,7 @@ namespace ManagementCinema {
 
 		enumXuly = 0;
 	}
-	private: System::Void btnXoa_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*private: System::Void btnXoa_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (txtMaPhim->Text == "") {
 			MessageBox::Show(L"Bạn vui lòng chọn phim để xóa!", "Thông Báo");
 			return;
@@ -769,7 +776,7 @@ namespace ManagementCinema {
 				MessageBox::Show(L"Xóa không thành công!", "Thông Báo");
 			}
 		}
-	}
+	}*/
 	private: System::Void btnSua_Click(System::Object^ sender, System::EventArgs^ e) {
 		lableThaoTac->Text = L"Thao tác sửa Phim";
 		enumXuly = 2;

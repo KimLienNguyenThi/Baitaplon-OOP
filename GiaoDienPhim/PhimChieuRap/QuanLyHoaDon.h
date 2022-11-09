@@ -153,7 +153,7 @@ namespace ManagementCinema {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->dateTimePickerDenNgay = (gcnew System::Windows::Forms::DateTimePicker());
@@ -304,6 +304,7 @@ namespace ManagementCinema {
 			this->txtTimKiem->Name = L"txtTimKiem";
 			this->txtTimKiem->Size = System::Drawing::Size(229, 27);
 			this->txtTimKiem->TabIndex = 3;
+	
 			// 
 			// panel3
 			// 
@@ -507,8 +508,8 @@ namespace ManagementCinema {
 			// Ghe
 			// 
 			this->Ghe->DataPropertyName = L"MaGhe";
-			dataGridViewCellStyle2->Format = L"HH:mm";
-			this->Ghe->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1->Format = L"HH:mm";
+			this->Ghe->DefaultCellStyle = dataGridViewCellStyle1;
 			this->Ghe->HeaderText = L"Ghế";
 			this->Ghe->MinimumWidth = 6;
 			this->Ghe->Name = L"Ghe";

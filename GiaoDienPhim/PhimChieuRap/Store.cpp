@@ -443,7 +443,6 @@ bool Store::Login(String^ taiKhoan, String^ matkhau)
 	cmd->CommandText = "SELECT * FROM TaiKhoan WHERE TaiKhoan ='" + taiKhoan->Trim() + "' AND MatKhau = '" + matkhau->Trim() + "'";
 	cmd->ExecuteNonQuery();
 	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
-
 	adapter->Fill(results);
 	CloseAccess(conn);
 	if (results->Rows->Count > 0)

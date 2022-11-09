@@ -106,6 +106,6 @@ void ManagementCinema::QuanLyPhim::LoadButton(bool bbtnThem, bool bbtnLuu, bool 
 	btnThem->Enabled = bbtnThem;
 	btnLuu->Enabled = bbtnLuu;
 	btnSua->Enabled = bbtnSua;
-	btnXoa->Enabled = bbtnXoa;
+	/*btnXoa->Enabled = bbtnXoa;*/
 	btnHuy->Enabled = bbtnHuy;
 }

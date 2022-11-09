@@ -127,9 +127,9 @@ namespace ManagementCinema {
 			// 
 			this->panel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel1.BackgroundImage")));
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Right;
-			this->panel1->Location = System::Drawing::Point(259, 0);
+			this->panel1->Location = System::Drawing::Point(290, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(655, 558);
+			this->panel1->Size = System::Drawing::Size(818, 565);
 			this->panel1->TabIndex = 3;
 			// 
 			// panel2
@@ -143,7 +143,7 @@ namespace ManagementCinema {
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel2->Location = System::Drawing::Point(0, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(259, 558);
+			this->panel2->Size = System::Drawing::Size(290, 565);
 			this->panel2->TabIndex = 4;
 			// 
 			// labelXinChao
@@ -187,7 +187,7 @@ namespace ManagementCinema {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->ClientSize = System::Drawing::Size(914, 558);
+			this->ClientSize = System::Drawing::Size(1108, 565);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Cursor = System::Windows::Forms::Cursors::Hand;
