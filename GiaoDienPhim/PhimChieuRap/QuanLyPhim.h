@@ -234,7 +234,7 @@ namespace ManagementCinema {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(408, 27);
 			this->comboBox1->TabIndex = 5;
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &QuanLyPhim::comboBox1_SelectedIndexChanged);
+		
 			// 
 			// txtTheLoai
 			// 
@@ -662,8 +662,6 @@ namespace ManagementCinema {
 		btnChonHinh->Enabled = true;
 		lableThaoTac->Text = "Thao tác thêm Phim";
 		enumXuly = 1;
-
-
 	}
 	private: System::Void btnChonHinh_Click(System::Object^ sender, System::EventArgs^ e) {
 		Stream^ myStream;
@@ -775,6 +773,7 @@ namespace ManagementCinema {
 	private: System::Void btnSua_Click(System::Object^ sender, System::EventArgs^ e) {
 		lableThaoTac->Text = L"Thao tác sửa Phim";
 		enumXuly = 2;
+		btnChonHinh->Enabled = true;
 		this->LoadButton(false, true, false, false, true);
 	}
 
@@ -803,7 +802,6 @@ namespace ManagementCinema {
 			e->Handled = true;
 		}
 	}
-	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
+
 };
 }

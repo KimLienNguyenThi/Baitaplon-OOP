@@ -20,6 +20,7 @@ String^ ManagementCinema::QuanLyPhim::getName(int i)
 
 void ManagementCinema::QuanLyPhim::XoaText()
 {
+	pictureBox1->Image = nullptr;
 	txtMaPhim->Text = "";
 	txtNamSanXuat->Text = "";
 	txtTheLoai->Text = "";
@@ -46,6 +47,7 @@ void ManagementCinema::QuanLyPhim::LoadComboBoxQuocGia()
 	comboBox1->Items->Add(L"Mỹ");
 	comboBox1->Items->Add("Trung");
 	comboBox1->Items->Add(L"Thái");
+	comboBox1->Items->Add(L"Hàn");
 }
 
 bool ManagementCinema::QuanLyPhim::KiemTraPhimTonTai(String^ maPhim)

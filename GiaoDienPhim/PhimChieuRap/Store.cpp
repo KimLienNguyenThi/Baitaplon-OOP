@@ -282,8 +282,8 @@ bool Store::Them1Phim(String^ maPhim, String^ ten, String^ nam, String^ thoiluon
 	OleDbConnection^ conn = ConnectionAccess();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
-	cmd->CommandText = "INSERT INTO Phim (Ten,ThoiLuong,NamSanXuat,QuocGia,TheLoai,HinhAnh,MaPhim)"
-		+ "VALUES ('" + ten + "', '" + thoiluong + "', '" + nam + "', '" + quocgia + "', '" + theloai + "', '" + hinhanh + "', '" + maPhim + "')";
+	cmd->CommandText = "INSERT INTO Phim (Ten,ThoiLuong,NamSanXuat,QuocGia,TheLoai,HinhAnh,MaPhim, DienVien)"
+		+ "VALUES ('" + ten + "', '" + thoiluong + "', '" + nam + "', '" + quocgia + "', '" + theloai + "', '" + hinhanh + "', '" + maPhim + "', '" + dienvien + "')";
 
 	bool resutl = cmd->ExecuteNonQuery();
 	CloseAccess(conn);
