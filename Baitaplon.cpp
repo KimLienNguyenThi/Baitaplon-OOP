@@ -233,6 +233,7 @@ class Phim:public NhaSanXuat{
     Date ngayKhoiChieu;
     float giaVe;
     int thoiLuongPhim;
+    GioChieu *gioChieu;
 
         public:
     Phim();
@@ -260,6 +261,7 @@ class Phim:public NhaSanXuat{
     int getThoiluongphim();
     void setThoiluongphim(int thoiLuongPhim);
     void XuatthongtinPhim();
+    void setGioChieu(GioChieu *gc);
 };
 
 Phim::Phim(){
@@ -273,6 +275,12 @@ Phim::~Phim(){
     giaVe = 0.0;
     thoiLuongPhim =0;
 }
+
+void Phim::setGioChieu(GioChieu *gc){
+    // gioChieu = new GioChieu[1];
+    gioChieu = gc;
+}
+
 string Phim::getMaphim (){
     return maPhim;
 }
@@ -387,7 +395,7 @@ void Rap::setGhe(int i){
 
 class GioChieu:public Date, public ThoiGian{
         private:
-    int rap;
+    Rap rap;
 
         public:
     GioChieu();
@@ -754,6 +762,14 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
     phim.setNgaykhoichieu_nam(2022);
     phim.setQuocGia("Viet Nam");
     phim.setTenNhaSX("Sky to moive");
+    GioChieu *gc;
+    gc->setDay=9;
+    gc->setMonth=11;
+    gc->setYear=2022;
+    gc->setGio=12;
+    gc->setPhut=0;
+    gc->setGiay=0;
+    phim.setGioChieu(gc);
     Lphim.addLast(phim);
 
     phim.setTenphim("Bong dung trung so");
@@ -784,18 +800,7 @@ void DanhSachPhim(List_phim &Lphim, Phim phim){
 
                 // CHUC NANG
 void XuatThongTinPhim (List_phim Lphim){
-    for (Node_phim * k = Lphim.head; k != NULL; k = k->next){
-        /* cout<<endl;
-        cout << "Ma phim: " << k->data.getMaphim() << endl;
-        cout << "Ten phim: " << k->data.getTenphim () << endl;
-        cout << "The loai: " << k->data.getTheloai() << endl;
-        cout << " Quoc gia: " << k->data.getQuocGia () << endl;
-        cout << "Ten nha san xuat: " << k->data.getTenNhaSX () << endl;
-        cout << "Thoi luong phim: " << k->data.getThoiluongphim() <<"p"<< endl;
-        cout << "Ngay khoi chieu: " << k->data.getNgaykhoichieu().getDay() <<"/"<< k->data.getNgaykhoichieu().getMonth() <<"/"<< k->data.getNgaykhoichieu().getYear() << endl;
-        cout << "Gia ve: " << k->data.getGiave () <<" VND"<< endl<<endl;
-                */
-               
+    for (Node_phim * k = Lphim.head; k != NULL; k = k->next){        
        k->data.XuatthongtinPhim();
         }
 }
