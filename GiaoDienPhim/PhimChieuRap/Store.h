@@ -30,6 +30,7 @@ public:
 	bool KiemTraLichChieuTonTai(DateTime batdau, DateTime ketthuc, String^ maRap);//, DateTime NgayChieu);
 	bool Xoa1Phim(String^ maPhim);
 	bool Xoa1LichPhim(String^ id);
+	bool XoaLichChieucuaPhim(String^ MaPhim);
 	bool Them1Phim(String^ maPhim, String^ ten, String^ nam, String^ thoiluong, String^ dienvien, String^ quocgia, String^ theloai, String^ hinhanh);
 	bool Sua1Phim(String^ maPhim, String^ ten, String^ nam, String^ thoiluong, String^ dienvien, String^ quocgia, String^ theloai, String^ hinhanh);
 	bool ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH, String^ sdt, int tongTien, String^ rapPhim);

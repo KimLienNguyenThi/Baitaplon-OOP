@@ -31,6 +31,7 @@ namespace ManagementCinema {
 		bool Them1Phim();
 		bool Sua1Phim();
 		bool Xoa1Phim(String^ maPhim);
+		bool XoaLichChieucuaPhim(String^ MaPhim);
 		void LoadButton(bool btnThem, bool btnLuu, bool btnSua, bool btnXoa, bool bbtnHuy);
 	protected:
 		/// <summary>
@@ -233,6 +234,7 @@ namespace ManagementCinema {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(408, 27);
 			this->comboBox1->TabIndex = 5;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &QuanLyPhim::comboBox1_SelectedIndexChanged);
 			// 
 			// txtTheLoai
 			// 
@@ -660,6 +662,8 @@ namespace ManagementCinema {
 		btnChonHinh->Enabled = true;
 		lableThaoTac->Text = "Thao tác thêm Phim";
 		enumXuly = 1;
+
+
 	}
 	private: System::Void btnChonHinh_Click(System::Object^ sender, System::EventArgs^ e) {
 		Stream^ myStream;
@@ -688,12 +692,14 @@ namespace ManagementCinema {
 				|| fileName == "")
 			{
 				MessageBox::Show(L"Bạn vui lòng nhập đầy đủ thông tin!", "Thông Báo");
+				return; 
 			}
 
 			if (this->KiemTraPhimTonTai(txtMaPhim->Text)) {
 				MessageBox::Show(L"Mã phim đã tồn tại!", "Thông Báo");
 			}
-			else {
+			else 
+			{
 				bool result = Them1Phim();
 				if (result) {
 					LoadDanhSachPhim();
@@ -715,6 +721,7 @@ namespace ManagementCinema {
 				|| fileName == "")
 			{
 				MessageBox::Show(L"Bạn vui lòng nhập đầy đủ thông tin!", "Thông Báo");
+				return; 
 			}
 			if (this->KiemTraPhimTonTai(txtMaPhim->Text) == false) {
 				MessageBox::Show(L"Mã phim không đã tồn tại!", "Thông Báo");
@@ -732,6 +739,8 @@ namespace ManagementCinema {
 		this->LoadButton(true, false, true, true, false);
 		this->XoaText();
 		lableThaoTac->Text = "";
+		
+
 		enumXuly = 0;
 	}
 	private: System::Void btnXoa_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -754,7 +763,9 @@ namespace ManagementCinema {
 			bool xoa = this->Xoa1Phim(txtMaPhim->Text);
 			if (xoa) {
 				LoadDanhSachPhim();
+				XoaLichChieucuaPhim(txtMaPhim->Text);
 				XoaText();
+				
 			}
 			else {
 				MessageBox::Show(L"Xóa không thành công!", "Thông Báo");
@@ -792,5 +803,7 @@ namespace ManagementCinema {
 			e->Handled = true;
 		}
 	}
-	};
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

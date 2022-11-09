@@ -243,10 +243,10 @@ bool Store::KiemTraLichChieuTonTai(DateTime batdau, DateTime ketthuc, String^ ma
 	DataTable^ results = gcnew DataTable();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
-	String^ query = "SELECT * FROM LichPhim WHERE(GioBatDau Between #" + batdau + "# AND #" + ketthuc + "#)"
+	String^ query = "SELECT * FROM LichPhim WHERE((GioBatDau Between #" + batdau + "# AND #" + ketthuc + "#)"
 		+ " OR (GioKetThuc Between #" + batdau + "# AND #" + ketthuc + "#) "
 		+ " OR (GioBatDau > #" + batdau + "# AND GioKetThuc < #" + ketthuc + "#) "
-		+ " OR (GioBatDau < #" + batdau + "# AND GioKetThuc > #" + ketthuc + "#) "
+		+ " OR (GioBatDau < #" + batdau + "# AND GioKetThuc > #" + ketthuc + "#)) "
 		+ " AND RapPhim = '" + maRap->Trim() + "';";
 
 		cmd->CommandText = query;
@@ -480,5 +480,15 @@ bool Store::Xoa1LichPhim(String^ id)
 	CloseAccess(conn);
 	return resutl;
 }
+bool Store::XoaLichChieucuaPhim(String^ MaPhim)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	cmd->CommandText = "DELETE * FROM LichPhim  WHERE MaPhim ='" + MaPhim->Trim() + "';";
 
+	bool resutl = cmd->ExecuteNonQuery();
+	CloseAccess(conn);
+	return resutl;
+}
 

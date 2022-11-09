@@ -24,9 +24,12 @@ void ManagementCinema::QuanLyPhim::XoaText()
 	txtNamSanXuat->Text = "";
 	txtTheLoai->Text = "";
 	txtThoiLuong->Text = "";
-	comboBox1->Text = "";
+	comboBox1->SelectedIndex = 0;
+	//comboBox1->Text = "";
 	txtTenPhim->Text = "";
+	txtDienVien->Text = "";
 	fileName = "";
+	btnChonHinh->Enabled = false;
 }
 
 void ManagementCinema::QuanLyPhim::LoadDanhSachPhim()
@@ -38,6 +41,7 @@ void ManagementCinema::QuanLyPhim::LoadDanhSachPhim()
 
 void ManagementCinema::QuanLyPhim::LoadComboBoxQuocGia()
 {
+	comboBox1->Items->Add(L"");
 	comboBox1->Items->Add(L"Việt Nam");
 	comboBox1->Items->Add(L"Mỹ");
 	comboBox1->Items->Add("Trung");
@@ -63,6 +67,7 @@ bool ManagementCinema::QuanLyPhim::Them1Phim()
 		fileName);
 }
 
+
 bool ManagementCinema::QuanLyPhim::Sua1Phim()
 {
 	Store^ s = gcnew Store();
@@ -82,6 +87,18 @@ bool ManagementCinema::QuanLyPhim::Xoa1Phim(String^ maPhim)
 	return s->Xoa1Phim(maPhim);
 }
 
+bool ManagementCinema::QuanLyPhim::XoaLichChieucuaPhim(String^ MaPhim)
+{
+	Store^ s = gcnew Store();
+	bool xoa = s->XoaLichChieucuaPhim(MaPhim);
+	return xoa; 
+}
+
+
+
+
+/// <summary>
+/// bam them thi no an di cai sua xoa de k thuc hien dc thao tac do.
 void ManagementCinema::QuanLyPhim::LoadButton(bool bbtnThem, bool bbtnLuu, bool bbtnSua, bool bbtnXoa, bool bbtnHuy)
 {
 	btnThem->Enabled = bbtnThem;
