@@ -99,6 +99,7 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::DateTimePicker^ dateTimePickerDenNgay;
 
 	private: System::Windows::Forms::DateTimePicker^ dateTimePickerTuNgay;
+	private: System::Windows::Forms::Button^ btnThoat;
 
 
 
@@ -184,6 +185,7 @@ namespace ManagementCinema {
 			this->RapChieu = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Giave = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Ghe = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->panel2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			this->panel3->SuspendLayout();
@@ -205,6 +207,7 @@ namespace ManagementCinema {
 			// 
 			// groupBox3
 			// 
+			this->groupBox3->Controls->Add(this->btnThoat);
 			this->groupBox3->Controls->Add(this->dateTimePickerDenNgay);
 			this->groupBox3->Controls->Add(this->dateTimePickerTuNgay);
 			this->groupBox3->Controls->Add(this->label3);
@@ -304,7 +307,6 @@ namespace ManagementCinema {
 			this->txtTimKiem->Name = L"txtTimKiem";
 			this->txtTimKiem->Size = System::Drawing::Size(229, 27);
 			this->txtTimKiem->TabIndex = 3;
-	
 			// 
 			// panel3
 			// 
@@ -515,6 +517,19 @@ namespace ManagementCinema {
 			this->Ghe->Name = L"Ghe";
 			this->Ghe->Width = 125;
 			// 
+			// btnThoat
+			// 
+			this->btnThoat->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnThoat->Location = System::Drawing::Point(1056, 68);
+			this->btnThoat->Margin = System::Windows::Forms::Padding(4);
+			this->btnThoat->Name = L"btnThoat";
+			this->btnThoat->Size = System::Drawing::Size(100, 36);
+			this->btnThoat->TabIndex = 12;
+			this->btnThoat->Text = L"Thoát";
+			this->btnThoat->UseVisualStyleBackColor = true;
+			this->btnThoat->Click += gcnew System::EventHandler(this, &QuanLyHoaDon::btnThoat_Click);
+			// 
 			// QuanLyHoaDon
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -573,5 +588,8 @@ namespace ManagementCinema {
 		LoadDanhSachHoaDon();
 		this->GetDanhSachChiTietHoaDon("0");
 	}
+private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ e) {
+	Close();
+}
 };
 }

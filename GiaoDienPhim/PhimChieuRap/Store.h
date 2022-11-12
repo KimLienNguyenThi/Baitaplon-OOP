@@ -3,6 +3,7 @@
 using namespace System;
 using namespace System::Data;
 using namespace System::Data::OleDb;
+// public may ham khac goi ham store duoc
 public ref class Store {
 public:
 	Store(void)

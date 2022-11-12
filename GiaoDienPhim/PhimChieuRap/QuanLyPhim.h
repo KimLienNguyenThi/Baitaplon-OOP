@@ -97,6 +97,27 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ HinhAnh;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DienVien;
 	private: System::Windows::Forms::DataGridViewCheckBoxColumn^ TrangThai;
+	private: System::Windows::Forms::Button^ btnThoat;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -187,6 +208,7 @@ namespace ManagementCinema {
 			this->HinhAnh = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DienVien = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TrangThai = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -413,6 +435,7 @@ namespace ManagementCinema {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->btnThoat);
 			this->groupBox1->Controls->Add(this->lableThaoTac);
 			this->groupBox1->Controls->Add(this->btnHuy);
 			this->groupBox1->Controls->Add(this->btnLuu);
@@ -439,7 +462,7 @@ namespace ManagementCinema {
 			// 
 			// btnHuy
 			// 
-			this->btnHuy->Location = System::Drawing::Point(1049, 35);
+			this->btnHuy->Location = System::Drawing::Point(822, 26);
 			this->btnHuy->Margin = System::Windows::Forms::Padding(4);
 			this->btnHuy->Name = L"btnHuy";
 			this->btnHuy->Size = System::Drawing::Size(127, 33);
@@ -450,7 +473,7 @@ namespace ManagementCinema {
 			// 
 			// btnLuu
 			// 
-			this->btnLuu->Location = System::Drawing::Point(857, 35);
+			this->btnLuu->Location = System::Drawing::Point(647, 26);
 			this->btnLuu->Margin = System::Windows::Forms::Padding(4);
 			this->btnLuu->Name = L"btnLuu";
 			this->btnLuu->Size = System::Drawing::Size(127, 33);
@@ -461,7 +484,7 @@ namespace ManagementCinema {
 			// 
 			// btnSua
 			// 
-			this->btnSua->Location = System::Drawing::Point(666, 35);
+			this->btnSua->Location = System::Drawing::Point(461, 26);
 			this->btnSua->Margin = System::Windows::Forms::Padding(4);
 			this->btnSua->Name = L"btnSua";
 			this->btnSua->Size = System::Drawing::Size(127, 33);
@@ -472,7 +495,7 @@ namespace ManagementCinema {
 			// 
 			// btnThem
 			// 
-			this->btnThem->Location = System::Drawing::Point(480, 35);
+			this->btnThem->Location = System::Drawing::Point(284, 26);
 			this->btnThem->Margin = System::Windows::Forms::Padding(4);
 			this->btnThem->Name = L"btnThem";
 			this->btnThem->Size = System::Drawing::Size(127, 33);
@@ -519,7 +542,7 @@ namespace ManagementCinema {
 			this->ID->MinimumWidth = 6;
 			this->ID->Name = L"ID";
 			this->ID->ReadOnly = true;
-			this->ID->Width = 25;
+			this->ID->Width = 75;
 			// 
 			// MaPhim
 			// 
@@ -536,7 +559,7 @@ namespace ManagementCinema {
 			this->TenPhim->HeaderText = L"Tên Phim";
 			this->TenPhim->MinimumWidth = 6;
 			this->TenPhim->Name = L"TenPhim";
-			this->TenPhim->Width = 145;
+			this->TenPhim->Width = 150;
 			// 
 			// ThoiLuong
 			// 
@@ -545,7 +568,6 @@ namespace ManagementCinema {
 			this->ThoiLuong->MinimumWidth = 6;
 			this->ThoiLuong->Name = L"ThoiLuong";
 			this->ThoiLuong->ReadOnly = true;
-			this->ThoiLuong->Width = 75;
 			// 
 			// TheLoai
 			// 
@@ -554,7 +576,7 @@ namespace ManagementCinema {
 			this->TheLoai->MinimumWidth = 6;
 			this->TheLoai->Name = L"TheLoai";
 			this->TheLoai->ReadOnly = true;
-			this->TheLoai->Width = 105;
+			this->TheLoai->Width = 150;
 			// 
 			// NamSanXuat
 			// 
@@ -563,7 +585,6 @@ namespace ManagementCinema {
 			this->NamSanXuat->MinimumWidth = 6;
 			this->NamSanXuat->Name = L"NamSanXuat";
 			this->NamSanXuat->ReadOnly = true;
-			this->NamSanXuat->Width = 75;
 			// 
 			// QuocGia
 			// 
@@ -572,7 +593,6 @@ namespace ManagementCinema {
 			this->QuocGia->MinimumWidth = 6;
 			this->QuocGia->Name = L"QuocGia";
 			this->QuocGia->ReadOnly = true;
-			this->QuocGia->Width = 55;
 			// 
 			// HinhAnh
 			// 
@@ -581,6 +601,7 @@ namespace ManagementCinema {
 			this->HinhAnh->MinimumWidth = 6;
 			this->HinhAnh->Name = L"HinhAnh";
 			this->HinhAnh->ReadOnly = true;
+			this->HinhAnh->Visible = false;
 			this->HinhAnh->Width = 125;
 			// 
 			// DienVien
@@ -590,7 +611,7 @@ namespace ManagementCinema {
 			this->DienVien->MinimumWidth = 6;
 			this->DienVien->Name = L"DienVien";
 			this->DienVien->ReadOnly = true;
-			this->DienVien->Width = 135;
+			this->DienVien->Width = 200;
 			// 
 			// TrangThai
 			// 
@@ -602,6 +623,17 @@ namespace ManagementCinema {
 			this->TrangThai->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
 			this->TrangThai->Visible = false;
 			this->TrangThai->Width = 125;
+			// 
+			// btnThoat
+			// 
+			this->btnThoat->Location = System::Drawing::Point(1005, 26);
+			this->btnThoat->Margin = System::Windows::Forms::Padding(4);
+			this->btnThoat->Name = L"btnThoat";
+			this->btnThoat->Size = System::Drawing::Size(127, 33);
+			this->btnThoat->TabIndex = 6;
+			this->btnThoat->Text = L"Thoát";
+			this->btnThoat->UseVisualStyleBackColor = true;
+			this->btnThoat->Click += gcnew System::EventHandler(this, &QuanLyPhim::btnThoat_Click);
 			// 
 			// QuanLyPhim
 			// 
@@ -810,5 +842,8 @@ namespace ManagementCinema {
 		}
 	}
 
+private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ e) {
+	Close();
+}
 };
 }

@@ -68,6 +68,7 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::DataGridView^ dataGvGhe;
 	private: System::Windows::Forms::GroupBox^ gb2;
 	private: System::Windows::Forms::ListView^ lstViewDangChonGhe;
+	private: System::Windows::Forms::Button^ btnThoat;
 
 
 
@@ -107,6 +108,7 @@ namespace ManagementCinema {
 			this->btnHuy = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->dataGvGhe = (gcnew System::Windows::Forms::DataGridView());
+			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -129,6 +131,7 @@ namespace ManagementCinema {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->btnThoat);
 			this->groupBox1->Controls->Add(this->label4);
 			this->groupBox1->Controls->Add(this->comboKhungGio);
 			this->groupBox1->Controls->Add(this->label3);
@@ -277,7 +280,7 @@ namespace ManagementCinema {
 			this->btnLuu->BackColor = System::Drawing::SystemColors::ActiveBorder;
 			this->btnLuu->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnLuu->Location = System::Drawing::Point(79, 21);
+			this->btnLuu->Location = System::Drawing::Point(94, 21);
 			this->btnLuu->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnLuu->Name = L"btnLuu";
 			this->btnLuu->Size = System::Drawing::Size(137, 46);
@@ -291,7 +294,7 @@ namespace ManagementCinema {
 			this->btnHuy->BackColor = System::Drawing::SystemColors::ActiveBorder;
 			this->btnHuy->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnHuy->Location = System::Drawing::Point(265, 21);
+			this->btnHuy->Location = System::Drawing::Point(289, 21);
 			this->btnHuy->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnHuy->Name = L"btnHuy";
 			this->btnHuy->Size = System::Drawing::Size(137, 46);
@@ -350,6 +353,20 @@ namespace ManagementCinema {
 			this->dataGvGhe->Size = System::Drawing::Size(1244, 311);
 			this->dataGvGhe->TabIndex = 0;
 			this->dataGvGhe->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DangKyVe::dataGvGhe_CellClick);
+			// 
+			// btnThoat
+			// 
+			this->btnThoat->BackColor = System::Drawing::Color::Silver;
+			this->btnThoat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnThoat->Location = System::Drawing::Point(638, 212);
+			this->btnThoat->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btnThoat->Name = L"btnThoat";
+			this->btnThoat->Size = System::Drawing::Size(137, 46);
+			this->btnThoat->TabIndex = 4;
+			this->btnThoat->Text = L"Thoát";
+			this->btnThoat->UseVisualStyleBackColor = false;
+			this->btnThoat->Click += gcnew System::EventHandler(this, &DangKyVe::btnThoat_Click);
 			// 
 			// DangKyVe
 			// 
@@ -454,5 +471,8 @@ namespace ManagementCinema {
 	private: System::Void btnHuy_Click(System::Object^ sender, System::EventArgs^ e) {
 		XoaDanhSachGheDangChon();
 	}
+private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ e) {
+	Close(); 
+}
 };
 }
