@@ -404,7 +404,7 @@ DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^
 	DataTable^ results = gcnew DataTable();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
-	String^ query = "SELECT  HoaDon.ID, HoaDon.TenKhachHang,HoaDon.SDT,HoaDon.TongTien, HoaDon.SoVe, Phim.Ten, Phim.MaPhim, Phim.NamSanXuat"
+	String^ query = "SELECT  HoaDon.ID, HoaDon.TenKhachHang,HoaDon.SDT,HoaDon.TongTien, HoaDon.SoVe, Phim.Ten, Phim.MaPhim, Phim.NamSanXuat, Phim.TheLoai"
 		+ " , Phim.QuocGia, Phim.ThoiLuong "
 		 +"FROM HoaDon, LichPhim, Phim "
 

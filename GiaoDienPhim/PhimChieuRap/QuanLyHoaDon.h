@@ -185,6 +185,28 @@ namespace ManagementCinema {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -198,7 +220,7 @@ namespace ManagementCinema {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->btnThoat = (gcnew System::Windows::Forms::Button());
@@ -472,8 +494,8 @@ namespace ManagementCinema {
 			// Ghe
 			// 
 			this->Ghe->DataPropertyName = L"MaGhe";
-			dataGridViewCellStyle1->Format = L"HH:mm";
-			this->Ghe->DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2->Format = L"HH:mm";
+			this->Ghe->DefaultCellStyle = dataGridViewCellStyle2;
 			this->Ghe->HeaderText = L"Ghế";
 			this->Ghe->MinimumWidth = 6;
 			this->Ghe->Name = L"Ghe";
@@ -554,7 +576,6 @@ namespace ManagementCinema {
 			this->TheLoai->MinimumWidth = 6;
 			this->TheLoai->Name = L"TheLoai";
 			this->TheLoai->ReadOnly = true;
-			this->TheLoai->Visible = false;
 			this->TheLoai->Width = 125;
 			// 
 			// QuocGia

@@ -103,13 +103,13 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::TextBox^ txtIdLichPhim;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ btnSua;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ten;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ MaPhim;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ NamSanXuat;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ QuocGia;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ThoiLuong;
+
+
+
+
+
+
+
 
 
 
@@ -129,79 +129,13 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GioBatDau;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GioKetThuc;
 	private: System::Windows::Forms::Button^ btnThoat;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ten;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ MaPhim;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ NamSanXuat;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ QuocGia;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ ThoiLuong;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 
 	private:
 		/// <summary>
@@ -248,13 +182,6 @@ namespace ManagementCinema {
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGvPhims = (gcnew System::Windows::Forms::DataGridView());
-			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Ten = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->NamSanXuat = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->TheLoai = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->QuocGia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ThoiLuong = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGvLich = (gcnew System::Windows::Forms::DataGridView());
@@ -265,6 +192,13 @@ namespace ManagementCinema {
 			this->NgayChieu = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GioBatDau = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GioKetThuc = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Ten = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->NamSanXuat = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->QuocGia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ThoiLuong = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->TheLoai = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel1->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -634,7 +568,7 @@ namespace ManagementCinema {
 			this->dataGvPhims->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGvPhims->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->ID, this->Ten,
-					this->MaPhim, this->NamSanXuat, this->TheLoai, this->QuocGia, this->ThoiLuong
+					this->MaPhim, this->NamSanXuat, this->QuocGia, this->ThoiLuong, this->TheLoai
 			});
 			this->dataGvPhims->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->dataGvPhims->Location = System::Drawing::Point(4, 19);
@@ -644,70 +578,6 @@ namespace ManagementCinema {
 			this->dataGvPhims->Size = System::Drawing::Size(1261, 205);
 			this->dataGvPhims->TabIndex = 0;
 			this->dataGvPhims->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyLichChieu::dataGvPhims_CellClick);
-			
-			// 
-			// ID
-			// 
-			this->ID->DataPropertyName = L"ID";
-			this->ID->HeaderText = L"ID";
-			this->ID->MinimumWidth = 6;
-			this->ID->Name = L"ID";
-			this->ID->ReadOnly = true;
-			this->ID->Width = 125;
-			// 
-			// Ten
-			// 
-			this->Ten->DataPropertyName = L"Ten";
-			this->Ten->HeaderText = L"Tên Phim";
-			this->Ten->MinimumWidth = 6;
-			this->Ten->Name = L"Ten";
-			this->Ten->ReadOnly = true;
-			this->Ten->Width = 125;
-			// 
-			// MaPhim
-			// 
-			this->MaPhim->DataPropertyName = L"MaPhim";
-			this->MaPhim->HeaderText = L"Mã Phim";
-			this->MaPhim->MinimumWidth = 6;
-			this->MaPhim->Name = L"MaPhim";
-			this->MaPhim->ReadOnly = true;
-			this->MaPhim->Width = 125;
-			// 
-			// NamSanXuat
-			// 
-			this->NamSanXuat->DataPropertyName = L"NamSanXuat";
-			this->NamSanXuat->HeaderText = L"Năm Sản Xuất";
-			this->NamSanXuat->MinimumWidth = 6;
-			this->NamSanXuat->Name = L"NamSanXuat";
-			this->NamSanXuat->ReadOnly = true;
-			this->NamSanXuat->Width = 125;
-			// 
-			// TheLoai
-			// 
-			this->TheLoai->DataPropertyName = L"TheLoai";
-			this->TheLoai->HeaderText = L"Thể Loại";
-			this->TheLoai->MinimumWidth = 6;
-			this->TheLoai->Name = L"TheLoai";
-			this->TheLoai->ReadOnly = true;
-			this->TheLoai->Width = 125;
-			// 
-			// QuocGia
-			// 
-			this->QuocGia->DataPropertyName = L"QuocGia";
-			this->QuocGia->HeaderText = L"Quốc Gia";
-			this->QuocGia->MinimumWidth = 6;
-			this->QuocGia->Name = L"QuocGia";
-			this->QuocGia->ReadOnly = true;
-			this->QuocGia->Width = 125;
-			// 
-			// ThoiLuong
-			// 
-			this->ThoiLuong->DataPropertyName = L"ThoiLuong";
-			this->ThoiLuong->HeaderText = L"Thời Lượng";
-			this->ThoiLuong->MinimumWidth = 6;
-			this->ThoiLuong->Name = L"ThoiLuong";
-			this->ThoiLuong->ReadOnly = true;
-			this->ThoiLuong->Width = 125;
 			// 
 			// panel4
 			// 
@@ -813,6 +683,69 @@ namespace ManagementCinema {
 			this->GioKetThuc->MinimumWidth = 6;
 			this->GioKetThuc->Name = L"GioKetThuc";
 			this->GioKetThuc->Width = 125;
+			// 
+			// ID
+			// 
+			this->ID->DataPropertyName = L"ID";
+			this->ID->HeaderText = L"ID";
+			this->ID->MinimumWidth = 6;
+			this->ID->Name = L"ID";
+			this->ID->ReadOnly = true;
+			this->ID->Width = 125;
+			// 
+			// Ten
+			// 
+			this->Ten->DataPropertyName = L"Ten";
+			this->Ten->HeaderText = L"Tên Phim";
+			this->Ten->MinimumWidth = 6;
+			this->Ten->Name = L"Ten";
+			this->Ten->ReadOnly = true;
+			this->Ten->Width = 125;
+			// 
+			// MaPhim
+			// 
+			this->MaPhim->DataPropertyName = L"MaPhim";
+			this->MaPhim->HeaderText = L"Mã Phim";
+			this->MaPhim->MinimumWidth = 6;
+			this->MaPhim->Name = L"MaPhim";
+			this->MaPhim->ReadOnly = true;
+			this->MaPhim->Width = 125;
+			// 
+			// NamSanXuat
+			// 
+			this->NamSanXuat->DataPropertyName = L"NamSanXuat";
+			this->NamSanXuat->HeaderText = L"Năm Sản Xuất";
+			this->NamSanXuat->MinimumWidth = 6;
+			this->NamSanXuat->Name = L"NamSanXuat";
+			this->NamSanXuat->ReadOnly = true;
+			this->NamSanXuat->Width = 125;
+			// 
+			// QuocGia
+			// 
+			this->QuocGia->DataPropertyName = L"QuocGia";
+			this->QuocGia->HeaderText = L"Quốc Gia";
+			this->QuocGia->MinimumWidth = 6;
+			this->QuocGia->Name = L"QuocGia";
+			this->QuocGia->ReadOnly = true;
+			this->QuocGia->Width = 125;
+			// 
+			// ThoiLuong
+			// 
+			this->ThoiLuong->DataPropertyName = L"ThoiLuong";
+			this->ThoiLuong->HeaderText = L"Thời Lượng";
+			this->ThoiLuong->MinimumWidth = 6;
+			this->ThoiLuong->Name = L"ThoiLuong";
+			this->ThoiLuong->ReadOnly = true;
+			this->ThoiLuong->Width = 125;
+			// 
+			// TheLoai
+			// 
+			this->TheLoai->DataPropertyName = L"TheLoai";
+			this->TheLoai->HeaderText = L"Thể Loại";
+			this->TheLoai->MinimumWidth = 6;
+			this->TheLoai->Name = L"TheLoai";
+			this->TheLoai->ReadOnly = true;
+			this->TheLoai->Width = 125;
 			// 
 			// QuanLyLichChieu
 			// 
