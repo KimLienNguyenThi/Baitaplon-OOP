@@ -94,6 +94,7 @@ namespace ManagementCinema {
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->comboKhungGio = (gcnew System::Windows::Forms::ComboBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -108,7 +109,6 @@ namespace ManagementCinema {
 			this->btnHuy = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->dataGvGhe = (gcnew System::Windows::Forms::DataGridView());
-			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -150,6 +150,20 @@ namespace ManagementCinema {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Chọn phim";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &DangKyVe::groupBox1_Enter);
+			// 
+			// btnThoat
+			// 
+			this->btnThoat->BackColor = System::Drawing::Color::Silver;
+			this->btnThoat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnThoat->Location = System::Drawing::Point(605, 203);
+			this->btnThoat->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btnThoat->Name = L"btnThoat";
+			this->btnThoat->Size = System::Drawing::Size(137, 46);
+			this->btnThoat->TabIndex = 4;
+			this->btnThoat->Text = L"Thoát";
+			this->btnThoat->UseVisualStyleBackColor = false;
+			this->btnThoat->Click += gcnew System::EventHandler(this, &DangKyVe::btnThoat_Click);
 			// 
 			// label4
 			// 
@@ -353,20 +367,6 @@ namespace ManagementCinema {
 			this->dataGvGhe->Size = System::Drawing::Size(1244, 311);
 			this->dataGvGhe->TabIndex = 0;
 			this->dataGvGhe->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DangKyVe::dataGvGhe_CellClick);
-			// 
-			// btnThoat
-			// 
-			this->btnThoat->BackColor = System::Drawing::Color::Silver;
-			this->btnThoat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnThoat->Location = System::Drawing::Point(638, 212);
-			this->btnThoat->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->btnThoat->Name = L"btnThoat";
-			this->btnThoat->Size = System::Drawing::Size(137, 46);
-			this->btnThoat->TabIndex = 4;
-			this->btnThoat->Text = L"Thoát";
-			this->btnThoat->UseVisualStyleBackColor = false;
-			this->btnThoat->Click += gcnew System::EventHandler(this, &DangKyVe::btnThoat_Click);
 			// 
 			// DangKyVe
 			// 

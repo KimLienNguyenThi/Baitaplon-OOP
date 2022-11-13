@@ -241,6 +241,7 @@ namespace ManagementCinema {
 			this->btnTimKiem = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->btnSua = (gcnew System::Windows::Forms::Button());
 			this->btnXoaLich = (gcnew System::Windows::Forms::Button());
 			this->btnThemLich = (gcnew System::Windows::Forms::Button());
@@ -264,7 +265,6 @@ namespace ManagementCinema {
 			this->NgayChieu = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GioBatDau = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GioKetThuc = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -555,6 +555,18 @@ namespace ManagementCinema {
 			this->panel2->Size = System::Drawing::Size(1269, 62);
 			this->panel2->TabIndex = 1;
 			// 
+			// btnThoat
+			// 
+			this->btnThoat->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnThoat->Location = System::Drawing::Point(1039, 14);
+			this->btnThoat->Name = L"btnThoat";
+			this->btnThoat->Size = System::Drawing::Size(125, 30);
+			this->btnThoat->TabIndex = 3;
+			this->btnThoat->Text = L"Thoát";
+			this->btnThoat->UseVisualStyleBackColor = true;
+			this->btnThoat->Click += gcnew System::EventHandler(this, &QuanLyLichChieu::btnThoat_Click);
+			// 
 			// btnSua
 			// 
 			this->btnSua->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -632,6 +644,7 @@ namespace ManagementCinema {
 			this->dataGvPhims->Size = System::Drawing::Size(1261, 205);
 			this->dataGvPhims->TabIndex = 0;
 			this->dataGvPhims->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyLichChieu::dataGvPhims_CellClick);
+			
 			// 
 			// ID
 			// 
@@ -801,18 +814,6 @@ namespace ManagementCinema {
 			this->GioKetThuc->Name = L"GioKetThuc";
 			this->GioKetThuc->Width = 125;
 			// 
-			// btnThoat
-			// 
-			this->btnThoat->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnThoat->Location = System::Drawing::Point(1039, 14);
-			this->btnThoat->Name = L"btnThoat";
-			this->btnThoat->Size = System::Drawing::Size(125, 30);
-			this->btnThoat->TabIndex = 3;
-			this->btnThoat->Text = L"Thoát";
-			this->btnThoat->UseVisualStyleBackColor = true;
-			this->btnThoat->Click += gcnew System::EventHandler(this, &QuanLyLichChieu::btnThoat_Click);
-			// 
 			// QuanLyLichChieu
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -885,8 +886,8 @@ namespace ManagementCinema {
 			datePickNgayChieu->Value = Ngaychieu;
 			DateTime GioBatDau = DateTime::Parse(dr["GioBatDau"]->ToString());
 			datePickBatDau->Value = GioBatDau;
-			DateTime GioKetThuc = DateTime::Parse(dr["GioKetThuc"]->ToString());
-			datePickKetThuc->Value = GioKetThuc;
+			/*DateTime GioKetThuc = DateTime::Parse(dr["GioKetThuc"]->ToString());
+			datePickKetThuc->Value = GioKetThuc;*/
 			/*String^ tenPhim = dr["Ten"]->ToString();
 			txtTenPhim->Text = tenPhim; */
 
@@ -1017,5 +1018,7 @@ namespace ManagementCinema {
 	private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ e) {
 		Close();
 	}
-	};
+	
+
+};
 }

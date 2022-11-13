@@ -40,6 +40,7 @@ bool ManagementCinema::QuanLyLichChieu::KiemTraLichChieu()
 		datePickBatDau->Value.Hour,
 		datePickBatDau->Value.Minute,
 		datePickBatDau->Value.Second);
+
 	DateTime ketthuc =  DateTime(
 		datePickNgayChieu->Value.Year,
 		datePickNgayChieu->Value.Month,
@@ -47,6 +48,19 @@ bool ManagementCinema::QuanLyLichChieu::KiemTraLichChieu()
 		datePickKetThuc->Value.Hour,
 		datePickKetThuc->Value.Minute,
 		datePickKetThuc->Value.Second);
+	
+	/*	DateTime ketthuc = new DateTime(datePickNgayChieu->Value.Year,
+			datePickNgayChieu->Value.Month,
+			datePickNgayChieu->Value.Day,
+			datePickBatDau->Value.Hour,
+			datePickBatDau->Value.Minute,
+			datePickBatDau->Value.Second);
+
+	
+		foreach(double minute in minutes)
+			Console.WriteLine("{0} + {1} minute(s) = {2}", ketthuc, KetThuc(),
+				ketthuc.AddMinutes(minute));*/
+
 	bool result = s->KiemTraLichChieuTonTai(batdau, ketthuc, comboRapPhim->Text);//, datePickNgayChieu->Value);
 	return result;
 }

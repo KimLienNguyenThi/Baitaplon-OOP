@@ -91,6 +91,7 @@ namespace ManagementCinema {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(171, 27);
 			this->textBox1->TabIndex = 2;
+	
 			// 
 			// textBox2
 			// 
@@ -127,7 +128,7 @@ namespace ManagementCinema {
 			this->Name = L"Login";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Login";
-			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
+			
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -141,7 +142,7 @@ namespace ManagementCinema {
 		}
 		ThucHienLogin();
 	}
-private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
-}
+
+
 };
 }

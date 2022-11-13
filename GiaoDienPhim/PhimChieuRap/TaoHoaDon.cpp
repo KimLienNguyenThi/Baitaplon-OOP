@@ -26,6 +26,7 @@ void ManagementCinema::TaoHoaDon::LoadLichPhim()
 	rapPhim = dr["RapPhim"]->ToString();
 	labTenPhim->Text = dr["Ten"]->ToString();
 	labMaPhim->Text = dr["Phim.MaPhim"]->ToString();
+	/*labRap->Text = dr["RapPhim.MaRap"]->ToString(); */
 	labGhe->Text = listGhe;
 	arrGhe = listGhe->Split(',');
 	tongTien = (arrGhe->Length * int::Parse(dr["GiaVe"]->ToString()));

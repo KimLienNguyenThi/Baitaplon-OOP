@@ -381,6 +381,23 @@ DataTable^ Store::Get1LichChieu(String^ idLichChieu)
 	CloseAccess(conn);
 	return results;
 }
+DataTable^ Store::KetThuc(String^ idLichChieu)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT Phim.ThoiLuong FROM LichPhim, Phim"
+		"WHERE Phim.MaPhim = LichPhim.MaPhim and LichPhim.ID = " + idLichChieu + "";
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}
+
 DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^ denNgay)
 {
 	OleDbConnection^ conn = ConnectionAccess();
@@ -395,7 +412,7 @@ DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^
 
 	if (timKiem != "")
 	{
-		query += " AND (TenKhachHang like '%" + timKiem->Trim() + "%' OR Phim.Ten  like '%" + timKiem->Trim() + "%') ";
+		query += " AND (SDT like '%" + timKiem->Trim() + "%' OR Phim.Ten  like '%" + timKiem->Trim() + "%') ";
 	}
 
 	if (tuNgay != nullptr)
@@ -416,6 +433,41 @@ DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^
 	CloseAccess(conn);
 	return results;
 }
+//DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^ denNgay)
+//{
+//	OleDbConnection^ conn = ConnectionAccess();
+//	DataTable^ results = gcnew DataTable();
+//	OleDbCommand^ cmd = conn->CreateCommand();
+//	cmd->CommandType = CommandType::Text;
+//	String^ query = "SELECT  HoaDon.ID, HoaDon.TenKhachHang,HoaDon.SDT,HoaDon.TongTien, HoaDon.SoVe, Phim.Ten, Phim.MaPhim, Phim.NamSanXuat"
+//		+ " , Phim.QuocGia, Phim.ThoiLuong "
+//		+ "FROM HoaDon, LichPhim, Phim "
+//
+//		+ "WHERE HoaDon.IDLichPhim = LichPhim.ID AND Phim.MaPhim = LichPhim.MaPhim";
+//
+//	if (timKiem != "")
+//	{
+//		query += " AND (TenKhachHang like '%" + timKiem->Trim() + "%' OR Phim.Ten  like '%" + timKiem->Trim() + "%') ";
+//	}
+//
+//	if (tuNgay != nullptr)
+//	{
+//		query += " AND NgayMuaVe >= #" + tuNgay->ToShortDateString() + "# ";
+//	}
+//
+//	if (denNgay != nullptr)
+//	{
+//		query += " AND NgayMuaVe <= #" + denNgay->ToShortDateString() + "# ";
+//	}
+//	query += " ORDER BY NgayMuaVe DESC";
+//	cmd->CommandText = query;
+//	cmd->ExecuteNonQuery();
+//	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+//	adapter->Fill(results);
+//
+//	CloseAccess(conn);
+//	return results;
+//}
 DataTable^ Store::GetDanhSachChiTietHoaDon(String^ idHoaDon)
 {
 	OleDbConnection^ conn = ConnectionAccess();

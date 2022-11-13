@@ -86,15 +86,17 @@ namespace ManagementCinema {
 			// 
 			// btnQuanLyPhim
 			// 
+			this->btnQuanLyPhim->BackColor = System::Drawing::Color::White;
 			this->btnQuanLyPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->btnQuanLyPhim->ForeColor = System::Drawing::Color::Black;
 			this->btnQuanLyPhim->Location = System::Drawing::Point(45, 47);
 			this->btnQuanLyPhim->Margin = System::Windows::Forms::Padding(4);
 			this->btnQuanLyPhim->Name = L"btnQuanLyPhim";
 			this->btnQuanLyPhim->Size = System::Drawing::Size(159, 43);
 			this->btnQuanLyPhim->TabIndex = 0;
 			this->btnQuanLyPhim->Text = L"Quản lý Phim";
-			this->btnQuanLyPhim->UseVisualStyleBackColor = true;
+			this->btnQuanLyPhim->UseVisualStyleBackColor = false;
 			this->btnQuanLyPhim->Click += gcnew System::EventHandler(this, &Main::btnQuanLyPhim_Click);
 			// 
 			// button2

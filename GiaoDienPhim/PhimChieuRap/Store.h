@@ -20,6 +20,7 @@ public:
 	DataTable^ LoadDanhSachGheDaDangKy(String^ idLich, String^ maRap);
 	DataTable^ GetRapPhim(String^ rapPhim);
 	DataTable^ Get1LichChieu(String^ idLichChieu);
+	DataTable^ KetThuc(String^ idLichChieu);
 	DataTable^ GetDanhSachHoaDon(String^ timKiem, DateTime^ dateTuNgay, DateTime^ denngay);
 	DataTable^ GetDanhSachChiTietHoaDon(String^ idHoaDon);
 	bool  Login(String^ taiKhoan, String^ matkhau);

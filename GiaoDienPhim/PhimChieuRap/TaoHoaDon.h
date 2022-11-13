@@ -85,7 +85,9 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::Label^ labNgayChieu;
 	private: System::Windows::Forms::Label^ lab;
 	private: System::Windows::Forms::Label^ labKhungGio;
+//	private: System::Windows::Forms::Label^ labRap;
 	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::Label^ label8;
 
 	private:
 		/// <summary>
@@ -122,6 +124,7 @@ namespace ManagementCinema {
 			this->lab = (gcnew System::Windows::Forms::Label());
 			this->labKhungGio = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label3
@@ -212,7 +215,7 @@ namespace ManagementCinema {
 			// 
 			this->btnDangKy->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnDangKy->Location = System::Drawing::Point(200, 310);
+			this->btnDangKy->Location = System::Drawing::Point(198, 312);
 			this->btnDangKy->Name = L"btnDangKy";
 			this->btnDangKy->Size = System::Drawing::Size(134, 38);
 			this->btnDangKy->TabIndex = 30;
@@ -224,7 +227,7 @@ namespace ManagementCinema {
 			// 
 			this->btnHuy->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnHuy->Location = System::Drawing::Point(396, 310);
+			this->btnHuy->Location = System::Drawing::Point(386, 312);
 			this->btnHuy->Name = L"btnHuy";
 			this->btnHuy->Size = System::Drawing::Size(134, 38);
 			this->btnHuy->TabIndex = 32;
@@ -350,11 +353,24 @@ namespace ManagementCinema {
 			this->label11->TabIndex = 42;
 			this->label11->Text = L"Khung giờ:";
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(373, 245);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(40, 19);
+			this->label8->TabIndex = 44;
+			this->label8->Text = L"Rạp:";
+			// 
 			// TaoHoaDon
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(719, 364);
+			this->ClientSize = System::Drawing::Size(758, 402);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->labKhungGio);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->labNgayChieu);
@@ -391,11 +407,22 @@ namespace ManagementCinema {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
+		String^ sdt = txtSoDT->Text;
 		if (txtTenKhachHang->Text == "" || txtSoDT->Text == "")
 		{
-			MessageBox::Show(L"Vui lòng nhập Tên khách hàng!", "Thông Báo");
+			MessageBox::Show(L"Vui lòng nhập Thông Tin khách hàng!", "Thông Báo");
 			return;
 		}
+
+		 if (sdt->Length <10 || sdt->Length  >10 )
+		{
+			MessageBox::Show(L"* Vui lòng Nhap lai sodt ", "THÔNG BÁO");
+			return;
+		}
+	/*	 String^ Sodau;
+		 Sodau = sdt*/
+
+
 		this->ThucHienDangKy();
 
 		MessageBox::Show(L"Đăng ký thành công!", "Thông Báo");
@@ -427,6 +454,7 @@ namespace ManagementCinema {
 		e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
 		e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
 		e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
+	//	e->Graphics->DrawString(L"Rạp: " + labRap->Text, fnt, Brushes::Black, 111, 450);
 		e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 450);
 		e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 500);
 		e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 550);
@@ -437,5 +465,6 @@ namespace ManagementCinema {
 		}
 	
 	}
+
 };
 }
