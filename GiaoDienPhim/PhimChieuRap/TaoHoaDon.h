@@ -85,9 +85,10 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::Label^ labNgayChieu;
 	private: System::Windows::Forms::Label^ lab;
 	private: System::Windows::Forms::Label^ labKhungGio;
-//	private: System::Windows::Forms::Label^ labRap;
+//
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ labRapPhim;
 
 	private:
 		/// <summary>
@@ -125,6 +126,7 @@ namespace ManagementCinema {
 			this->labKhungGio = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->labRapPhim = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label3
@@ -170,7 +172,7 @@ namespace ManagementCinema {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(64, 156);
+			this->label2->Location = System::Drawing::Point(67, 156);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(77, 19);
@@ -182,7 +184,7 @@ namespace ManagementCinema {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(67, 277);
+			this->label4->Location = System::Drawing::Point(67, 302);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(78, 19);
@@ -194,7 +196,7 @@ namespace ManagementCinema {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(67, 245);
+			this->label5->Location = System::Drawing::Point(67, 273);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(42, 19);
@@ -215,7 +217,7 @@ namespace ManagementCinema {
 			// 
 			this->btnDangKy->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnDangKy->Location = System::Drawing::Point(198, 312);
+			this->btnDangKy->Location = System::Drawing::Point(198, 339);
 			this->btnDangKy->Name = L"btnDangKy";
 			this->btnDangKy->Size = System::Drawing::Size(134, 38);
 			this->btnDangKy->TabIndex = 30;
@@ -227,7 +229,7 @@ namespace ManagementCinema {
 			// 
 			this->btnHuy->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnHuy->Location = System::Drawing::Point(386, 312);
+			this->btnHuy->Location = System::Drawing::Point(381, 339);
 			this->btnHuy->Name = L"btnHuy";
 			this->btnHuy->Size = System::Drawing::Size(134, 38);
 			this->btnHuy->TabIndex = 32;
@@ -274,7 +276,7 @@ namespace ManagementCinema {
 			this->labMaPhim->AutoSize = true;
 			this->labMaPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labMaPhim->Location = System::Drawing::Point(195, 124);
+			this->labMaPhim->Location = System::Drawing::Point(196, 124);
 			this->labMaPhim->Name = L"labMaPhim";
 			this->labMaPhim->Size = System::Drawing::Size(0, 19);
 			this->labMaPhim->TabIndex = 36;
@@ -284,7 +286,7 @@ namespace ManagementCinema {
 			this->labTenPhim->AutoSize = true;
 			this->labTenPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labTenPhim->Location = System::Drawing::Point(195, 156);
+			this->labTenPhim->Location = System::Drawing::Point(196, 156);
 			this->labTenPhim->Name = L"labTenPhim";
 			this->labTenPhim->Size = System::Drawing::Size(0, 19);
 			this->labTenPhim->TabIndex = 37;
@@ -294,7 +296,7 @@ namespace ManagementCinema {
 			this->labGhe->AutoSize = true;
 			this->labGhe->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labGhe->Location = System::Drawing::Point(195, 245);
+			this->labGhe->Location = System::Drawing::Point(196, 273);
 			this->labGhe->Name = L"labGhe";
 			this->labGhe->Size = System::Drawing::Size(0, 19);
 			this->labGhe->TabIndex = 38;
@@ -304,7 +306,7 @@ namespace ManagementCinema {
 			this->labTongTien->AutoSize = true;
 			this->labTongTien->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labTongTien->Location = System::Drawing::Point(195, 277);
+			this->labTongTien->Location = System::Drawing::Point(196, 302);
 			this->labTongTien->Name = L"labTongTien";
 			this->labTongTien->Size = System::Drawing::Size(0, 19);
 			this->labTongTien->TabIndex = 39;
@@ -358,18 +360,29 @@ namespace ManagementCinema {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(373, 245);
+			this->label8->Location = System::Drawing::Point(67, 245);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(40, 19);
 			this->label8->TabIndex = 44;
 			this->label8->Text = L"Rạp:";
 			// 
+			// labRapPhim
+			// 
+			this->labRapPhim->AutoSize = true;
+			this->labRapPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labRapPhim->Location = System::Drawing::Point(196, 245);
+			this->labRapPhim->Name = L"labRapPhim";
+			this->labRapPhim->Size = System::Drawing::Size(0, 19);
+			this->labRapPhim->TabIndex = 46;
+			// 
 			// TaoHoaDon
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(758, 402);
+			this->Controls->Add(this->labRapPhim);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->labKhungGio);
 			this->Controls->Add(this->label11);
@@ -414,7 +427,7 @@ namespace ManagementCinema {
 			return;
 		}
 
-		 if (sdt->Length <10 || sdt->Length  >10 )
+		 if (sdt->Length <10 || sdt->Length  >11 )
 		{
 			MessageBox::Show(L"* Vui lòng Nhap lai sodt ", "THÔNG BÁO");
 			return;
@@ -454,7 +467,7 @@ namespace ManagementCinema {
 		e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
 		e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
 		e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
-	//	e->Graphics->DrawString(L"Rạp: " + labRap->Text, fnt, Brushes::Black, 111, 450);
+		e->Graphics->DrawString(L"Rạp : " + labRapPhim, fnt, Brushes::Black, 111, 450);
 		e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 450);
 		e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 500);
 		e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 550);
