@@ -18,18 +18,23 @@ void Main(array<String^>^ args) {
 
 
 void ManagementCinema::Login::ThucHienLogin()
-{
+{	
+	
+	button1->Text = "....";
 	Store^ s = gcnew Store();
 	bool login = s->Login(textBox1->Text, textBox2->Text);
 
 	if (login) {
 		Main^ f = gcnew Main(this, textBox1->Text);
 		this->Visible= false;
+		button1->Text = L"Đăng nhập";
 		f->ShowDialog();
 		
 	}
 	else
 	{
 		MessageBox::Show(L"Tài khoản hoặc mật khẩu không đúng!", "Thông Báo");
+
+		button1->Text = L"Đăng nhập";
 	}
 }

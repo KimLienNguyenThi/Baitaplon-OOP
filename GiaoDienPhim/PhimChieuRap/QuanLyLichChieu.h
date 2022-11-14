@@ -136,12 +136,19 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ NamSanXuat;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ QuocGia;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ ThoiLuong;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
+private: System::Windows::Forms::TextBox^ txtThoiLuong;
+private: System::Windows::Forms::Label^ labThoiLuong;
+private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+private: System::ComponentModel::IContainer^ components;
+
+
+
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -150,11 +157,14 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->txtThoiLuong = (gcnew System::Windows::Forms::TextBox());
+			this->labThoiLuong = (gcnew System::Windows::Forms::Label());
 			this->txtTenPhim = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->txtIdLichPhim = (gcnew System::Windows::Forms::TextBox());
@@ -182,6 +192,13 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGvPhims = (gcnew System::Windows::Forms::DataGridView());
+			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Ten = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->NamSanXuat = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->QuocGia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ThoiLuong = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->TheLoai = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGvLich = (gcnew System::Windows::Forms::DataGridView());
@@ -192,13 +209,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->NgayChieu = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GioBatDau = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->GioKetThuc = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Ten = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->NamSanXuat = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->QuocGia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ThoiLuong = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->TheLoai = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->panel1->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -220,11 +231,13 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Margin = System::Windows::Forms::Padding(4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1269, 180);
+			this->panel1->Size = System::Drawing::Size(1269, 187);
 			this->panel1->TabIndex = 0;
 			// 
 			// groupBox3
 			// 
+			this->groupBox3->Controls->Add(this->txtThoiLuong);
+			this->groupBox3->Controls->Add(this->labThoiLuong);
 			this->groupBox3->Controls->Add(this->txtTenPhim);
 			this->groupBox3->Controls->Add(this->label8);
 			this->groupBox3->Controls->Add(this->txtIdLichPhim);
@@ -246,17 +259,41 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->groupBox3->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox3->Size = System::Drawing::Size(888, 180);
+			this->groupBox3->Size = System::Drawing::Size(888, 187);
 			this->groupBox3->TabIndex = 3;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Thông tin";
+			// 
+			// txtThoiLuong
+			// 
+			this->txtThoiLuong->Enabled = false;
+			this->txtThoiLuong->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtThoiLuong->Location = System::Drawing::Point(575, 42);
+			this->txtThoiLuong->Margin = System::Windows::Forms::Padding(4);
+			this->txtThoiLuong->Name = L"txtThoiLuong";
+			this->txtThoiLuong->Size = System::Drawing::Size(268, 27);
+			this->txtThoiLuong->TabIndex = 27;
+			this->txtThoiLuong->TextChanged += gcnew System::EventHandler(this, &QuanLyLichChieu::txtThoiLuong_TextChanged);
+			// 
+			// labThoiLuong
+			// 
+			this->labThoiLuong->AutoSize = true;
+			this->labThoiLuong->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labThoiLuong->Location = System::Drawing::Point(456, 45);
+			this->labThoiLuong->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labThoiLuong->Name = L"labThoiLuong";
+			this->labThoiLuong->Size = System::Drawing::Size(93, 19);
+			this->labThoiLuong->TabIndex = 28;
+			this->labThoiLuong->Text = L"Thời Lượng:";
 			// 
 			// txtTenPhim
 			// 
 			this->txtTenPhim->Enabled = false;
 			this->txtTenPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtTenPhim->Location = System::Drawing::Point(154, 91);
+			this->txtTenPhim->Location = System::Drawing::Point(153, 97);
 			this->txtTenPhim->Margin = System::Windows::Forms::Padding(4);
 			this->txtTenPhim->Name = L"txtTenPhim";
 			this->txtTenPhim->Size = System::Drawing::Size(268, 27);
@@ -267,7 +304,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(27, 97);
+			this->label8->Location = System::Drawing::Point(26, 105);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(79, 19);
@@ -279,7 +316,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->txtIdLichPhim->Enabled = false;
 			this->txtIdLichPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtIdLichPhim->Location = System::Drawing::Point(154, 51);
+			this->txtIdLichPhim->Location = System::Drawing::Point(153, 65);
 			this->txtIdLichPhim->Margin = System::Windows::Forms::Padding(4);
 			this->txtIdLichPhim->Name = L"txtIdLichPhim";
 			this->txtIdLichPhim->Size = System::Drawing::Size(268, 27);
@@ -290,7 +327,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(27, 57);
+			this->label6->Location = System::Drawing::Point(26, 71);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(110, 19);
@@ -302,7 +339,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->labRap->AutoSize = true;
 			this->labRap->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labRap->Location = System::Drawing::Point(28, 133);
+			this->labRap->Location = System::Drawing::Point(26, 136);
 			this->labRap->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labRap->Name = L"labRap";
 			this->labRap->Size = System::Drawing::Size(40, 19);
@@ -315,7 +352,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->comboRapPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboRapPhim->FormattingEnabled = true;
-			this->comboRapPhim->Location = System::Drawing::Point(154, 130);
+			this->comboRapPhim->Location = System::Drawing::Point(153, 133);
 			this->comboRapPhim->Margin = System::Windows::Forms::Padding(4);
 			this->comboRapPhim->Name = L"comboRapPhim";
 			this->comboRapPhim->Size = System::Drawing::Size(268, 27);
@@ -324,10 +361,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			// datePickKetThuc
 			// 
 			this->datePickKetThuc->CustomFormat = L"HH:mm";
+			this->datePickKetThuc->Enabled = false;
 			this->datePickKetThuc->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->datePickKetThuc->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->datePickKetThuc->Location = System::Drawing::Point(573, 130);
+			this->datePickKetThuc->Location = System::Drawing::Point(575, 147);
 			this->datePickKetThuc->Margin = System::Windows::Forms::Padding(4);
 			this->datePickKetThuc->Name = L"datePickKetThuc";
 			this->datePickKetThuc->Size = System::Drawing::Size(268, 27);
@@ -339,11 +377,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->datePickBatDau->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->datePickBatDau->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->datePickBatDau->Location = System::Drawing::Point(573, 91);
+			this->datePickBatDau->Location = System::Drawing::Point(575, 112);
 			this->datePickBatDau->Margin = System::Windows::Forms::Padding(4);
 			this->datePickBatDau->Name = L"datePickBatDau";
 			this->datePickBatDau->Size = System::Drawing::Size(268, 27);
 			this->datePickBatDau->TabIndex = 19;
+			this->datePickBatDau->ValueChanged += gcnew System::EventHandler(this, &QuanLyLichChieu::dateTimePicker1_ValueChanged);
 			// 
 			// datePickNgayChieu
 			// 
@@ -351,7 +390,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->datePickNgayChieu->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->datePickNgayChieu->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->datePickNgayChieu->Location = System::Drawing::Point(573, 51);
+			this->datePickNgayChieu->Location = System::Drawing::Point(575, 77);
 			this->datePickNgayChieu->Margin = System::Windows::Forms::Padding(4);
 			this->datePickNgayChieu->Name = L"datePickNgayChieu";
 			this->datePickNgayChieu->Size = System::Drawing::Size(268, 27);
@@ -361,7 +400,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			// 
 			this->txtGiaVe->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtGiaVe->Location = System::Drawing::Point(573, 17);
+			this->txtGiaVe->Location = System::Drawing::Point(575, 10);
 			this->txtGiaVe->Margin = System::Windows::Forms::Padding(4);
 			this->txtGiaVe->Name = L"txtGiaVe";
 			this->txtGiaVe->Size = System::Drawing::Size(268, 27);
@@ -374,7 +413,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(447, 20);
+			this->label7->Location = System::Drawing::Point(456, 13);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(61, 19);
@@ -386,7 +425,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->txtMaPhim->Enabled = false;
 			this->txtMaPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtMaPhim->Location = System::Drawing::Point(154, 17);
+			this->txtMaPhim->Location = System::Drawing::Point(153, 31);
 			this->txtMaPhim->Margin = System::Windows::Forms::Padding(4);
 			this->txtMaPhim->Name = L"txtMaPhim";
 			this->txtMaPhim->Size = System::Drawing::Size(268, 27);
@@ -397,7 +436,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(447, 133);
+			this->label5->Location = System::Drawing::Point(456, 153);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(98, 19);
@@ -409,7 +448,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(27, 23);
+			this->label3->Location = System::Drawing::Point(26, 37);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(74, 19);
@@ -421,7 +460,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(447, 94);
+			this->label2->Location = System::Drawing::Point(456, 118);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(92, 19);
@@ -433,7 +472,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(447, 56);
+			this->label4->Location = System::Drawing::Point(456, 83);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(90, 19);
@@ -483,7 +522,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->panel2->Controls->Add(this->btnXoaLich);
 			this->panel2->Controls->Add(this->btnThemLich);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
-			this->panel2->Location = System::Drawing::Point(0, 180);
+			this->panel2->Location = System::Drawing::Point(0, 187);
 			this->panel2->Margin = System::Windows::Forms::Padding(4);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(1269, 62);
@@ -543,7 +582,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			// 
 			this->panel3->Controls->Add(this->groupBox1);
 			this->panel3->Dock = System::Windows::Forms::DockStyle::Top;
-			this->panel3->Location = System::Drawing::Point(0, 242);
+			this->panel3->Location = System::Drawing::Point(0, 249);
 			this->panel3->Margin = System::Windows::Forms::Padding(4);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(1269, 228);
@@ -578,15 +617,79 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->dataGvPhims->Size = System::Drawing::Size(1261, 205);
 			this->dataGvPhims->TabIndex = 0;
 			this->dataGvPhims->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyLichChieu::dataGvPhims_CellClick);
+			this->dataGvPhims->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyLichChieu::dataGvPhims_CellContentClick);
+			// 
+			// ID
+			// 
+			this->ID->DataPropertyName = L"ID";
+			this->ID->HeaderText = L"ID";
+			this->ID->MinimumWidth = 6;
+			this->ID->Name = L"ID";
+			this->ID->ReadOnly = true;
+			this->ID->Width = 125;
+			// 
+			// Ten
+			// 
+			this->Ten->DataPropertyName = L"Ten";
+			this->Ten->HeaderText = L"Tên Phim";
+			this->Ten->MinimumWidth = 6;
+			this->Ten->Name = L"Ten";
+			this->Ten->ReadOnly = true;
+			this->Ten->Width = 125;
+			// 
+			// MaPhim
+			// 
+			this->MaPhim->DataPropertyName = L"MaPhim";
+			this->MaPhim->HeaderText = L"Mã Phim";
+			this->MaPhim->MinimumWidth = 6;
+			this->MaPhim->Name = L"MaPhim";
+			this->MaPhim->ReadOnly = true;
+			this->MaPhim->Width = 125;
+			// 
+			// NamSanXuat
+			// 
+			this->NamSanXuat->DataPropertyName = L"NamSanXuat";
+			this->NamSanXuat->HeaderText = L"Năm Sản Xuất";
+			this->NamSanXuat->MinimumWidth = 6;
+			this->NamSanXuat->Name = L"NamSanXuat";
+			this->NamSanXuat->ReadOnly = true;
+			this->NamSanXuat->Width = 125;
+			// 
+			// QuocGia
+			// 
+			this->QuocGia->DataPropertyName = L"QuocGia";
+			this->QuocGia->HeaderText = L"Quốc Gia";
+			this->QuocGia->MinimumWidth = 6;
+			this->QuocGia->Name = L"QuocGia";
+			this->QuocGia->ReadOnly = true;
+			this->QuocGia->Width = 125;
+			// 
+			// ThoiLuong
+			// 
+			this->ThoiLuong->DataPropertyName = L"ThoiLuong";
+			this->ThoiLuong->HeaderText = L"Thời Lượng";
+			this->ThoiLuong->MinimumWidth = 6;
+			this->ThoiLuong->Name = L"ThoiLuong";
+			this->ThoiLuong->ReadOnly = true;
+			this->ThoiLuong->Width = 125;
+			// 
+			// TheLoai
+			// 
+			this->TheLoai->DataPropertyName = L"TheLoai";
+			this->TheLoai->HeaderText = L"Thể Loại";
+			this->TheLoai->MinimumWidth = 6;
+			this->TheLoai->Name = L"TheLoai";
+			this->TheLoai->ReadOnly = true;
+			this->TheLoai->Width = 125;
 			// 
 			// panel4
 			// 
 			this->panel4->Controls->Add(this->groupBox2);
 			this->panel4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panel4->Location = System::Drawing::Point(0, 470);
+			this->panel4->Location = System::Drawing::Point(0, 477);
 			this->panel4->Margin = System::Windows::Forms::Padding(4);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(1269, 227);
+			this->panel4->Size = System::Drawing::Size(1269, 220);
 			this->panel4->TabIndex = 3;
 			// 
 			// groupBox2
@@ -597,7 +700,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->groupBox2->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox2->Size = System::Drawing::Size(1269, 227);
+			this->groupBox2->Size = System::Drawing::Size(1269, 220);
 			this->groupBox2->TabIndex = 1;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Danh Sách Lịch chiếu";
@@ -615,7 +718,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->dataGvLich->Margin = System::Windows::Forms::Padding(4);
 			this->dataGvLich->Name = L"dataGvLich";
 			this->dataGvLich->RowHeadersWidth = 51;
-			this->dataGvLich->Size = System::Drawing::Size(1261, 204);
+			this->dataGvLich->Size = System::Drawing::Size(1261, 197);
 			this->dataGvLich->TabIndex = 0;
 			this->dataGvLich->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyLichChieu::dataLichChieu_CellClick);
 			// 
@@ -684,68 +787,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			this->GioKetThuc->Name = L"GioKetThuc";
 			this->GioKetThuc->Width = 125;
 			// 
-			// ID
+			// contextMenuStrip1
 			// 
-			this->ID->DataPropertyName = L"ID";
-			this->ID->HeaderText = L"ID";
-			this->ID->MinimumWidth = 6;
-			this->ID->Name = L"ID";
-			this->ID->ReadOnly = true;
-			this->ID->Width = 125;
-			// 
-			// Ten
-			// 
-			this->Ten->DataPropertyName = L"Ten";
-			this->Ten->HeaderText = L"Tên Phim";
-			this->Ten->MinimumWidth = 6;
-			this->Ten->Name = L"Ten";
-			this->Ten->ReadOnly = true;
-			this->Ten->Width = 125;
-			// 
-			// MaPhim
-			// 
-			this->MaPhim->DataPropertyName = L"MaPhim";
-			this->MaPhim->HeaderText = L"Mã Phim";
-			this->MaPhim->MinimumWidth = 6;
-			this->MaPhim->Name = L"MaPhim";
-			this->MaPhim->ReadOnly = true;
-			this->MaPhim->Width = 125;
-			// 
-			// NamSanXuat
-			// 
-			this->NamSanXuat->DataPropertyName = L"NamSanXuat";
-			this->NamSanXuat->HeaderText = L"Năm Sản Xuất";
-			this->NamSanXuat->MinimumWidth = 6;
-			this->NamSanXuat->Name = L"NamSanXuat";
-			this->NamSanXuat->ReadOnly = true;
-			this->NamSanXuat->Width = 125;
-			// 
-			// QuocGia
-			// 
-			this->QuocGia->DataPropertyName = L"QuocGia";
-			this->QuocGia->HeaderText = L"Quốc Gia";
-			this->QuocGia->MinimumWidth = 6;
-			this->QuocGia->Name = L"QuocGia";
-			this->QuocGia->ReadOnly = true;
-			this->QuocGia->Width = 125;
-			// 
-			// ThoiLuong
-			// 
-			this->ThoiLuong->DataPropertyName = L"ThoiLuong";
-			this->ThoiLuong->HeaderText = L"Thời Lượng";
-			this->ThoiLuong->MinimumWidth = 6;
-			this->ThoiLuong->Name = L"ThoiLuong";
-			this->ThoiLuong->ReadOnly = true;
-			this->ThoiLuong->Width = 125;
-			// 
-			// TheLoai
-			// 
-			this->TheLoai->DataPropertyName = L"TheLoai";
-			this->TheLoai->HeaderText = L"Thể Loại";
-			this->TheLoai->MinimumWidth = 6;
-			this->TheLoai->Name = L"TheLoai";
-			this->TheLoai->ReadOnly = true;
-			this->TheLoai->Width = 125;
+			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
 			// QuanLyLichChieu
 			// 
@@ -799,6 +845,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 			txtMaPhim->Text = maPhim;
 			String^ tenPhim = dr["Ten"]->ToString();
 			txtTenPhim->Text = tenPhim;
+			String^ thoiLuong = dr["ThoiLuong"]->ToString(); 
+			txtThoiLuong->Text = thoiLuong; 
+
 		}
 
 	}
@@ -953,5 +1002,45 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 	}
 	
 
+
+private: System::Void dataGvPhims_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+public: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, EventArgs^ e)
+{
+	DateTime^ batdau = gcnew DateTime(
+		datePickNgayChieu->Value.Year,
+		datePickNgayChieu->Value.Month,
+		datePickNgayChieu->Value.Day,
+		datePickBatDau->Value.Hour,
+		datePickBatDau->Value.Minute,
+		datePickBatDau->Value.Second);
+	if (txtThoiLuong->Text == "")
+	{
+		txtThoiLuong->Text = "0"; 
+	}
+	int i = int::Parse(txtThoiLuong->Text->ToString());
+
+	DateTime^ KetThuc = batdau->AddMinutes(i);
+
+	datePickKetThuc->Value = DateTime(KetThuc->Year, KetThuc->Month, KetThuc->Day, KetThuc->Hour, KetThuc->Minute, KetThuc->Second);
+
+}
+private: System::Void txtThoiLuong_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	
+	/*DateTime^ batdau = gcnew DateTime(
+		datePickNgayChieu->Value.Year,
+		datePickNgayChieu->Value.Month,
+		datePickNgayChieu->Value.Day,
+		datePickBatDau->Value.Hour,
+		datePickBatDau->Value.Minute,
+		datePickBatDau->Value.Second);
+	int i = int::Parse(txtThoiLuong->Text->ToString());
+	DateTime^ KetThuc = batdau->AddMinutes(i);
+	String^ time = KetThuc->ToString();
+	timeEnd->Text = time;
+	textBox1->Text = time;
+	
+	datePickKetThuc->Value = DateTime(KetThuc->Year, KetThuc->Month, KetThuc->Day, KetThuc->Hour,KetThuc->Minute , KetThuc->Second);*/
+}
 };
 }

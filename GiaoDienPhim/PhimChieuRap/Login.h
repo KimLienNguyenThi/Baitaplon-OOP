@@ -91,7 +91,6 @@ namespace ManagementCinema {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(171, 27);
 			this->textBox1->TabIndex = 2;
-	
 			// 
 			// textBox2
 			// 
@@ -128,13 +127,13 @@ namespace ManagementCinema {
 			this->Name = L"Login";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Login";
-			
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		button1->Text = "....";
 		if (textBox1->Text == ""
 			|| textBox2->Text == "")
 		{

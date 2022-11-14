@@ -89,6 +89,7 @@ namespace ManagementCinema {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(DangKyVe::typeid));
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
@@ -126,7 +127,7 @@ namespace ManagementCinema {
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Margin = System::Windows::Forms::Padding(4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1244, 281);
+			this->panel1->Size = System::Drawing::Size(1244, 308);
 			this->panel1->TabIndex = 0;
 			// 
 			// groupBox1
@@ -145,7 +146,7 @@ namespace ManagementCinema {
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(804, 281);
+			this->groupBox1->Size = System::Drawing::Size(804, 308);
 			this->groupBox1->TabIndex = 8;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Chọn phim";
@@ -156,7 +157,7 @@ namespace ManagementCinema {
 			this->btnThoat->BackColor = System::Drawing::Color::Silver;
 			this->btnThoat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnThoat->Location = System::Drawing::Point(605, 203);
+			this->btnThoat->Location = System::Drawing::Point(612, 238);
 			this->btnThoat->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnThoat->Name = L"btnThoat";
 			this->btnThoat->Size = System::Drawing::Size(137, 46);
@@ -170,7 +171,7 @@ namespace ManagementCinema {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(8, 155);
+			this->label4->Location = System::Drawing::Point(15, 190);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(102, 22);
@@ -183,7 +184,7 @@ namespace ManagementCinema {
 			this->comboKhungGio->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboKhungGio->FormattingEnabled = true;
-			this->comboKhungGio->Location = System::Drawing::Point(137, 150);
+			this->comboKhungGio->Location = System::Drawing::Point(144, 185);
 			this->comboKhungGio->Margin = System::Windows::Forms::Padding(4);
 			this->comboKhungGio->Name = L"comboKhungGio";
 			this->comboKhungGio->Size = System::Drawing::Size(605, 30);
@@ -195,7 +196,7 @@ namespace ManagementCinema {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(8, 99);
+			this->label3->Location = System::Drawing::Point(15, 134);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(109, 22);
@@ -209,7 +210,7 @@ namespace ManagementCinema {
 				static_cast<System::Byte>(0)));
 			this->comboNgayChieu->FormatString = L"yyyy/MM/dd";
 			this->comboNgayChieu->FormattingEnabled = true;
-			this->comboNgayChieu->Location = System::Drawing::Point(137, 93);
+			this->comboNgayChieu->Location = System::Drawing::Point(144, 128);
 			this->comboNgayChieu->Margin = System::Windows::Forms::Padding(4);
 			this->comboNgayChieu->Name = L"comboNgayChieu";
 			this->comboNgayChieu->Size = System::Drawing::Size(605, 30);
@@ -222,7 +223,7 @@ namespace ManagementCinema {
 			this->comboTenPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboTenPhim->FormattingEnabled = true;
-			this->comboTenPhim->Location = System::Drawing::Point(137, 33);
+			this->comboTenPhim->Location = System::Drawing::Point(144, 68);
 			this->comboTenPhim->Margin = System::Windows::Forms::Padding(4);
 			this->comboTenPhim->Name = L"comboTenPhim";
 			this->comboTenPhim->Size = System::Drawing::Size(605, 30);
@@ -234,7 +235,7 @@ namespace ManagementCinema {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(8, 39);
+			this->label1->Location = System::Drawing::Point(15, 74);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(96, 22);
@@ -243,6 +244,7 @@ namespace ManagementCinema {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(16, 10);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
@@ -257,7 +259,7 @@ namespace ManagementCinema {
 			this->panel2->Controls->Add(this->btnLuu);
 			this->panel2->Controls->Add(this->btnHuy);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
-			this->panel2->Location = System::Drawing::Point(0, 281);
+			this->panel2->Location = System::Drawing::Point(0, 308);
 			this->panel2->Margin = System::Windows::Forms::Padding(4);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(1244, 95);
@@ -321,10 +323,10 @@ namespace ManagementCinema {
 			// 
 			this->panel3->Controls->Add(this->dataGvGhe);
 			this->panel3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panel3->Location = System::Drawing::Point(0, 376);
+			this->panel3->Location = System::Drawing::Point(0, 403);
 			this->panel3->Margin = System::Windows::Forms::Padding(4);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1244, 311);
+			this->panel3->Size = System::Drawing::Size(1244, 284);
 			this->panel3->TabIndex = 2;
 			// 
 			// dataGvGhe
@@ -364,7 +366,7 @@ namespace ManagementCinema {
 			this->dataGvGhe->RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGvGhe->RowHeadersWidth = 51;
 			this->dataGvGhe->RowTemplate->Height = 24;
-			this->dataGvGhe->Size = System::Drawing::Size(1244, 311);
+			this->dataGvGhe->Size = System::Drawing::Size(1244, 284);
 			this->dataGvGhe->TabIndex = 0;
 			this->dataGvGhe->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DangKyVe::dataGvGhe_CellClick);
 			// 
@@ -436,16 +438,33 @@ namespace ManagementCinema {
 		XoaDanhSachGheDangChon();
 	}
 	private: System::Void dataGvGhe_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		/*int rowIndexLast = e->RowIndex;
+		int columnIndexLast = e->ColumnIndex;*/
+
+		// neu ghe da chon 
 		if (e->RowIndex >= 0)
 		{
 			int a = e->RowIndex;
 			int b = e->ColumnIndex;
-
+			
 			String^ soGhe = dataGvGhe->Rows[a]->Cells[b]->Value->ToString();
 			ListViewItem^ item = lstViewDangChonGhe->FindItemWithText(soGhe);
+			// neu ghe dang chon bang NULL va khong nam trong danh sach ghe da chon thi chuyen vi tri ghe thanh mau xanh -> them vao danh sach ghe da chon
 			if (item == nullptr && TimKiemGheDangKy(danhSachGheDaDangKy, soGhe) == false) {
-				lstViewDangChonGhe->Items->Add(soGhe);
+				dataGvGhe->Rows[a]->Cells[b]->Style->BackColor = Color::Green;
+				lstViewDangChonGhe->Items->Add(soGhe);  // them vao danh sach mk chi lay 1 ghe theem vao danh sach ghe dang chon (item)
 			}
+			else {
+				if ( TimKiemGheDangKy(danhSachGheDaDangKy, soGhe) == false) {
+
+					dataGvGhe->Rows[a]->Cells[b]->Style->BackColor = Color::GreenYellow;
+					lstViewDangChonGhe->Items->Remove(item); // mk chi xoa phan tu cua cai list vtri ghe roi chen ghe sau  len 
+				}
+
+
+				
+			}
+		
 		}
 	}
 	private: System::Void btnLuu_Click(System::Object^ sender, System::EventArgs^ e) {

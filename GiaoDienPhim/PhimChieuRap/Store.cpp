@@ -101,7 +101,7 @@ DataTable^ Store::LoadDanhSachLichChieu(String^ maPhim)
 	DataTable^ results = gcnew DataTable();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
-	String^ query = "SELECT * FROM LichPhim WHERE MaPhim ='" + maPhim + "'";
+	String^ query = "SELECT * FROM LichPhim WHERE  MaPhim ='" + maPhim + "'";
 
 	cmd->CommandText = query;
 	cmd->ExecuteNonQuery();
