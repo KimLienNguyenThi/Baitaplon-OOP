@@ -33,4 +33,6 @@ void ManagementCinema::TaoHoaDon::LoadLichPhim()
 	labTongTien->Text = tongTien.ToString();
 	labNgayChieu->Text = DateTime::Parse(dr["NgayChieu"]->ToString()).ToString("yyyy/MM/dd");
 	labKhungGio->Text = DateTime::Parse(dr["GioBatDau"]->ToString()).ToString("HH:mm") + L" đến " + DateTime::Parse(dr["GioKetThuc"]->ToString()).ToString("HH:mm");
+	labSoluongve->Text = arrGhe->Length.ToString();
+	labGiave->Text =dr["GiaVe"]->ToString();
 }

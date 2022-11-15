@@ -451,18 +451,15 @@ namespace ManagementCinema {
 			ListViewItem^ item = lstViewDangChonGhe->FindItemWithText(soGhe);
 			// neu ghe dang chon bang NULL va khong nam trong danh sach ghe da chon thi chuyen vi tri ghe thanh mau xanh -> them vao danh sach ghe da chon
 			if (item == nullptr && TimKiemGheDangKy(danhSachGheDaDangKy, soGhe) == false) {
-				dataGvGhe->Rows[a]->Cells[b]->Style->BackColor = Color::Green;
+				dataGvGhe->Rows[a]->Cells[b]->Style->BackColor = Color::Gray;
 				lstViewDangChonGhe->Items->Add(soGhe);  // them vao danh sach mk chi lay 1 ghe theem vao danh sach ghe dang chon (item)
 			}
 			else {
 				if ( TimKiemGheDangKy(danhSachGheDaDangKy, soGhe) == false) {
 
-					dataGvGhe->Rows[a]->Cells[b]->Style->BackColor = Color::GreenYellow;
+					dataGvGhe->Rows[a]->Cells[b]->Style->BackColor = Color::Silver;
 					lstViewDangChonGhe->Items->Remove(item); // mk chi xoa phan tu cua cai list vtri ghe roi chen ghe sau  len 
 				}
-
-
-				
 			}
 		
 		}

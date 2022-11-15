@@ -89,6 +89,10 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ labRapPhim;
+	private: System::Windows::Forms::Label^ labGiave;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ labSoluongve;
+	private: System::Windows::Forms::Label^ label13;
 
 	private:
 		/// <summary>
@@ -127,6 +131,10 @@ namespace ManagementCinema {
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->labRapPhim = (gcnew System::Windows::Forms::Label());
+			this->labGiave = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->labSoluongve = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label3
@@ -184,7 +192,7 @@ namespace ManagementCinema {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(67, 302);
+			this->label4->Location = System::Drawing::Point(67, 363);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(78, 19);
@@ -217,7 +225,7 @@ namespace ManagementCinema {
 			// 
 			this->btnDangKy->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnDangKy->Location = System::Drawing::Point(198, 339);
+			this->btnDangKy->Location = System::Drawing::Point(199, 397);
 			this->btnDangKy->Name = L"btnDangKy";
 			this->btnDangKy->Size = System::Drawing::Size(134, 38);
 			this->btnDangKy->TabIndex = 30;
@@ -229,7 +237,7 @@ namespace ManagementCinema {
 			// 
 			this->btnHuy->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnHuy->Location = System::Drawing::Point(381, 339);
+			this->btnHuy->Location = System::Drawing::Point(382, 397);
 			this->btnHuy->Name = L"btnHuy";
 			this->btnHuy->Size = System::Drawing::Size(134, 38);
 			this->btnHuy->TabIndex = 32;
@@ -306,7 +314,7 @@ namespace ManagementCinema {
 			this->labTongTien->AutoSize = true;
 			this->labTongTien->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labTongTien->Location = System::Drawing::Point(196, 302);
+			this->labTongTien->Location = System::Drawing::Point(196, 363);
 			this->labTongTien->Name = L"labTongTien";
 			this->labTongTien->Size = System::Drawing::Size(0, 19);
 			this->labTongTien->TabIndex = 39;
@@ -377,11 +385,59 @@ namespace ManagementCinema {
 			this->labRapPhim->Size = System::Drawing::Size(0, 19);
 			this->labRapPhim->TabIndex = 46;
 			// 
+			// labGiave
+			// 
+			this->labGiave->AutoSize = true;
+			this->labGiave->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labGiave->Location = System::Drawing::Point(196, 333);
+			this->labGiave->Name = L"labGiave";
+			this->labGiave->Size = System::Drawing::Size(0, 19);
+			this->labGiave->TabIndex = 48;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(67, 333);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(57, 19);
+			this->label10->TabIndex = 47;
+			this->label10->Text = L"Giá vé:";
+			// 
+			// labSoluongve
+			// 
+			this->labSoluongve->AutoSize = true;
+			this->labSoluongve->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labSoluongve->Location = System::Drawing::Point(196, 304);
+			this->labSoluongve->Name = L"labSoluongve";
+			this->labSoluongve->Size = System::Drawing::Size(0, 19);
+			this->labSoluongve->TabIndex = 50;
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label13->Location = System::Drawing::Point(67, 304);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(98, 19);
+			this->label13->TabIndex = 49;
+			this->label13->Text = L"Số lượng vé: ";
+			// 
 			// TaoHoaDon
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(758, 402);
+			this->ClientSize = System::Drawing::Size(794, 477);
+			this->Controls->Add(this->labSoluongve);
+			this->Controls->Add(this->label13);
+			this->Controls->Add(this->labGiave);
+			this->Controls->Add(this->label10);
 			this->Controls->Add(this->labRapPhim);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->labKhungGio);
@@ -438,7 +494,7 @@ namespace ManagementCinema {
 
 		this->ThucHienDangKy();
 
-		MessageBox::Show(L"Đăng ký thành công!", "Thông Báo");
+	/*	MessageBox::Show(L"Đăng ký thành công!", "Thông Báo");*/
 	
 		printPreviewDialog1->StartPosition = FormStartPosition::CenterParent;
 		printPreviewDialog1->Document = printDocument1;
@@ -467,10 +523,12 @@ namespace ManagementCinema {
 		e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
 		e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
 		e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
-		e->Graphics->DrawString(L"Rạp : " + labRapPhim, fnt, Brushes::Black, 111, 450);
-		e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 450);
-		e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 500);
-		e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 550);
+		e->Graphics->DrawString(L"Rạp : " + labRapPhim->Text, fnt, Brushes::Black, 111, 450);
+		e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 500);
+		e->Graphics->DrawString(L"Số lượng : " + labSoluongve->Text, fnt, Brushes::Black, 111, 550);
+		e->Graphics->DrawString(L"Giá vé : " + labGiave->Text, fnt, Brushes::Black, 200, 550);
+		e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 550);
+		e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 650);
 	}
 	private: System::Void txtSoDT_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {

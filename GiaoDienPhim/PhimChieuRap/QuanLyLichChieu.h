@@ -129,16 +129,53 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GioBatDau;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GioKetThuc;
 	private: System::Windows::Forms::Button^ btnThoat;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ten;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ MaPhim;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ NamSanXuat;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ QuocGia;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ ThoiLuong;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
+
+
+
+
+
+
+
 private: System::Windows::Forms::TextBox^ txtThoiLuong;
 private: System::Windows::Forms::Label^ labThoiLuong;
 private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ ID;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ HinhAnh;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ MaPhim;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ten;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ NamSanXuat;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ ThoiLuong;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ TrangThai;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ QuocGia;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ DienVien;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 private: System::ComponentModel::IContainer^ components;
 
 
@@ -193,12 +230,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGvPhims = (gcnew System::Windows::Forms::DataGridView());
 			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Ten = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->HinhAnh = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Ten = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->NamSanXuat = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->QuocGia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ThoiLuong = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->TrangThai = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TheLoai = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->QuocGia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->DienVien = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGvLich = (gcnew System::Windows::Forms::DataGridView());
@@ -605,9 +645,9 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->dataGvPhims->AllowUserToAddRows = false;
 			this->dataGvPhims->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGvPhims->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
-				this->ID, this->Ten,
-					this->MaPhim, this->NamSanXuat, this->QuocGia, this->ThoiLuong, this->TheLoai
+			this->dataGvPhims->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
+				this->ID, this->HinhAnh,
+					this->MaPhim, this->Ten, this->NamSanXuat, this->ThoiLuong, this->TrangThai, this->TheLoai, this->QuocGia, this->DienVien
 			});
 			this->dataGvPhims->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->dataGvPhims->Location = System::Drawing::Point(4, 19);
@@ -628,14 +668,14 @@ private: System::ComponentModel::IContainer^ components;
 			this->ID->ReadOnly = true;
 			this->ID->Width = 125;
 			// 
-			// Ten
+			// HinhAnh
 			// 
-			this->Ten->DataPropertyName = L"Ten";
-			this->Ten->HeaderText = L"Tên Phim";
-			this->Ten->MinimumWidth = 6;
-			this->Ten->Name = L"Ten";
-			this->Ten->ReadOnly = true;
-			this->Ten->Width = 125;
+			this->HinhAnh->DataPropertyName = L"HinhAnh";
+			this->HinhAnh->HeaderText = L"Hình Ảnh";
+			this->HinhAnh->MinimumWidth = 6;
+			this->HinhAnh->Name = L"HinhAnh";
+			this->HinhAnh->Visible = false;
+			this->HinhAnh->Width = 125;
 			// 
 			// MaPhim
 			// 
@@ -646,6 +686,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->MaPhim->ReadOnly = true;
 			this->MaPhim->Width = 125;
 			// 
+			// Ten
+			// 
+			this->Ten->DataPropertyName = L"Ten";
+			this->Ten->HeaderText = L"Tên Phim";
+			this->Ten->MinimumWidth = 6;
+			this->Ten->Name = L"Ten";
+			this->Ten->ReadOnly = true;
+			this->Ten->Width = 125;
+			// 
 			// NamSanXuat
 			// 
 			this->NamSanXuat->DataPropertyName = L"NamSanXuat";
@@ -654,15 +703,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->NamSanXuat->Name = L"NamSanXuat";
 			this->NamSanXuat->ReadOnly = true;
 			this->NamSanXuat->Width = 125;
-			// 
-			// QuocGia
-			// 
-			this->QuocGia->DataPropertyName = L"QuocGia";
-			this->QuocGia->HeaderText = L"Quốc Gia";
-			this->QuocGia->MinimumWidth = 6;
-			this->QuocGia->Name = L"QuocGia";
-			this->QuocGia->ReadOnly = true;
-			this->QuocGia->Width = 125;
 			// 
 			// ThoiLuong
 			// 
@@ -673,6 +713,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->ThoiLuong->ReadOnly = true;
 			this->ThoiLuong->Width = 125;
 			// 
+			// TrangThai
+			// 
+			this->TrangThai->DataPropertyName = L"TrangThai";
+			this->TrangThai->HeaderText = L"Trạng thái";
+			this->TrangThai->MinimumWidth = 6;
+			this->TrangThai->Name = L"TrangThai";
+			this->TrangThai->Visible = false;
+			this->TrangThai->Width = 125;
+			// 
 			// TheLoai
 			// 
 			this->TheLoai->DataPropertyName = L"TheLoai";
@@ -681,6 +730,24 @@ private: System::ComponentModel::IContainer^ components;
 			this->TheLoai->Name = L"TheLoai";
 			this->TheLoai->ReadOnly = true;
 			this->TheLoai->Width = 125;
+			// 
+			// QuocGia
+			// 
+			this->QuocGia->DataPropertyName = L"QuocGia";
+			this->QuocGia->HeaderText = L"Quốc Gia";
+			this->QuocGia->MinimumWidth = 6;
+			this->QuocGia->Name = L"QuocGia";
+			this->QuocGia->ReadOnly = true;
+			this->QuocGia->Width = 125;
+			// 
+			// DienVien
+			// 
+			this->DienVien->DataPropertyName = L"DienVien";
+			this->DienVien->HeaderText = L"Diễn viên";
+			this->DienVien->MinimumWidth = 6;
+			this->DienVien->Name = L"DienVien";
+			this->DienVien->Visible = false;
+			this->DienVien->Width = 125;
 			// 
 			// panel4
 			// 
@@ -795,6 +862,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// QuanLyLichChieu
 			// 
+			this->AcceptButton = this->btnTimKiem;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1269, 697);
@@ -847,7 +915,7 @@ private: System::ComponentModel::IContainer^ components;
 			txtTenPhim->Text = tenPhim;
 			String^ thoiLuong = dr["ThoiLuong"]->ToString(); 
 			txtThoiLuong->Text = thoiLuong; 
-
+			
 		}
 
 	}

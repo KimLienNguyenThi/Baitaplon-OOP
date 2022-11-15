@@ -171,6 +171,7 @@ namespace ManagementCinema {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(QuanLyPhim::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtDienVien = (gcnew System::Windows::Forms::TextBox());
@@ -190,6 +191,7 @@ namespace ManagementCinema {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->lableThaoTac = (gcnew System::Windows::Forms::Label());
 			this->btnHuy = (gcnew System::Windows::Forms::Button());
 			this->btnLuu = (gcnew System::Windows::Forms::Button());
@@ -197,7 +199,6 @@ namespace ManagementCinema {
 			this->btnThem = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->ID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->MaPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TenPhim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -208,7 +209,7 @@ namespace ManagementCinema {
 			this->HinhAnh = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DienVien = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->TrangThai = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->btnThoat = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -415,6 +416,8 @@ namespace ManagementCinema {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.ErrorImage")));
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(16, 15);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
@@ -422,6 +425,7 @@ namespace ManagementCinema {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &QuanLyPhim::pictureBox1_Click);
 			// 
 			// panel2
 			// 
@@ -450,6 +454,17 @@ namespace ManagementCinema {
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Thao tác";
+			// 
+			// btnThoat
+			// 
+			this->btnThoat->Location = System::Drawing::Point(1005, 26);
+			this->btnThoat->Margin = System::Windows::Forms::Padding(4);
+			this->btnThoat->Name = L"btnThoat";
+			this->btnThoat->Size = System::Drawing::Size(127, 33);
+			this->btnThoat->TabIndex = 6;
+			this->btnThoat->Text = L"Thoát";
+			this->btnThoat->UseVisualStyleBackColor = true;
+			this->btnThoat->Click += gcnew System::EventHandler(this, &QuanLyPhim::btnThoat_Click);
 			// 
 			// lableThaoTac
 			// 
@@ -530,10 +545,7 @@ namespace ManagementCinema {
 			this->dataGridView1->Size = System::Drawing::Size(1301, 322);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyPhim::dataGridView1_CellClick);
-			// 
-			// openFileDialog1
-			// 
-			this->openFileDialog1->FileName = L"openFileDialog1";
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyPhim::dataGridView1_CellContentClick);
 			// 
 			// ID
 			// 
@@ -568,6 +580,7 @@ namespace ManagementCinema {
 			this->ThoiLuong->MinimumWidth = 6;
 			this->ThoiLuong->Name = L"ThoiLuong";
 			this->ThoiLuong->ReadOnly = true;
+			this->ThoiLuong->Width = 125;
 			// 
 			// TheLoai
 			// 
@@ -585,6 +598,7 @@ namespace ManagementCinema {
 			this->NamSanXuat->MinimumWidth = 6;
 			this->NamSanXuat->Name = L"NamSanXuat";
 			this->NamSanXuat->ReadOnly = true;
+			this->NamSanXuat->Width = 125;
 			// 
 			// QuocGia
 			// 
@@ -593,6 +607,7 @@ namespace ManagementCinema {
 			this->QuocGia->MinimumWidth = 6;
 			this->QuocGia->Name = L"QuocGia";
 			this->QuocGia->ReadOnly = true;
+			this->QuocGia->Width = 125;
 			// 
 			// HinhAnh
 			// 
@@ -624,16 +639,9 @@ namespace ManagementCinema {
 			this->TrangThai->Visible = false;
 			this->TrangThai->Width = 125;
 			// 
-			// btnThoat
+			// openFileDialog1
 			// 
-			this->btnThoat->Location = System::Drawing::Point(1005, 26);
-			this->btnThoat->Margin = System::Windows::Forms::Padding(4);
-			this->btnThoat->Name = L"btnThoat";
-			this->btnThoat->Size = System::Drawing::Size(127, 33);
-			this->btnThoat->TabIndex = 6;
-			this->btnThoat->Text = L"Thoát";
-			this->btnThoat->UseVisualStyleBackColor = true;
-			this->btnThoat->Click += gcnew System::EventHandler(this, &QuanLyPhim::btnThoat_Click);
+			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
 			// QuanLyPhim
 			// 
@@ -668,6 +676,8 @@ namespace ManagementCinema {
 		/// Hàm này để load dữ liệu cần thiết trước khi form được hiện thị
 		/// </summary>
 	private: System::Void QuanLyPhim_Load(System::Object^ sender, System::EventArgs^ e) {
+		/*pictureBox1->Image = gcnew Bitmap(chèn vào cái ddan ảnh để gán lên làm nền);
+		fileName = dr["HinhAnh"]->ToString();*/
 		this->LoadDanhSachPhim();
 		this->LoadComboBoxQuocGia();
 		btnChonHinh->Enabled = false;
@@ -726,7 +736,7 @@ namespace ManagementCinema {
 				|| txtThoiLuong->Text == ""
 				|| txtTheLoai->Text == ""
 				|| txtDienVien->Text == ""
-				|| fileName == "")
+				)
 			{
 				MessageBox::Show(L"Bạn vui lòng nhập đầy đủ thông tin!", "Thông Báo");
 				return; 
@@ -844,6 +854,10 @@ namespace ManagementCinema {
 
 private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ e) {
 	Close();
+}
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 }
