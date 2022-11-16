@@ -22,7 +22,7 @@ public:
 	DataTable^ Get1LichChieu(String^ idLichChieu);
 	DataTable^ KetThuc(String^ idLichChieu);
 	DataTable^ GetDanhSachHoaDon(String^ timKiem, DateTime^ dateTuNgay, DateTime^ denngay);
-	DataTable^ GetDanhSachChiTietHoaDon(String^ idHoaDon);
+	//DataTable^ GetDanhSachChiTietHoaDon(String^ idHoaDon);
 	bool  Login(String^ taiKhoan, String^ matkhau);
 
 	bool Sua1LichPhim(String^ idLich, String^ maPhim, String^ rapPhim, String^ giaVe, DateTime^ ngay, DateTime^ gioBatdau, DateTime^ gioKetThuc);

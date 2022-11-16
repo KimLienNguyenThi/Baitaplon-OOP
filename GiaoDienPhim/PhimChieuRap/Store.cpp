@@ -469,9 +469,10 @@ DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^
 //	CloseAccess(conn);
 //	return results;
 //}
-DataTable^ Store::GetDanhSachChiTietHoaDon(String^ idHoaDon)
-{
-	OleDbConnection^ conn = ConnectionAccess();
+
+//DataTable^ Store::GetDanhSachChiTietHoaDon(String^ idHoaDon)
+//{
+	/*OleDbConnection^ conn = ConnectionAccess();
 	DataTable^ results = gcnew DataTable();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
@@ -485,8 +486,8 @@ DataTable^ Store::GetDanhSachChiTietHoaDon(String^ idHoaDon)
 	adapter->Fill(results);
 
 	CloseAccess(conn);
-	return results;
-}
+	return results;*/
+//}
 bool Store::Login(String^ taiKhoan, String^ matkhau)
 {
 	OleDbConnection^ conn = ConnectionAccess();

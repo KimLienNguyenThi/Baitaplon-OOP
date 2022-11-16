@@ -23,7 +23,7 @@ namespace ManagementCinema {
 			//
 		}
 		void LoadDanhSachHoaDon();
-		void GetDanhSachChiTietHoaDon(String^ idhoadon);
+		//void GetDanhSachChiTietHoaDon(String^ idhoadon);
 
 	protected:
 		/// <summary>
@@ -600,7 +600,7 @@ namespace ManagementCinema {
 			return;
 		}
 		LoadDanhSachHoaDon();
-		this->GetDanhSachChiTietHoaDon("0");
+		//this->GetDanhSachChiTietHoaDon("0");
 	}
 private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ e) {
 	Close();
@@ -620,7 +620,7 @@ private: System::Void btnInHoaDon_Click(System::Object^ sender, System::EventArg
 
 		   e->Graphics->DrawString(L"THÔNG TIN VÉ PHIM", fnt, Brushes::Black, 320, 111);
 		   e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 150);
-		 /*  e->Graphics->DrawString(L"Tên khách hàng: " + txtTenKhachHang->Text, fnt, Brushes::Black, 111, 200);
+		 /*/ e->Graphics->DrawString(L"Tên khách hàng: " + txtTenKhachHang->Text, fnt, Brushes::Black, 111, 200);
 		   e->Graphics->DrawString(L"Số điện thoại: " + txtSoDT->Text, fnt, Brushes::Black, 111, 250);*/
 		   //e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
 		   //e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
