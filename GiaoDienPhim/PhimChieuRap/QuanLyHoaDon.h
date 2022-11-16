@@ -264,7 +264,7 @@ namespace ManagementCinema {
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(0, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(1234, 121);
+			this->panel2->Size = System::Drawing::Size(1297, 121);
 			this->panel2->TabIndex = 1;
 			// 
 			// groupBox3
@@ -281,7 +281,7 @@ namespace ManagementCinema {
 			this->groupBox3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->groupBox3->Location = System::Drawing::Point(0, 0);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(1234, 121);
+			this->groupBox3->Size = System::Drawing::Size(1297, 121);
 			this->groupBox3->TabIndex = 0;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Thao tác";
@@ -403,7 +403,7 @@ namespace ManagementCinema {
 			this->panel3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel3->Location = System::Drawing::Point(0, 121);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1234, 387);
+			this->panel3->Size = System::Drawing::Size(1297, 412);
 			this->panel3->TabIndex = 2;
 			// 
 			// groupBox1
@@ -414,7 +414,7 @@ namespace ManagementCinema {
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(1234, 387);
+			this->groupBox1->Size = System::Drawing::Size(1297, 412);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Danh sách hóa đơn";
@@ -433,7 +433,7 @@ namespace ManagementCinema {
 			this->gvHoaDon->Margin = System::Windows::Forms::Padding(4);
 			this->gvHoaDon->Name = L"gvHoaDon";
 			this->gvHoaDon->RowHeadersWidth = 51;
-			this->gvHoaDon->Size = System::Drawing::Size(1226, 364);
+			this->gvHoaDon->Size = System::Drawing::Size(1289, 389);
 			this->gvHoaDon->TabIndex = 0;
 			this->gvHoaDon->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyHoaDon::dataGvHoaDon_CellClick);
 			// 
@@ -552,7 +552,7 @@ namespace ManagementCinema {
 			this->AcceptButton = this->btnTimKiem;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1234, 508);
+			this->ClientSize = System::Drawing::Size(1297, 533);
 			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel2);
 			this->Name = L"QuanLyHoaDon";
@@ -582,15 +582,12 @@ namespace ManagementCinema {
 	}
 
 	private: System::Void dataGvHoaDon_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	// 	GetHoadon(idLichPhim);
 	/*	if (e->RowIndex >= 0)
 		{
 			int a = e->RowIndex;
 			int b = e->ColumnIndex;
-			DataRow^ dr = dataHoaDon->Rows[a];
-			String^ idHoaDon = dr["ID"]->ToString();
-		 this->GetDanhSachChiTietHoaDon(idHoaDon);
-		}*/
-	
+			DataRow^ dr = dtHoaDon->Rows[a];*/
 	}
 	private: System::Void btnTimKiem_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -616,16 +613,18 @@ private: System::Void btnInHoaDon_Click(System::Object^ sender, System::EventArg
 }
 	 private: System::Void printDocument1_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
 		   //printDocument1->PrinterSettings->PrinterName = "INVOICE";
+	
+		 DataTable^ dataHoaDon = gcnew DataTable();
 		   System::Drawing::Font^ fnt = gcnew System::Drawing::Font("Times New Roman", 18, FontStyle::Regular);
 
 		   e->Graphics->DrawString(L"THÔNG TIN VÉ PHIM", fnt, Brushes::Black, 320, 111);
-		   e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 150);
-		 /*/ e->Graphics->DrawString(L"Tên khách hàng: " + txtTenKhachHang->Text, fnt, Brushes::Black, 111, 200);
-		   e->Graphics->DrawString(L"Số điện thoại: " + txtSoDT->Text, fnt, Brushes::Black, 111, 250);*/
-		   //e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
-		   //e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
-		   //e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
-		   //e->Graphics->DrawString(L"Rạp : " + labRapPhim->Text, fnt, Brushes::Black, 111, 450);
+		e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 150);
+		  /* e->Graphics->DrawString(L"Tên khách hàng: " + txtTenKhachHang->Text, fnt, Brushes::Black, 111, 200);
+		  e->Graphics->DrawString(L"Số điện thoại: " + txtSoDT->Text, fnt, Brushes::Black, 111, 250);
+		   e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
+		   e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
+		   e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
+		   e->Graphics->DrawString(L"Rạp : " + labRapPhim->Text, fnt, Brushes::Black, 111, 450);*/
 		   //e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 500);
 		   //e->Graphics->DrawString(L"Số lượng : " + labSoluongve->Text, fnt, Brushes::Black, 111, 550);
 		   //e->Graphics->DrawString(L"Giá vé : " + labGiave->Text, fnt, Brushes::Black, 200, 550);

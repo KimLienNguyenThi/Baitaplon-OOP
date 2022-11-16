@@ -317,8 +317,8 @@ bool Store::ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH
 	cmd->CommandType = CommandType::Text;
 
 	cmd->CommandText = "INSERT INTO " +
-		" HoaDon(TenKhachHang, NgayMuaVe, SDT ,SoVe, TongTien,IDLichPhim,GiaVe,DanhSachGhe)"
-		+ "VALUES ('" + tenKH + "', '" + DateTime::Now + "',  '" + sdt + "', " + arrGhe->Length + ", " + tongTien + ", " + idLich + ", " + giaVe + ", '" + listGhe + "');";
+		" HoaDon(TenKhachHang, NgayMuaVe, SDT  ,SoVe, TongTien,IDLichPhim,GiaVe,DanhSachGhe)"
+		+ "VALUES ( ' " + tenKH + "', '" + DateTime::Now + "','" + sdt + "'  , " + arrGhe->Length + ", " + tongTien + ", " + idLich + ", " + giaVe + ", '" + listGhe + "');";
 		
 	int resutl = cmd->ExecuteNonQuery();
 	if (resutl <= 0 ) {
@@ -545,3 +545,19 @@ bool Store::XoaLichChieucuaPhim(String^ MaPhim)
 	return resutl;
 }
 
+bool Store::GetHoadon(String^ idLichPhim)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	//DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT  HoaDon.TenKhachHang, HoaDon.SDT, Phim.Ten, LichPhim.NgayChieu, LichPhim.GioBatDau"
+		+ " ,LichPhim.RapPhim, HoaDon.DanhSachGhe, HoaDon.SoVe, HoaDon.GiaVe, HoaDon.NgayMuaVe "
+		+ "FROM HoaDon, LichPhim, Phim "
+		+ "WHERE HoaDon.IDLichPhim = LichPhim.ID and LichPhim.MaPhim = Phim.MaPhim ";
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	bool resutl = cmd->ExecuteNonQuery();
+	CloseAccess(conn);
+	return resutl;
+}

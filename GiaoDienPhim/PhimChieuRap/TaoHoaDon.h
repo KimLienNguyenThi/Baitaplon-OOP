@@ -142,7 +142,7 @@ namespace ManagementCinema {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(67, 60);
+			this->label3->Location = System::Drawing::Point(68, 96);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(117, 19);
@@ -215,11 +215,11 @@ namespace ManagementCinema {
 			// 
 			this->txtTenKhachHang->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtTenKhachHang->Location = System::Drawing::Point(198, 57);
+			this->txtTenKhachHang->Location = System::Drawing::Point(199, 93);
 			this->txtTenKhachHang->Margin = System::Windows::Forms::Padding(4);
 			this->txtTenKhachHang->Name = L"txtTenKhachHang";
 			this->txtTenKhachHang->Size = System::Drawing::Size(408, 27);
-			this->txtTenKhachHang->TabIndex = 15;
+			this->txtTenKhachHang->TabIndex = 33;
 			// 
 			// btnDangKy
 			// 
@@ -250,7 +250,7 @@ namespace ManagementCinema {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(67, 93);
+			this->label6->Location = System::Drawing::Point(68, 61);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(104, 19);
@@ -261,11 +261,12 @@ namespace ManagementCinema {
 			// 
 			this->txtSoDT->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtSoDT->Location = System::Drawing::Point(198, 90);
+			this->txtSoDT->Location = System::Drawing::Point(199, 58);
 			this->txtSoDT->Margin = System::Windows::Forms::Padding(4);
 			this->txtSoDT->Name = L"txtSoDT";
 			this->txtSoDT->Size = System::Drawing::Size(408, 27);
-			this->txtSoDT->TabIndex = 33;
+			this->txtSoDT->TabIndex = 15;
+			this->txtSoDT->TextChanged += gcnew System::EventHandler(this, &TaoHoaDon::txtSoDT_TextChanged);
 			this->txtSoDT->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &TaoHoaDon::txtSoDT_KeyPress);
 			// 
 			// label7
@@ -476,7 +477,7 @@ namespace ManagementCinema {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
-		String^ sdt = txtSoDT->Text;
+		String^ sdt = txtSoDT->Text; 
 		if (txtTenKhachHang->Text == "" || txtSoDT->Text == "")
 		{
 			MessageBox::Show(L"Vui lòng nhập Thông Tin khách hàng!", "Thông Báo");
@@ -525,9 +526,9 @@ namespace ManagementCinema {
 		e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
 		e->Graphics->DrawString(L"Rạp : " + labRapPhim->Text, fnt, Brushes::Black, 111, 450);
 		e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 500);
-		e->Graphics->DrawString(L"Số lượng : " + labSoluongve->Text, fnt, Brushes::Black, 111, 550);
-		e->Graphics->DrawString(L"Giá vé : " + labGiave->Text, fnt, Brushes::Black, 200, 550);
-		e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 550);
+		e->Graphics->DrawString(L"Số lượng vé: " + labSoluongve->Text, fnt, Brushes::Black, 111, 550);
+		e->Graphics->DrawString(L"Giá vé : " + labGiave->Text, fnt, Brushes::Black, 350, 550);
+		e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 600);
 		e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 650);
 	}
 	private: System::Void txtSoDT_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
@@ -537,5 +538,7 @@ namespace ManagementCinema {
 	
 	}
 
+private: System::Void txtSoDT_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
