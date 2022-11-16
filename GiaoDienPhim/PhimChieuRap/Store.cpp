@@ -545,19 +545,22 @@ bool Store::XoaLichChieucuaPhim(String^ MaPhim)
 	return resutl;
 }
 
-bool Store::GetHoadon(String^ idLichPhim)
+DataTable^ Store::GetHoadon(String^ idHoaDon)
 {
 	OleDbConnection^ conn = ConnectionAccess();
-	//DataTable^ results = gcnew DataTable();
+	DataTable^ results = gcnew DataTable();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
 	String^ query = "SELECT  HoaDon.TenKhachHang, HoaDon.SDT, Phim.Ten, LichPhim.NgayChieu, LichPhim.GioBatDau"
-		+ " ,LichPhim.RapPhim, HoaDon.DanhSachGhe, HoaDon.SoVe, HoaDon.GiaVe, HoaDon.NgayMuaVe "
-		+ "FROM HoaDon, LichPhim, Phim "
-		+ "WHERE HoaDon.IDLichPhim = LichPhim.ID and LichPhim.MaPhim = Phim.MaPhim ";
+		+ " ,LichPhim.RapPhim, HoaDon.DanhSachGhe, HoaDon.SoVe, HoaDon.GiaVe, HoaDon.NgayMuaVe , LichPhim.GioKetThuc  , HoaDon.TongTien "
+		+ " FROM HoaDon, LichPhim, Phim "
+		+ "WHERE HoaDon.IDLichPhim = LichPhim.ID and LichPhim.MaPhim = Phim.MaPhim  and HoaDon.ID = " + idHoaDon->Trim() + ";";
+		
 	cmd->CommandText = query;
 	cmd->ExecuteNonQuery();
-	bool resutl = cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+
 	CloseAccess(conn);
-	return resutl;
+	return results;
 }

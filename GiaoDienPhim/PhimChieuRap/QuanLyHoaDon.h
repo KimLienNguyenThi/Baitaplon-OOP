@@ -23,6 +23,7 @@ namespace ManagementCinema {
 			//
 		}
 		void LoadDanhSachHoaDon();
+		void gethoadon(String^ idhoadon);
 		//void GetDanhSachChiTietHoaDon(String^ idhoadon);
 
 	protected:
@@ -114,6 +115,7 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::Button^ btnInHoaDon;
 	private: System::Drawing::Printing::PrintDocument^ printDocument1;
 	private: System::Windows::Forms::PrintPreviewDialog^ printPreviewDialog1;
+
 
 
 
@@ -569,7 +571,8 @@ namespace ManagementCinema {
 
 		}
 		DataTable^ dataHoaDon = gcnew DataTable();
-		DataTable^ dataChiTietHoaDon = gcnew DataTable();
+		DataTable^ dataHoaDonIn = gcnew DataTable();
+		//DataRow^ dr = dt->Rows[a];
 #pragma endregion
 	private: System::Void QuanLyHoaDon_Load(System::Object^ sender, System::EventArgs^ e) {
 		DateTime dateNow = DateTime::Now;
@@ -582,12 +585,15 @@ namespace ManagementCinema {
 	}
 
 	private: System::Void dataGvHoaDon_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	// 	GetHoadon(idLichPhim);
-	/*	if (e->RowIndex >= 0)
+		if (e->RowIndex >= 0)
 		{
 			int a = e->RowIndex;
 			int b = e->ColumnIndex;
-			DataRow^ dr = dtHoaDon->Rows[a];*/
+			DataRow^ dr = dataHoaDon->Rows[a];
+			String^ id = dr["ID"]->ToString();
+			gethoadon(id);
+			
+		}
 	}
 	private: System::Void btnTimKiem_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -613,26 +619,32 @@ private: System::Void btnInHoaDon_Click(System::Object^ sender, System::EventArg
 }
 	 private: System::Void printDocument1_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
 		   //printDocument1->PrinterSettings->PrinterName = "INVOICE";
-	
-		 DataTable^ dataHoaDon = gcnew DataTable();
+		
+		// DataTable^ dataHoaDonIn = gcnew DataTable();
+		 //gethoadon("28");
+		 DataRow^ dr = dataHoaDonIn->Rows[0];
+		
 		   System::Drawing::Font^ fnt = gcnew System::Drawing::Font("Times New Roman", 18, FontStyle::Regular);
 
 		   e->Graphics->DrawString(L"THÔNG TIN VÉ PHIM", fnt, Brushes::Black, 320, 111);
-		e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 150);
-		  /* e->Graphics->DrawString(L"Tên khách hàng: " + txtTenKhachHang->Text, fnt, Brushes::Black, 111, 200);
-		  e->Graphics->DrawString(L"Số điện thoại: " + txtSoDT->Text, fnt, Brushes::Black, 111, 250);
-		   e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
-		   e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
-		   e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
-		   e->Graphics->DrawString(L"Rạp : " + labRapPhim->Text, fnt, Brushes::Black, 111, 450);*/
-		   //e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 500);
-		   //e->Graphics->DrawString(L"Số lượng : " + labSoluongve->Text, fnt, Brushes::Black, 111, 550);
-		   //e->Graphics->DrawString(L"Giá vé : " + labGiave->Text, fnt, Brushes::Black, 200, 550);
-		   //e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 550);
+			e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 150);
+		   e->Graphics->DrawString(L"Tên khách hàng: " + dr["TenKhachHang"]->ToString() , fnt, Brushes::Black, 111, 200);
+		  e->Graphics->DrawString(L"Số điện thoại: " + dr["SDT"]->ToString(), fnt, Brushes::Black, 111, 250);
+		   e->Graphics->DrawString(L"Tên Phim: " + dr["Ten"]->ToString(), fnt, Brushes::Black, 111, 300);
+		   e->Graphics->DrawString(L"Ngày chiếu: " + DateTime::Parse(dr["NgayChieu"]->ToString()).ToString("yyyy/MM/dd"), fnt, Brushes::Black, 111, 350);
+		   e->Graphics->DrawString(L"Khung giờ: " + DateTime::Parse(dr["GioBatDau"]->ToString()).ToString("HH:mm") + L" đến " + DateTime::Parse(dr["GioKetThuc"]->ToString()).ToString("HH:mm") , fnt, Brushes::Black, 111, 400);
+		   e->Graphics->DrawString(L"Rạp : " + dr["RapPhim"]->ToString(), fnt, Brushes::Black, 111, 450);
+		   e->Graphics->DrawString(L"Số ghế : " + dr["DanhSachGhe"]->ToString(), fnt, Brushes::Black, 111, 500);
+		   e->Graphics->DrawString(L"Số lượng vé: " +dr["SoVe"]->ToString(), fnt, Brushes::Black, 111, 550);
+		   e->Graphics->DrawString(L"Giá vé : " + dr["GiaVe"]->ToString(), fnt, Brushes::Black, 300, 550);
+		   e->Graphics->DrawString(L"Tổng tiền: " + int::Parse(dr["SoVe"]->ToString()) * int::Parse(dr["GiaVe"]->ToString()) + " VND", fnt, Brushes::Black, 111, 600);
 		   e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 650);
 	   }
 
 private: System::Void printPreviewDialog1_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+//	gethoadon("28");
 }
 };
 }

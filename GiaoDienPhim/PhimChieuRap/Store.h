@@ -22,6 +22,7 @@ public:
 	DataTable^ Get1LichChieu(String^ idLichChieu);
 	DataTable^ KetThuc(String^ idLichChieu);
 	DataTable^ GetDanhSachHoaDon(String^ timKiem, DateTime^ dateTuNgay, DateTime^ denngay);
+	DataTable^ GetHoadon(String^ idHoaDon);
 	//DataTable^ GetDanhSachChiTietHoaDon(String^ idHoaDon);
 	bool  Login(String^ taiKhoan, String^ matkhau);
 
@@ -36,7 +37,7 @@ public:
 	bool Them1Phim(String^ maPhim, String^ ten, String^ nam, String^ thoiluong, String^ dienvien, String^ quocgia, String^ theloai, String^ hinhanh);
 	bool Sua1Phim(String^ maPhim, String^ ten, String^ nam, String^ thoiluong, String^ dienvien, String^ quocgia, String^ theloai, String^ hinhanh);
 	bool ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH, String^ sdt, int tongTien, String^ rapPhim, String^ listGhe);
-	bool GetHoadon(String^ idLichPhim);
+	
 protected:
 	/// <summary>
 	/// Clean up any resources being used.
