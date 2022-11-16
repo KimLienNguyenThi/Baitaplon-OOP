@@ -676,8 +676,7 @@ namespace ManagementCinema {
 		/// Hàm này để load dữ liệu cần thiết trước khi form được hiện thị
 		/// </summary>
 	private: System::Void QuanLyPhim_Load(System::Object^ sender, System::EventArgs^ e) {
-		/*pictureBox1->Image = gcnew Bitmap(chèn vào cái ddan ảnh để gán lên làm nền);
-		fileName = dr["HinhAnh"]->ToString();*/
+		
 		this->LoadDanhSachPhim();
 		this->LoadComboBoxQuocGia();
 		btnChonHinh->Enabled = false;
@@ -783,11 +782,12 @@ namespace ManagementCinema {
 		}
 	}
 	private: System::Void btnHuy_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 		this->LoadButton(true, false, true, true, false);
 		this->XoaText();
 		lableThaoTac->Text = "";
-		
-
+		String^ appPath = "D:\\Nam2ky1\\Baitaplon-OOP\\GiaoDienPhim\\PhimChieuRap\\HinhAnh\\andep.jpg";
+		pictureBox1->Image = gcnew Bitmap(appPath);
 		enumXuly = 0;
 	}
 	/*private: System::Void btnXoa_Click(System::Object^ sender, System::EventArgs^ e) {

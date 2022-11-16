@@ -11,5 +11,7 @@ void ManagementCinema::QuanLyHoaDon::GetDanhSachChiTietHoaDon(String^ idhoadon)
 {
     Store^ s = gcnew Store();
     dataChiTietHoaDon = s->GetDanhSachChiTietHoaDon(idhoadon);
-    gvChiTiet->DataSource = dataChiTietHoaDon;
+
+    
+    //gvChiTiet->DataSource = dataChiTietHoaDon;
 }

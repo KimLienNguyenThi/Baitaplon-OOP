@@ -309,15 +309,16 @@ bool Store::Sua1Phim(String^ maPhim, String^ ten, String^ nam, String^ thoiluong
 	return resutl;
 }
 
-bool Store::ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH, String^ sdt, int tongTien, String^ rapPhim)
+bool Store::ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH, String^ sdt, int tongTien, String^ rapPhim, String^ listGhe)
 {
+	int giaVe = tongTien / arrGhe->Length;
 	OleDbConnection^ conn = ConnectionAccess();
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
 
 	cmd->CommandText = "INSERT INTO " +
-		" HoaDon(TenKhachHang, NgayMuaVe, SDT ,SoVe, TongTien,IDLichPhim)"
-		+ "VALUES ('" + tenKH + "', '" + DateTime::Now + "',  '" + sdt + "', " + arrGhe->Length + ", " + tongTien + ", " + idLich + ");";
+		" HoaDon(TenKhachHang, NgayMuaVe, SDT ,SoVe, TongTien,IDLichPhim,GiaVe,DanhSachGhe)"
+		+ "VALUES ('" + tenKH + "', '" + DateTime::Now + "',  '" + sdt + "', " + arrGhe->Length + ", " + tongTien + ", " + idLich + ", " + giaVe + ", '" + listGhe + "');";
 		
 	int resutl = cmd->ExecuteNonQuery();
 	if (resutl <= 0 ) {
@@ -331,7 +332,7 @@ bool Store::ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH
 	DataRow^ dr = results->Rows[0];
 	int idHoaDon = int::Parse( dr[0]->ToString());
 
-	int giaVe = tongTien / arrGhe->Length;
+	
 	for each (String^ item in arrGhe)
 	{
 		cmd->CommandText = "INSERT INTO " +
@@ -339,9 +340,9 @@ bool Store::ThucHienDangKy(String^ idLich, array<String^>^ arrGhe, String^ tenKH
 			+ "VALUES ('" + idLich + "', '" + item + "', " + idHoaDon + ")";
 		resutl = cmd->ExecuteNonQuery();
 
-		cmd->CommandText = "INSERT INTO ChiTietHoaDon (IDHoaDon,MaGhe,GiaVe, RapPhim)"
+	/*	cmd->CommandText = "INSERT INTO ChiTietHoaDon (IDHoaDon,MaGhe,GiaVe, RapPhim)"
 			+ "VALUES (" + idHoaDon + ", '" + item + "', " + giaVe +" , '"+ rapPhim +"')";
-		resutl = cmd->ExecuteNonQuery();
+		resutl = cmd->ExecuteNonQuery();*/
 	}
 
 	CloseAccess(conn);
@@ -405,14 +406,14 @@ DataTable^ Store::GetDanhSachHoaDon(String^ timKiem, DateTime^ tuNgay, DateTime^
 	OleDbCommand^ cmd = conn->CreateCommand();
 	cmd->CommandType = CommandType::Text;
 	String^ query = "SELECT  HoaDon.ID, HoaDon.TenKhachHang,HoaDon.SDT,HoaDon.TongTien, HoaDon.SoVe, Phim.Ten, Phim.MaPhim, Phim.NamSanXuat, Phim.TheLoai"
-		+ " , Phim.QuocGia, Phim.ThoiLuong "
+		+ " , Phim.QuocGia, Phim.ThoiLuong, HoaDon.DanhSachGhe, HoaDon.GiaVe "
 		 +"FROM HoaDon, LichPhim, Phim "
 
 		+"WHERE HoaDon.IDLichPhim = LichPhim.ID AND Phim.MaPhim = LichPhim.MaPhim";
 
 	if (timKiem != "")
 	{
-		query += " AND (SDT like '%" + timKiem->Trim() + "%' OR Phim.Ten  like '%" + timKiem->Trim() + "%') ";
+		query += " AND (SDT like '%" + timKiem->Trim() + "%' OR Phim.Ten like '%" + timKiem->Trim() + "%') ";
 	}
 
 	if (tuNgay != nullptr)

@@ -4,7 +4,7 @@
 void ManagementCinema::TaoHoaDon::ThucHienDangKy()
 {
 	Store^ s = gcnew Store();
-	s->ThucHienDangKy(idLichChieu, arrGhe, txtTenKhachHang->Text, txtSoDT->Text, tongTien, rapPhim);
+	s->ThucHienDangKy(idLichChieu, arrGhe, txtTenKhachHang->Text, txtSoDT->Text, tongTien, rapPhim, listGhe);
 }
 
 void ManagementCinema::TaoHoaDon::LoadLichPhim()

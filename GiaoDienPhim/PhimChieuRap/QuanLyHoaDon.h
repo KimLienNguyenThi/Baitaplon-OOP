@@ -40,7 +40,7 @@ namespace ManagementCinema {
 	protected:
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Panel^ panel3;
-	private: System::Windows::Forms::Panel^ panel4;
+
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::DataGridView^ gvHoaDon;
 
@@ -52,8 +52,8 @@ namespace ManagementCinema {
 
 
 
-	private: System::Windows::Forms::GroupBox^ groupBox2;
-	private: System::Windows::Forms::DataGridView^ gvChiTiet;
+
+
 
 
 
@@ -74,10 +74,10 @@ namespace ManagementCinema {
 
 
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ IDChiTietHoaDon;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ RapChieu;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Giave;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ghe;
+
+
+
+
 	private: System::Windows::Forms::Label^ label3;
 
 	private: System::Windows::Forms::Label^ label2;
@@ -111,6 +111,9 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TheLoai;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ QuocGia;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ThoiLuong;
+	private: System::Windows::Forms::Button^ btnInHoaDon;
+	private: System::Drawing::Printing::PrintDocument^ printDocument1;
+	private: System::Windows::Forms::PrintPreviewDialog^ printPreviewDialog1;
 
 
 
@@ -220,9 +223,10 @@ namespace ManagementCinema {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(QuanLyHoaDon::typeid));
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->btnInHoaDon = (gcnew System::Windows::Forms::Button());
 			this->btnThoat = (gcnew System::Windows::Forms::Button());
 			this->dateTimePickerDenNgay = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePickerTuNgay = (gcnew System::Windows::Forms::DateTimePicker());
@@ -245,21 +249,13 @@ namespace ManagementCinema {
 			this->TheLoai = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->QuocGia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ThoiLuong = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->gvChiTiet = (gcnew System::Windows::Forms::DataGridView());
-			this->IDChiTietHoaDon = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->RapChieu = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Giave = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Ghe = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->printDocument1 = (gcnew System::Drawing::Printing::PrintDocument());
+			this->printPreviewDialog1 = (gcnew System::Windows::Forms::PrintPreviewDialog());
 			this->panel2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			this->panel3->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->gvHoaDon))->BeginInit();
-			this->panel4->SuspendLayout();
-			this->groupBox2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->gvChiTiet))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel2
@@ -268,11 +264,12 @@ namespace ManagementCinema {
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(0, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(1292, 121);
+			this->panel2->Size = System::Drawing::Size(1234, 121);
 			this->panel2->TabIndex = 1;
 			// 
 			// groupBox3
 			// 
+			this->groupBox3->Controls->Add(this->btnInHoaDon);
 			this->groupBox3->Controls->Add(this->btnThoat);
 			this->groupBox3->Controls->Add(this->dateTimePickerDenNgay);
 			this->groupBox3->Controls->Add(this->dateTimePickerTuNgay);
@@ -284,10 +281,23 @@ namespace ManagementCinema {
 			this->groupBox3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->groupBox3->Location = System::Drawing::Point(0, 0);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(1292, 121);
+			this->groupBox3->Size = System::Drawing::Size(1234, 121);
 			this->groupBox3->TabIndex = 0;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Thao tác";
+			// 
+			// btnInHoaDon
+			// 
+			this->btnInHoaDon->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnInHoaDon->Location = System::Drawing::Point(323, 68);
+			this->btnInHoaDon->Margin = System::Windows::Forms::Padding(4);
+			this->btnInHoaDon->Name = L"btnInHoaDon";
+			this->btnInHoaDon->Size = System::Drawing::Size(100, 36);
+			this->btnInHoaDon->TabIndex = 13;
+			this->btnInHoaDon->Text = L"In Hóa Đơn";
+			this->btnInHoaDon->UseVisualStyleBackColor = true;
+			this->btnInHoaDon->Click += gcnew System::EventHandler(this, &QuanLyHoaDon::btnInHoaDon_Click);
 			// 
 			// btnThoat
 			// 
@@ -390,10 +400,10 @@ namespace ManagementCinema {
 			// panel3
 			// 
 			this->panel3->Controls->Add(this->groupBox1);
-			this->panel3->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel3->Location = System::Drawing::Point(0, 121);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(1292, 232);
+			this->panel3->Size = System::Drawing::Size(1234, 387);
 			this->panel3->TabIndex = 2;
 			// 
 			// groupBox1
@@ -404,7 +414,7 @@ namespace ManagementCinema {
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(1292, 232);
+			this->groupBox1->Size = System::Drawing::Size(1234, 387);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Danh sách hóa đơn";
@@ -423,7 +433,7 @@ namespace ManagementCinema {
 			this->gvHoaDon->Margin = System::Windows::Forms::Padding(4);
 			this->gvHoaDon->Name = L"gvHoaDon";
 			this->gvHoaDon->RowHeadersWidth = 51;
-			this->gvHoaDon->Size = System::Drawing::Size(1284, 209);
+			this->gvHoaDon->Size = System::Drawing::Size(1226, 364);
 			this->gvHoaDon->TabIndex = 0;
 			this->gvHoaDon->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyHoaDon::dataGvHoaDon_CellClick);
 			// 
@@ -522,88 +532,27 @@ namespace ManagementCinema {
 			this->ThoiLuong->ReadOnly = true;
 			this->ThoiLuong->Width = 125;
 			// 
-			// panel4
+			// printDocument1
 			// 
-			this->panel4->Controls->Add(this->groupBox2);
-			this->panel4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panel4->Location = System::Drawing::Point(0, 353);
-			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(1292, 280);
-			this->panel4->TabIndex = 3;
+			this->printDocument1->PrintPage += gcnew System::Drawing::Printing::PrintPageEventHandler(this, &QuanLyHoaDon::printDocument1_PrintPage);
 			// 
-			// groupBox2
+			// printPreviewDialog1
 			// 
-			this->groupBox2->Controls->Add(this->gvChiTiet);
-			this->groupBox2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->groupBox2->Location = System::Drawing::Point(0, 0);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(4);
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox2->Size = System::Drawing::Size(1292, 280);
-			this->groupBox2->TabIndex = 2;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Danh sách chi tiết";
-			// 
-			// gvChiTiet
-			// 
-			this->gvChiTiet->AllowUserToAddRows = false;
-			this->gvChiTiet->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->gvChiTiet->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
-				this->IDChiTietHoaDon,
-					this->RapChieu, this->Giave, this->Ghe
-			});
-			this->gvChiTiet->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->gvChiTiet->Location = System::Drawing::Point(4, 19);
-			this->gvChiTiet->Margin = System::Windows::Forms::Padding(4);
-			this->gvChiTiet->Name = L"gvChiTiet";
-			this->gvChiTiet->RowHeadersWidth = 51;
-			this->gvChiTiet->Size = System::Drawing::Size(1284, 257);
-			this->gvChiTiet->TabIndex = 0;
-			this->gvChiTiet->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &QuanLyHoaDon::gvChiTiet_CellContentClick);
-			// 
-			// IDChiTietHoaDon
-			// 
-			this->IDChiTietHoaDon->DataPropertyName = L"ID";
-			this->IDChiTietHoaDon->HeaderText = L"ID";
-			this->IDChiTietHoaDon->MinimumWidth = 6;
-			this->IDChiTietHoaDon->Name = L"IDChiTietHoaDon";
-			this->IDChiTietHoaDon->ReadOnly = true;
-			this->IDChiTietHoaDon->Visible = false;
-			this->IDChiTietHoaDon->Width = 125;
-			// 
-			// RapChieu
-			// 
-			this->RapChieu->DataPropertyName = L"RapPhim";
-			this->RapChieu->HeaderText = L"Rạp Phim ";
-			this->RapChieu->MinimumWidth = 6;
-			this->RapChieu->Name = L"RapChieu";
-			this->RapChieu->Width = 125;
-			// 
-			// Giave
-			// 
-			this->Giave->DataPropertyName = L"GiaVe";
-			this->Giave->HeaderText = L"Giá Vé";
-			this->Giave->MinimumWidth = 6;
-			this->Giave->Name = L"Giave";
-			this->Giave->Width = 125;
-			// 
-			// Ghe
-			// 
-			this->Ghe->DataPropertyName = L"MaGhe";
-			dataGridViewCellStyle1->Format = L"HH:mm";
-			this->Ghe->DefaultCellStyle = dataGridViewCellStyle1;
-			this->Ghe->HeaderText = L"Ghế";
-			this->Ghe->MinimumWidth = 6;
-			this->Ghe->Name = L"Ghe";
-			this->Ghe->Width = 125;
+			this->printPreviewDialog1->AutoScrollMargin = System::Drawing::Size(0, 0);
+			this->printPreviewDialog1->AutoScrollMinSize = System::Drawing::Size(0, 0);
+			this->printPreviewDialog1->ClientSize = System::Drawing::Size(400, 300);
+			this->printPreviewDialog1->Enabled = true;
+			this->printPreviewDialog1->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"printPreviewDialog1.Icon")));
+			this->printPreviewDialog1->Name = L"printPreviewDialog1";
+			this->printPreviewDialog1->Visible = false;
+			this->printPreviewDialog1->Load += gcnew System::EventHandler(this, &QuanLyHoaDon::printPreviewDialog1_Load);
 			// 
 			// QuanLyHoaDon
 			// 
 			this->AcceptButton = this->btnTimKiem;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1292, 633);
-			this->Controls->Add(this->panel4);
+			this->ClientSize = System::Drawing::Size(1234, 508);
 			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel2);
 			this->Name = L"QuanLyHoaDon";
@@ -616,9 +565,6 @@ namespace ManagementCinema {
 			this->panel3->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->gvHoaDon))->EndInit();
-			this->panel4->ResumeLayout(false);
-			this->groupBox2->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->gvChiTiet))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -630,20 +576,20 @@ namespace ManagementCinema {
 		dateTimePickerTuNgay->Value = DateTime(dateNow.Year, dateNow.Month, 1);
 		dateTimePickerDenNgay->Value = DateTime(dateNow.Year, dateNow.Month, dateNow.DaysInMonth(dateNow.Year, dateNow.Month));
 
-		gvChiTiet->AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode::Fill;
+	//	gvChiTiet->AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode::Fill;
 		gvHoaDon->AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode::Fill;
 		LoadDanhSachHoaDon();
 	}
 
 	private: System::Void dataGvHoaDon_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		if (e->RowIndex >= 0)
+	/*	if (e->RowIndex >= 0)
 		{
 			int a = e->RowIndex;
 			int b = e->ColumnIndex;
 			DataRow^ dr = dataHoaDon->Rows[a];
 			String^ idHoaDon = dr["ID"]->ToString();
 		 this->GetDanhSachChiTietHoaDon(idHoaDon);
-		}
+		}*/
 	
 	}
 	private: System::Void btnTimKiem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -661,6 +607,33 @@ private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ 
 }
 
 private: System::Void gvChiTiet_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void btnInHoaDon_Click(System::Object^ sender, System::EventArgs^ e) {
+	printPreviewDialog1->StartPosition = FormStartPosition::CenterParent;
+	printPreviewDialog1->Document = printDocument1;
+	printPreviewDialog1->ShowDialog();
+	
+}
+	 private: System::Void printDocument1_PrintPage(System::Object^ sender, System::Drawing::Printing::PrintPageEventArgs^ e) {
+		   //printDocument1->PrinterSettings->PrinterName = "INVOICE";
+		   System::Drawing::Font^ fnt = gcnew System::Drawing::Font("Times New Roman", 18, FontStyle::Regular);
+
+		   e->Graphics->DrawString(L"THÔNG TIN VÉ PHIM", fnt, Brushes::Black, 320, 111);
+		   e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 150);
+		 /*  e->Graphics->DrawString(L"Tên khách hàng: " + txtTenKhachHang->Text, fnt, Brushes::Black, 111, 200);
+		   e->Graphics->DrawString(L"Số điện thoại: " + txtSoDT->Text, fnt, Brushes::Black, 111, 250);*/
+		   //e->Graphics->DrawString(L"Tên Phim: " + labTenPhim->Text, fnt, Brushes::Black, 111, 300);
+		   //e->Graphics->DrawString(L"Ngày chiếu: " + labNgayChieu->Text, fnt, Brushes::Black, 111, 350);
+		   //e->Graphics->DrawString(L"Khung giờ: " + labKhungGio->Text, fnt, Brushes::Black, 111, 400);
+		   //e->Graphics->DrawString(L"Rạp : " + labRapPhim->Text, fnt, Brushes::Black, 111, 450);
+		   //e->Graphics->DrawString(L"Số ghế : " + listGhe, fnt, Brushes::Black, 111, 500);
+		   //e->Graphics->DrawString(L"Số lượng : " + labSoluongve->Text, fnt, Brushes::Black, 111, 550);
+		   //e->Graphics->DrawString(L"Giá vé : " + labGiave->Text, fnt, Brushes::Black, 200, 550);
+		   //e->Graphics->DrawString(L"Tổng tiền: " + tongTien + " VND", fnt, Brushes::Black, 111, 550);
+		   e->Graphics->DrawString(L"----------------------------------------------------------", fnt, Brushes::Black, 200, 650);
+	   }
+
+private: System::Void printPreviewDialog1_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
