@@ -564,3 +564,22 @@ DataTable^ Store::GetHoadon(String^ idHoaDon)
 	CloseAccess(conn);
 	return results;
 }
+
+DataTable^ Store::GetSdtcuaKh(String^ sdt)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = " SELECT HoaDon.SDT, HoaDon.TenKhachHang "
+		+ " FROM HoaDon "
+		+ " WHERE HoaDon.SDT='" + sdt->Trim() + "';"; 
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+		
+}

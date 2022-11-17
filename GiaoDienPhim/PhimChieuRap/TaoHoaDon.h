@@ -33,6 +33,7 @@ namespace ManagementCinema {
 		}
 		void ThucHienDangKy();
 		void LoadLichPhim();
+		DataTable^ LayTenKh();
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -93,6 +94,7 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ labSoluongve;
 	private: System::Windows::Forms::Label^ label13;
+
 
 	private:
 		/// <summary>
@@ -536,9 +538,23 @@ namespace ManagementCinema {
 			e->Handled = true;
 		}
 	
+		if ( txtSoDT->Text->Length > 10) {
+			e->Handled = true;
+		}
 	}
 
 private: System::Void txtSoDT_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (txtSoDT->Text->Length == 10
+		|| txtSoDT->Text->Length == 11)
+	{
+
+		DataTable^ dt= LayTenKh();
+		if (dt->Rows->Count > 0)
+		{
+			DataRow^ dr = dt->Rows[0];
+			txtTenKhachHang->Text = dr["TenKhachHang"]->ToString();
+		}
+	}
 }
 };
 }

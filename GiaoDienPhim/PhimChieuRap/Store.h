@@ -23,6 +23,7 @@ public:
 	DataTable^ KetThuc(String^ idLichChieu);
 	DataTable^ GetDanhSachHoaDon(String^ timKiem, DateTime^ dateTuNgay, DateTime^ denngay);
 	DataTable^ GetHoadon(String^ idHoaDon);
+	DataTable^ GetSdtcuaKh(String^ sdt);
 	//DataTable^ GetDanhSachChiTietHoaDon(String^ idHoaDon);
 	bool  Login(String^ taiKhoan, String^ matkhau);
 

@@ -36,3 +36,9 @@ void ManagementCinema::TaoHoaDon::LoadLichPhim()
 	labSoluongve->Text = arrGhe->Length.ToString();
 	labGiave->Text =dr["GiaVe"]->ToString();
 }
+DataTable^ ManagementCinema::TaoHoaDon::LayTenKh()
+{
+	Store^ s = gcnew Store();
+
+	return s->GetSdtcuaKh(txtSoDT->Text);
+}
