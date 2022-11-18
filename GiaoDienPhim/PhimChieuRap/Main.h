@@ -4,6 +4,7 @@
 #include "DangKyVe.h"
 #include "QuanLyHoaDon.h"
 #include "Login.h"
+#include "DoanhThu.h"
 
 namespace ManagementCinema {
 
@@ -58,6 +59,7 @@ namespace ManagementCinema {
 	private: System::Windows::Forms::Button^ btnQuanLyHoaDon;
 	private: System::Windows::Forms::Label^ labelXinChao;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ btnDoanhThu;
 
 	private:
 		/// <summary>
@@ -81,6 +83,7 @@ namespace ManagementCinema {
 			this->labelXinChao = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->btnQuanLyHoaDon = (gcnew System::Windows::Forms::Button());
+			this->btnDoanhThu = (gcnew System::Windows::Forms::Button());
 			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -90,7 +93,7 @@ namespace ManagementCinema {
 			this->btnQuanLyPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnQuanLyPhim->ForeColor = System::Drawing::Color::Black;
-			this->btnQuanLyPhim->Location = System::Drawing::Point(45, 47);
+			this->btnQuanLyPhim->Location = System::Drawing::Point(45, 38);
 			this->btnQuanLyPhim->Margin = System::Windows::Forms::Padding(4);
 			this->btnQuanLyPhim->Name = L"btnQuanLyPhim";
 			this->btnQuanLyPhim->Size = System::Drawing::Size(159, 43);
@@ -103,7 +106,7 @@ namespace ManagementCinema {
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(45, 125);
+			this->button2->Location = System::Drawing::Point(45, 111);
 			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(159, 49);
@@ -116,7 +119,7 @@ namespace ManagementCinema {
 			// 
 			this->btnDangKyVe->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnDangKyVe->Location = System::Drawing::Point(45, 207);
+			this->btnDangKyVe->Location = System::Drawing::Point(45, 193);
 			this->btnDangKyVe->Margin = System::Windows::Forms::Padding(4);
 			this->btnDangKyVe->Name = L"btnDangKyVe";
 			this->btnDangKyVe->Size = System::Drawing::Size(159, 43);
@@ -136,6 +139,7 @@ namespace ManagementCinema {
 			// 
 			// panel2
 			// 
+			this->panel2->Controls->Add(this->btnDoanhThu);
 			this->panel2->Controls->Add(this->labelXinChao);
 			this->panel2->Controls->Add(this->button1);
 			this->panel2->Controls->Add(this->btnQuanLyHoaDon);
@@ -175,7 +179,7 @@ namespace ManagementCinema {
 			// 
 			this->btnQuanLyHoaDon->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnQuanLyHoaDon->Location = System::Drawing::Point(45, 285);
+			this->btnQuanLyHoaDon->Location = System::Drawing::Point(45, 270);
 			this->btnQuanLyHoaDon->Margin = System::Windows::Forms::Padding(4);
 			this->btnQuanLyHoaDon->Name = L"btnQuanLyHoaDon";
 			this->btnQuanLyHoaDon->Size = System::Drawing::Size(159, 47);
@@ -183,6 +187,19 @@ namespace ManagementCinema {
 			this->btnQuanLyHoaDon->Text = L"Quản lý hóa đơn";
 			this->btnQuanLyHoaDon->UseVisualStyleBackColor = true;
 			this->btnQuanLyHoaDon->Click += gcnew System::EventHandler(this, &Main::btnQuanLyHoaDon_Click);
+			// 
+			// btnDoanhThu
+			// 
+			this->btnDoanhThu->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnDoanhThu->Location = System::Drawing::Point(45, 352);
+			this->btnDoanhThu->Margin = System::Windows::Forms::Padding(4);
+			this->btnDoanhThu->Name = L"btnDoanhThu";
+			this->btnDoanhThu->Size = System::Drawing::Size(159, 47);
+			this->btnDoanhThu->TabIndex = 6;
+			this->btnDoanhThu->Text = L"Doanh Thu";
+			this->btnDoanhThu->UseVisualStyleBackColor = true;
+			this->btnDoanhThu->Click += gcnew System::EventHandler(this, &Main::btnDoanhThu_Click);
 			// 
 			// Main
 			// 
@@ -239,6 +256,10 @@ private: System::Void Main_FormClosing(System::Object^ sender, System::Windows::
 		loginF->Show();
 	}
 
+}
+private: System::Void btnDoanhThu_Click(System::Object^ sender, System::EventArgs^ e) {
+	DoanhThu^ frm = gcnew DoanhThu();
+	frm->ShowDialog();
 }
 };
 }

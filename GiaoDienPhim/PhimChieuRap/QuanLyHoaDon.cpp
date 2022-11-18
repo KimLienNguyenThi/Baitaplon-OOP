@@ -10,6 +10,7 @@ void ManagementCinema::QuanLyHoaDon::LoadDanhSachHoaDon()
 void ManagementCinema::QuanLyHoaDon::gethoadon(String^ idhoadon)
 {
     Store^ s = gcnew Store();
+    
     dataHoaDonIn = s->GetHoadon(idhoadon);
 
     //gvchitiet->datasource = datachitiethoadon;

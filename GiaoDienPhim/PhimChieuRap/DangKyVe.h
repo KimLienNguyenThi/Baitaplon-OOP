@@ -19,9 +19,6 @@ namespace ManagementCinema {
 		DangKyVe(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 		void LoadDanhSachPhimCoLichChieu();
 		void LoadDanhSachLichChieuTuongLai(String^ maPhim);

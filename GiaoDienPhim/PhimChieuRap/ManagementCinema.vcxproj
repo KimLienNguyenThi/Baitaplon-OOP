@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DangKyVe.cpp" />
+    <ClCompile Include="DoanhThu.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="QuanLyHoaDon.cpp" />
@@ -134,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DangKyVe.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DoanhThu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Login.h">
@@ -159,6 +163,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DangKyVe.resx">
       <DependentUpon>DangKyVe.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoanhThu.resx">
+      <DependentUpon>DoanhThu.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>

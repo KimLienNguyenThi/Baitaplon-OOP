@@ -583,3 +583,22 @@ DataTable^ Store::GetSdtcuaKh(String^ sdt)
 	return results;
 		
 }
+
+DataTable^ Store::GetDoanhThu(DateTime^ tungay , DateTime^ denngay)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT Sum(HoaDon.SoVe) AS SoVe, Sum(HoaDon.TongTien) AS TongTien, HoaDon.GiaVe, Phim.Ten, LichPhim.MaPhim "
+		+ " FROM Phim, LichPhim, HoaDon "
+		+ " WHERE LichPhim.ID = HoaDon.IDLichPhim and Phim.MaPhim = LichPhim.MaPhim and (FORMAT(LichPhim.NgayChieu, 'Short Date')   Between #" + tungay->ToShortDateString() + "# AND #" + denngay->ToShortDateString() + "#) "
+		+ " GROUP BY LichPhim.MaPhim, HoaDon.GiaVe, Phim.Ten;";
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+
+	CloseAccess(conn);
+	return results;
+}

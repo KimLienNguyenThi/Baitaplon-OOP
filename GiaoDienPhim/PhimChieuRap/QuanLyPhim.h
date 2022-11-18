@@ -259,7 +259,7 @@ namespace ManagementCinema {
 			// 
 			this->txtDienVien->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtDienVien->Location = System::Drawing::Point(631, 210);
+			this->txtDienVien->Location = System::Drawing::Point(665, 206);
 			this->txtDienVien->Margin = System::Windows::Forms::Padding(4);
 			this->txtDienVien->Name = L"txtDienVien";
 			this->txtDienVien->Size = System::Drawing::Size(408, 27);
@@ -271,7 +271,7 @@ namespace ManagementCinema {
 			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(631, 144);
+			this->comboBox1->Location = System::Drawing::Point(665, 140);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(408, 27);
@@ -281,7 +281,7 @@ namespace ManagementCinema {
 			// 
 			this->txtTheLoai->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtTheLoai->Location = System::Drawing::Point(631, 177);
+			this->txtTheLoai->Location = System::Drawing::Point(665, 173);
 			this->txtTheLoai->Margin = System::Windows::Forms::Padding(4);
 			this->txtTheLoai->Name = L"txtTheLoai";
 			this->txtTheLoai->Size = System::Drawing::Size(408, 27);
@@ -303,7 +303,7 @@ namespace ManagementCinema {
 			// 
 			this->btnChonHinh->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnChonHinh->Location = System::Drawing::Point(631, 240);
+			this->btnChonHinh->Location = System::Drawing::Point(665, 252);
 			this->btnChonHinh->Margin = System::Windows::Forms::Padding(4);
 			this->btnChonHinh->Name = L"btnChonHinh";
 			this->btnChonHinh->Size = System::Drawing::Size(127, 33);
@@ -316,7 +316,7 @@ namespace ManagementCinema {
 			// 
 			this->txtMaPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtMaPhim->Location = System::Drawing::Point(631, 49);
+			this->txtMaPhim->Location = System::Drawing::Point(665, 45);
 			this->txtMaPhim->Margin = System::Windows::Forms::Padding(4);
 			this->txtMaPhim->Name = L"txtMaPhim";
 			this->txtMaPhim->Size = System::Drawing::Size(408, 27);
@@ -326,7 +326,7 @@ namespace ManagementCinema {
 			// 
 			this->txtThoiLuong->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtThoiLuong->Location = System::Drawing::Point(631, 81);
+			this->txtThoiLuong->Location = System::Drawing::Point(665, 77);
 			this->txtThoiLuong->Margin = System::Windows::Forms::Padding(4);
 			this->txtThoiLuong->Name = L"txtThoiLuong";
 			this->txtThoiLuong->Size = System::Drawing::Size(408, 27);
@@ -337,7 +337,7 @@ namespace ManagementCinema {
 			// 
 			this->txtNamSanXuat->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtNamSanXuat->Location = System::Drawing::Point(631, 113);
+			this->txtNamSanXuat->Location = System::Drawing::Point(665, 109);
 			this->txtNamSanXuat->Margin = System::Windows::Forms::Padding(4);
 			this->txtNamSanXuat->Name = L"txtNamSanXuat";
 			this->txtNamSanXuat->Size = System::Drawing::Size(408, 27);
@@ -348,7 +348,7 @@ namespace ManagementCinema {
 			// 
 			this->txtTenPhim->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtTenPhim->Location = System::Drawing::Point(631, 17);
+			this->txtTenPhim->Location = System::Drawing::Point(665, 13);
 			this->txtTenPhim->Margin = System::Windows::Forms::Padding(4);
 			this->txtTenPhim->Name = L"txtTenPhim";
 			this->txtTenPhim->Size = System::Drawing::Size(408, 27);

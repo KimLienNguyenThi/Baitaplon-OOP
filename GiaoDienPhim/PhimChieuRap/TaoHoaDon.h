@@ -538,7 +538,7 @@ namespace ManagementCinema {
 			e->Handled = true;
 		}
 	
-		if ( txtSoDT->Text->Length > 10) {
+		if ( txtSoDT->Text->Length > 11) {
 			e->Handled = true;
 		}
 	}
@@ -554,6 +554,12 @@ private: System::Void txtSoDT_TextChanged(System::Object^ sender, System::EventA
 			DataRow^ dr = dt->Rows[0];
 			txtTenKhachHang->Text = dr["TenKhachHang"]->ToString();
 		}
+
+	}
+	if (txtSoDT->Text->Length == 0)
+	{
+		txtTenKhachHang->Text = "";
+
 	}
 }
 };

@@ -295,7 +295,7 @@ namespace ManagementCinema {
 			this->btnInHoaDon->Location = System::Drawing::Point(323, 68);
 			this->btnInHoaDon->Margin = System::Windows::Forms::Padding(4);
 			this->btnInHoaDon->Name = L"btnInHoaDon";
-			this->btnInHoaDon->Size = System::Drawing::Size(100, 36);
+			this->btnInHoaDon->Size = System::Drawing::Size(128, 36);
 			this->btnInHoaDon->TabIndex = 13;
 			this->btnInHoaDon->Text = L"In Hóa Đơn";
 			this->btnInHoaDon->UseVisualStyleBackColor = true;
