@@ -41,15 +41,23 @@ namespace ManagementCinema {
 
 
 	private: System::Windows::Forms::DataGridView^ dataGvDoanhThu;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ten;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GiaVe;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SoVe;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TongTien;
+
+
+
+
 	private: System::Windows::Forms::DateTimePicker^ dateTimePickerDenNgay;
 	private: System::Windows::Forms::Label^ labTungay;
 	private: System::Windows::Forms::Label^ labDenngay;
 	private: System::Windows::Forms::Button^ btnThongke;
 	private: System::Windows::Forms::Button^ btnThoat;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Ten;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ GiaVe;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SoVe;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TongTien;
+
+
+
+
 
 
 
@@ -96,10 +104,10 @@ namespace ManagementCinema {
 			this->dateTimePickerTuNgay->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->dateTimePickerTuNgay->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dateTimePickerTuNgay->Location = System::Drawing::Point(196, 18);
-			this->dateTimePickerTuNgay->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePickerTuNgay->Location = System::Drawing::Point(245, 27);
+			this->dateTimePickerTuNgay->Margin = System::Windows::Forms::Padding(5);
 			this->dateTimePickerTuNgay->Name = L"dateTimePickerTuNgay";
-			this->dateTimePickerTuNgay->Size = System::Drawing::Size(162, 27);
+			this->dateTimePickerTuNgay->Size = System::Drawing::Size(202, 27);
 			this->dateTimePickerTuNgay->TabIndex = 19;
 			// 
 			// dataGvDoanhThu
@@ -111,11 +119,12 @@ namespace ManagementCinema {
 					this->SoVe, this->TongTien
 			});
 			this->dataGvDoanhThu->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->dataGvDoanhThu->Location = System::Drawing::Point(0, 125);
+			this->dataGvDoanhThu->Location = System::Drawing::Point(0, 146);
+			this->dataGvDoanhThu->Margin = System::Windows::Forms::Padding(4);
 			this->dataGvDoanhThu->Name = L"dataGvDoanhThu";
 			this->dataGvDoanhThu->RowHeadersWidth = 51;
 			this->dataGvDoanhThu->RowTemplate->Height = 24;
-			this->dataGvDoanhThu->Size = System::Drawing::Size(796, 278);
+			this->dataGvDoanhThu->Size = System::Drawing::Size(1000, 348);
 			this->dataGvDoanhThu->TabIndex = 24;
 			this->dataGvDoanhThu->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DoanhThu::dataGvDoanhThu_CellClick);
 			// 
@@ -123,9 +132,9 @@ namespace ManagementCinema {
 			// 
 			this->Ten->DataPropertyName = L"Ten";
 			this->Ten->HeaderText = L"Tên Phim";
-			this->Ten->MinimumWidth = 50;
+			this->Ten->MinimumWidth = 150;
 			this->Ten->Name = L"Ten";
-			this->Ten->Width = 150;
+			this->Ten->Width = 300;
 			// 
 			// GiaVe
 			// 
@@ -157,10 +166,10 @@ namespace ManagementCinema {
 			this->dateTimePickerDenNgay->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->dateTimePickerDenNgay->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dateTimePickerDenNgay->Location = System::Drawing::Point(196, 60);
-			this->dateTimePickerDenNgay->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePickerDenNgay->Location = System::Drawing::Point(245, 79);
+			this->dateTimePickerDenNgay->Margin = System::Windows::Forms::Padding(5);
 			this->dateTimePickerDenNgay->Name = L"dateTimePickerDenNgay";
-			this->dateTimePickerDenNgay->Size = System::Drawing::Size(162, 27);
+			this->dateTimePickerDenNgay->Size = System::Drawing::Size(202, 27);
 			this->dateTimePickerDenNgay->TabIndex = 25;
 			// 
 			// labTungay
@@ -168,7 +177,8 @@ namespace ManagementCinema {
 			this->labTungay->AutoSize = true;
 			this->labTungay->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labTungay->Location = System::Drawing::Point(75, 23);
+			this->labTungay->Location = System::Drawing::Point(94, 31);
+			this->labTungay->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labTungay->Name = L"labTungay";
 			this->labTungay->Size = System::Drawing::Size(80, 22);
 			this->labTungay->TabIndex = 26;
@@ -179,7 +189,8 @@ namespace ManagementCinema {
 			this->labDenngay->AutoSize = true;
 			this->labDenngay->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labDenngay->Location = System::Drawing::Point(75, 65);
+			this->labDenngay->Location = System::Drawing::Point(94, 85);
+			this->labDenngay->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labDenngay->Name = L"labDenngay";
 			this->labDenngay->Size = System::Drawing::Size(89, 22);
 			this->labDenngay->TabIndex = 27;
@@ -187,29 +198,33 @@ namespace ManagementCinema {
 			// 
 			// btnThongke
 			// 
-			this->btnThongke->Location = System::Drawing::Point(467, 37);
+			this->btnThongke->BackColor = System::Drawing::Color::DarkGray;
+			this->btnThongke->Location = System::Drawing::Point(558, 61);
+			this->btnThongke->Margin = System::Windows::Forms::Padding(4);
 			this->btnThongke->Name = L"btnThongke";
-			this->btnThongke->Size = System::Drawing::Size(104, 36);
+			this->btnThongke->Size = System::Drawing::Size(131, 46);
 			this->btnThongke->TabIndex = 28;
 			this->btnThongke->Text = L"Thống Kê";
-			this->btnThongke->UseVisualStyleBackColor = true;
+			this->btnThongke->UseVisualStyleBackColor = false;
 			this->btnThongke->Click += gcnew System::EventHandler(this, &DoanhThu::btnThongke_Click);
 			// 
 			// btnThoat
 			// 
-			this->btnThoat->Location = System::Drawing::Point(680, 74);
+			this->btnThoat->BackColor = System::Drawing::Color::DarkGray;
+			this->btnThoat->Location = System::Drawing::Point(729, 63);
+			this->btnThoat->Margin = System::Windows::Forms::Padding(4);
 			this->btnThoat->Name = L"btnThoat";
-			this->btnThoat->Size = System::Drawing::Size(104, 36);
+			this->btnThoat->Size = System::Drawing::Size(130, 44);
 			this->btnThoat->TabIndex = 29;
 			this->btnThoat->Text = L"Thoát";
-			this->btnThoat->UseVisualStyleBackColor = true;
+			this->btnThoat->UseVisualStyleBackColor = false;
 			this->btnThoat->Click += gcnew System::EventHandler(this, &DoanhThu::btnThoat_Click);
 			// 
 			// DoanhThu
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(10, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(796, 403);
+			this->ClientSize = System::Drawing::Size(1000, 494);
 			this->Controls->Add(this->btnThoat);
 			this->Controls->Add(this->btnThongke);
 			this->Controls->Add(this->labDenngay);
@@ -217,6 +232,9 @@ namespace ManagementCinema {
 			this->Controls->Add(this->dateTimePickerDenNgay);
 			this->Controls->Add(this->dataGvDoanhThu);
 			this->Controls->Add(this->dateTimePickerTuNgay);
+			this->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"DoanhThu";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"DoanhThu";
@@ -247,6 +265,10 @@ private: System::Void dataGvDoanhThu_CellClick(System::Object^ sender, System::W
 	}*/
 }
 private: System::Void btnThongke_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dateTimePickerTuNgay->Value > dateTimePickerDenNgay->Value) {
+		MessageBox::Show(L"Vui lòng chọn giờ chiếu bắt đầu và kết thúc hợp lệ!", "Thông Báo");
+		return;
+	}
 	GetDoanhthu(dateTimePickerTuNgay->Value, dateTimePickerDenNgay->Value);
 }
 private: System::Void btnThoat_Click(System::Object^ sender, System::EventArgs^ e) {
