@@ -64,7 +64,29 @@ bool ManagementCinema::QuanLyLichChieu::KiemTraLichChieu()
 	bool result = s->KiemTraLichChieuTonTai(batdau, ketthuc, comboRapPhim->Text);//, datePickNgayChieu->Value);
 	return result;
 }
+bool ManagementCinema::QuanLyLichChieu::KiemTraLichChieuSua()
+{
+	Store^ s = gcnew Store();
+	DateTime batdau = DateTime(
+		datePickNgayChieu->Value.Year,
+		datePickNgayChieu->Value.Month,
+		datePickNgayChieu->Value.Day,
+		datePickBatDau->Value.Hour,
+		datePickBatDau->Value.Minute,
+		datePickBatDau->Value.Second);
 
+	DateTime ketthuc = DateTime(
+		datePickNgayChieu->Value.Year,
+		datePickNgayChieu->Value.Month,
+		datePickNgayChieu->Value.Day,
+		datePickKetThuc->Value.Hour,
+		datePickKetThuc->Value.Minute,
+		datePickKetThuc->Value.Second);
+
+
+	bool result = s->KiemTraLichChieuTonTaiPhansua(batdau, ketthuc, comboRapPhim->Text, txtIdLichPhim->Text);//, datePickNgayChieu->Value);
+	return result;
+}
 bool ManagementCinema::QuanLyLichChieu::ThemLichPhim()
 {
 	Store^ s = gcnew Store();

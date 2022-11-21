@@ -261,6 +261,31 @@ bool Store::KiemTraLichChieuTonTai(DateTime batdau, DateTime ketthuc, String^ ma
 	CloseAccess(conn);
 	return false;
 }
+bool Store::KiemTraLichChieuTonTaiPhansua(DateTime batdau, DateTime ketthuc, String^ maRap, String^ id) //, DateTime NgayChieu)
+{
+	OleDbConnection^ conn = ConnectionAccess();
+	DataTable^ results = gcnew DataTable();
+	OleDbCommand^ cmd = conn->CreateCommand();
+	cmd->CommandType = CommandType::Text;
+	String^ query = "SELECT * FROM LichPhim WHERE((GioBatDau Between #" + batdau + "# AND #" + ketthuc + "#)"
+		+ " OR (GioKetThuc Between #" + batdau + "# AND #" + ketthuc + "#) "
+		+ " OR (GioBatDau > #" + batdau + "# AND GioKetThuc < #" + ketthuc + "#) "
+		+ " OR (GioBatDau < #" + batdau + "# AND GioKetThuc > #" + ketthuc + "#)) "
+		+ " AND RapPhim = '" + maRap->Trim() + "'"
+		+ " AND ID <>" + id + ";" ;
+
+	cmd->CommandText = query;
+	cmd->ExecuteNonQuery();
+	OleDbDataAdapter^ adapter = gcnew OleDbDataAdapter(cmd);
+	adapter->Fill(results);
+	if (results->Rows->Count > 0)
+	{
+		CloseAccess(conn);
+		return true;
+	}
+	CloseAccess(conn);
+	return false;
+}
 
 bool Store::Xoa1Phim(String^ maPhim)
 {

@@ -32,6 +32,7 @@ namespace ManagementCinema {
 		bool KiemTraPhimTonTai();
 		bool KiemTraLichPhim();
 		bool SuaLichPhim();
+		bool KiemTraLichChieuSua();
 
 	protected:
 		/// <summary>
@@ -1055,7 +1056,7 @@ private: System::ComponentModel::IContainer^ components;
 		// kiểm tra phim đang thêm + rạp phim + thời gian chiếu đã trùng với lịch nào chưa
 		// ví dụ: thêm phim A ngày chiếu 10/10/2022 thời gian chiếu 12h đến 2h rạp số 1
 		// => thì khi thêm 1 lịch chiếu nếu tồn tại 1 lịch trùng với thời gian của rạp số 1 thì báo lỗi
-		if (KiemTraLichChieu()) {
+		if (KiemTraLichChieuSua()) {
 			MessageBox::Show(L"Thời gian chiếu phim của rạp " + comboRapPhim->Text + L" đã có lịch chiếu", "Thông Báo");
 			return;
 		}

@@ -33,6 +33,7 @@ public:
 	bool CheckPhimTonTai(String^ maPhim);
 	bool CheckLichPhimTontai(String^ id);
 	bool KiemTraLichChieuTonTai(DateTime batdau, DateTime ketthuc, String^ maRap);//, DateTime NgayChieu);
+	bool KiemTraLichChieuTonTaiPhansua(DateTime batdau, DateTime ketthuc, String^ maRap, String^ id);//, DateTime NgayChieu);
 	bool Xoa1Phim(String^ maPhim);
 	bool Xoa1LichPhim(String^ id);
 	bool XoaLichChieucuaPhim(String^ MaPhim);
