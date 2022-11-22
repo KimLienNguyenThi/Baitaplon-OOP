@@ -398,6 +398,7 @@ namespace ManagementCinema {
 			this->txtTimKiem->Name = L"txtTimKiem";
 			this->txtTimKiem->Size = System::Drawing::Size(229, 27);
 			this->txtTimKiem->TabIndex = 3;
+			this->txtTimKiem->TextChanged += gcnew System::EventHandler(this, &QuanLyHoaDon::txtTimKiem_TextChanged);
 			// 
 			// panel3
 			// 
@@ -645,6 +646,8 @@ private: System::Void printPreviewDialog1_Load(System::Object^ sender, System::E
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 //	gethoadon("28");
+}
+private: System::Void txtTimKiem_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
